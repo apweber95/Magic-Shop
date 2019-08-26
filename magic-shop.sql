@@ -24,7 +24,6 @@ DROP TABLE Transactions;
 DROP TABLE Humans;
 DROP TABLE Role;
 DROP TABLE Items;
-DROP TABLE Item;
 
 CREATE TABLE Role
 (
