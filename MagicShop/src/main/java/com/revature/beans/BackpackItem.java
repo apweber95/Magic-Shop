@@ -1,18 +1,35 @@
 package com.revature.beans;
 
-public class Backpack {
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Backpack")
+public class BackpackItem {
+	@Id
+	@SequenceGenerator(name = "backpack", sequenceName = "backpack_seq", allocationSize = 1)
+	@GeneratedValue(generator = "backpack", strategy = GenerationType.SEQUENCE)
 	private int backpackID;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "OwnerID")
 	private Human ownerID;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ItemID")
 	private Item itemID;
 	private int stock;
 
-	public Backpack() {
+	public BackpackItem() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Backpack(int backpackID, Human ownerID, Item itemID, int stock) {
+	public BackpackItem(int backpackID, Human ownerID, Item itemID, int stock) {
 		super();
 		this.backpackID = backpackID;
 		this.ownerID = ownerID;
@@ -51,13 +68,11 @@ public class Backpack {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	
-	
 
 	@Override
 	public String toString() {
-		return "Backpack [backpackID=" + backpackID + ", ownerID=" + ownerID + ", itemID=" + itemID + ", stock=" + stock
-				+ "]";
+		return "BackpackItem [backpackID=" + backpackID + ", ownerID=" + ownerID + ", itemID=" + itemID + ", stock="
+				+ stock + "]";
 	}
 
 	@Override
@@ -79,7 +94,7 @@ public class Backpack {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Backpack other = (Backpack) obj;
+		BackpackItem other = (BackpackItem) obj;
 		if (backpackID != other.backpackID)
 			return false;
 		if (itemID == null) {
