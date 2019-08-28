@@ -1,31 +1,51 @@
 package com.revature.beans;
 
-public class Cart {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-	private int cartID;
+@Entity
+@Table(name="Cart")
+public class CartItem {
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="cart")
+	@SequenceGenerator(name="cart", sequenceName="cart_seq", allocationSize=1)
+	@Column(name="CartID")
+	private int cartItemID;
+	@ManyToOne
+	@JoinColumn(name="OwnerID")
 	private Human ownerID;
+	@ManyToOne
+	@JoinColumn(name="ItemID")
 	private Item itemID;
+	
 	private int amount;
 
-	public Cart() {
+	public CartItem() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cart(int cartID, Human ownerID, Item itemID, int amount) {
+	public CartItem(int cartItemID, Human ownerID, Item itemID, int amount) {
 		super();
-		this.cartID = cartID;
+		this.cartItemID = cartItemID;
 		this.ownerID = ownerID;
 		this.itemID = itemID;
 		this.amount = amount;
 	}
 
-	public int getCartID() {
-		return cartID;
+	public int getCartItemID() {
+		return cartItemID;
 	}
 
-	public void setCartID(int cartID) {
-		this.cartID = cartID;
+	public void setCartItemID(int cartID) {
+		this.cartItemID = cartID;
 	}
 
 	public Human getOwnerID() {
@@ -54,7 +74,7 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [cartID=" + cartID + ", ownerID=" + ownerID + ", itemID=" + itemID + ", amount=" + amount + "]";
+		return "Cart [cartID=" + cartItemID + ", ownerID=" + ownerID + ", itemID=" + itemID + ", amount=" + amount + "]";
 	}
 
 	@Override
@@ -76,10 +96,10 @@ public class Cart {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cart other = (Cart) obj;
+		CartItem other = (CartItem) obj;
 		if (amount != other.amount)
 			return false;
-		if (cartID != other.cartID)
+		if (cartItemID != other.cartItemID)
 			return false;
 		if (itemID == null) {
 			if (other.itemID != null)
