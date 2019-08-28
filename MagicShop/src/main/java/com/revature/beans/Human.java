@@ -14,20 +14,18 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Human {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="human")
-	@SequenceGenerator(name="human", sequenceName="human_seq", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "human")
+	@SequenceGenerator(name = "human", sequenceName = "human_seq", allocationSize = 1)
 	private String userID;
 	private String username;
 	private String password;
-	@Column(name="Firstname")
+	@Column(name = "Firstname")
 	private String first;
-	@Column(name="Lastname")
+	@Column(name = "Lastname")
 	private String last;
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="RoleID")
-	private Role roleID;
+	private int roleID;
 	private int gold;
 	private int perception;
 	private int stealth;
@@ -37,7 +35,7 @@ public class Human {
 		super();
 	}
 
-	public Human(String userID, String username, String password, String first, String last, Role roleID, int gold,
+	public Human(String userID, String username, String password, String first, String last, int roleID, int gold,
 			int perception, int stealth, int luck) {
 		super();
 		this.userID = userID;
@@ -92,11 +90,11 @@ public class Human {
 		this.last = last;
 	}
 
-	public Role getRoleID() {
+	public int getRoleID() {
 		return roleID;
 	}
 
-	public void setRoleID(Role roleID) {
+	public void setRoleID(int roleID) {
 		this.roleID = roleID;
 	}
 
@@ -149,7 +147,7 @@ public class Human {
 		result = prime * result + luck;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + perception;
-		result = prime * result + ((roleID == null) ? 0 : roleID.hashCode());
+		result = prime * result + roleID;
 		result = prime * result + stealth;
 		result = prime * result + ((userID == null) ? 0 : userID.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -186,10 +184,7 @@ public class Human {
 			return false;
 		if (perception != other.perception)
 			return false;
-		if (roleID == null) {
-			if (other.roleID != null)
-				return false;
-		} else if (!roleID.equals(other.roleID))
+		if (roleID != other.roleID)
 			return false;
 		if (stealth != other.stealth)
 			return false;
