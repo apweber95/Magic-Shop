@@ -42,6 +42,7 @@ CREATE TABLE Humans
     Gold INT,
     Perception INT,
     Stealth INT,
+    Luck INT,
     
     CONSTRAINT RoleID_FK
     FOREIGN KEY (RoleID)
@@ -53,8 +54,8 @@ CREATE TABLE Items
 (
     ItemID INT PRIMARY KEY,
     Name VARCHAR(30),
-    Price INT,
-    Description VARCHAR(100),
+    ShelfPrice INT,
+    Description VARCHAR(2000),
     Rarity VARCHAR(20),
     Image VARCHAR(200)
 );
@@ -100,6 +101,20 @@ CREATE TABLE Transactions
     FOREIGN KEY (ItemID)
     REFERENCES Items(ItemID)
 );
+
+
+INSERT INTO ROLE (RoleID, RoleName) VALUES(1, 'Admin');
+INSERT INTO ROLE (RoleID, RoleName) VALUES(2, 'Employee');
+INSERT INTO ROLE (RoleID, RoleName) VALUES(3, 'Customer');
+INSERT INTO ROLE (RoleID, RoleName) VALUES(4, 'Banned');
+INSERT INTO ROLE (RoleID, RoleName) VALUES(5, 'Dead');
+
+INSERT INTO Humans(UserID, Username, Password, FirstName, Lastname, RoleID, Gold, Perception, Stealth, Luck) VALUES(1, 'admin', 'admin', 'Store', 'Owner', '1', 10000, 40, 1, 40);
+INSERT INTO Humans(UserID, Username, Password, FirstName, Lastname, RoleID, Gold, Perception, Stealth, Luck) VALUES(2, 'employee', 'employee', 'work', 'er', '2', 1000, 12, 4, 17);
+INSERT INTO Humans(UserID, Username, Password, FirstName, Lastname, RoleID, Gold, Perception, Stealth, Luck) VALUES(3, 'customer', 'customer', 'advent', 'ure', '3', 1000, 6, 4, 14);
+
+SELECT * FROM Humans;
+
 
 commit;
 
