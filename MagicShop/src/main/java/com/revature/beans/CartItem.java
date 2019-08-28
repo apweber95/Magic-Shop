@@ -82,7 +82,7 @@ public class CartItem {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + amount;
-		result = prime * result + cartID;
+		result = prime * result + cartItemID;
 		result = prime * result + ((itemID == null) ? 0 : itemID.hashCode());
 		result = prime * result + ((ownerID == null) ? 0 : ownerID.hashCode());
 		return result;
