@@ -1,5 +1,14 @@
 package com.revature.beans;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Item {
 
 //	ItemID INT PRIMARY KEY,
@@ -8,7 +17,9 @@ public class Item {
 //    Description VARCHAR(2000),
 //    Rarity VARCHAR(20),
 //    Image VARCHAR(200)
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="item")
+	@SequenceGenerator(name="item", sequenceName="item_seq", allocationSize=1)
 	private int itemID;
 	private String name;
 	private int shelfPrice;
