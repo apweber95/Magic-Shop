@@ -25,6 +25,13 @@ DROP TABLE Humans;
 DROP TABLE Role;
 DROP TABLE Items;
 
+DROP SEQUENCE cart_seq;
+DROP SEQUENCE human_seq;
+DROP SEQUENCE role_seq;
+DROP SEQUENCE backpack_seq;
+DROP SEQUENCE items_seq;
+DROP SEQUENCE transaction_seq;
+
 CREATE TABLE Role
 (
     RoleID INT PRIMARY KEY,
@@ -53,10 +60,10 @@ CREATE TABLE Humans
 CREATE TABLE Items
 (
     ItemID INT PRIMARY KEY,
-    Name VARCHAR(30),
+    Name VARCHAR(100),
     ShelfPrice INT,
-    Description VARCHAR(2000),
-    Rarity VARCHAR(20),
+    Description VARCHAR(4000),
+    Rarity VARCHAR(100),
     Image VARCHAR(200)
 );
 
@@ -113,11 +120,59 @@ INSERT INTO Humans(UserID, Username, Password, FirstName, Lastname, RoleID, Gold
 INSERT INTO Humans(UserID, Username, Password, FirstName, Lastname, RoleID, Gold, Perception, Stealth, Luck) VALUES(2, 'employee', 'employee', 'work', 'er', '2', 1000, 12, 4, 17);
 INSERT INTO Humans(UserID, Username, Password, FirstName, Lastname, RoleID, Gold, Perception, Stealth, Luck) VALUES(3, 'customer', 'customer', 'advent', 'ure', '3', 1000, 6, 4, 14);
 
+INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (1, 'Rusty Dagger', 1, 'Foes will wish they got that tetanus shot.', 'common', null);
+INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (2, 'Rusty Armor', 1, 'You will wish you got that tetanus shot.', 'common', null);
+INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (3, 'Battered Shield', 1, 'Better than nothing...probably.', 'common', null);
+INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (4, 'Creaky Bow', 1, 'Ends battles with a snap.', 'common', null);
+INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (5, 'Magic for Dummies', 1, 'Apparently just a book about making lively looking manequins.', 'common', null);
+
+INSERT INTO Backpack(BackpackID, OwnerID, ItemID, Stock) VALUES (1, 1, 1, 1);
+INSERT INTO Backpack(BackpackID, OwnerID, ItemID, Stock) VALUES (2, 2, 2, 2);
+INSERT INTO Backpack(BackpackID, OwnerID, ItemID, Stock) VALUES (3, 3, 3, 3);
+
+INSERT INTO Cart(CartID, UserID, ItemID, Amount) VALUES (1, 1, 1, 1);
+INSERT INTO Cart(CartID, UserID, ItemID, Amount) VALUES (2, 2, 2, 2);
+INSERT INTO Cart(CartID, UserID, ItemID, Amount) VALUES (3, 3, 3, 3);
+
+INSERT INTO Transactions(TransactionID, UserID, ItemID, Amount) VALUES (1, 1, 1, 1);
+INSERT INTO Transactions(TransactionID, UserID, ItemID, Amount) VALUES (2, 2, 2, 2);
+INSERT INTO Transactions(TransactionID, UserID, ItemID, Amount) VALUES (3, 3, 3, 3);
+
 SELECT * FROM Humans;
 
 
+CREATE SEQUENCE cart_seq
+ START WITH     10
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+ CREATE SEQUENCE human_seq
+ START WITH     10
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+ CREATE SEQUENCE role_seq
+ START WITH     10
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+ CREATE SEQUENCE backpack_seq
+ START WITH     10
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+ CREATE SEQUENCE items_seq
+ START WITH     10
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+  CREATE SEQUENCE transaction_seq
+ START WITH     10
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+ 
+
 commit;
-
-
-
-
+ 
+select * from items;
