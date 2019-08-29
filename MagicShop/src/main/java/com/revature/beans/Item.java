@@ -8,7 +8,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="items")
 public class Item {
 
 //	ItemID INT PRIMARY KEY,
@@ -18,8 +18,8 @@ public class Item {
 //    Rarity VARCHAR(20),
 //    Image VARCHAR(200)
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="item")
-	@SequenceGenerator(name="item", sequenceName="item_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="items")
+	@SequenceGenerator(name="items", sequenceName="item_seq", allocationSize=1)
 	private int itemID;
 	private String name;
 	private int shelfPrice;
