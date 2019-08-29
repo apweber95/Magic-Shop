@@ -54,15 +54,14 @@ CREATE TABLE Humans
     CONSTRAINT RoleID_FK
     FOREIGN KEY (RoleID)
     REFERENCES Role(RoleID)
-
 );
 
 CREATE TABLE Items
 (
     ItemID INT PRIMARY KEY,
     Name VARCHAR(100),
-    ShelfPrice INT,
-    Description VARCHAR(4000),
+    ShelfPrice Number,
+    Description VARCHAR(2000),
     Rarity VARCHAR(100),
     Image VARCHAR(200)
 );
@@ -109,7 +108,6 @@ CREATE TABLE Transactions
     REFERENCES Items(ItemID)
 );
 
-
 INSERT INTO ROLE (RoleID, RoleName) VALUES(1, 'Admin');
 INSERT INTO ROLE (RoleID, RoleName) VALUES(2, 'Employee');
 INSERT INTO ROLE (RoleID, RoleName) VALUES(3, 'Customer');
@@ -138,41 +136,35 @@ INSERT INTO Transactions(TransactionID, UserID, ItemID, Amount) VALUES (1, 1, 1,
 INSERT INTO Transactions(TransactionID, UserID, ItemID, Amount) VALUES (2, 2, 2, 2);
 INSERT INTO Transactions(TransactionID, UserID, ItemID, Amount) VALUES (3, 3, 3, 3);
 
-SELECT * FROM Humans;
-
-
 CREATE SEQUENCE cart_seq
- START WITH     10
- INCREMENT BY   1
- NOCACHE
- NOCYCLE;
- CREATE SEQUENCE human_seq
- START WITH     10
- INCREMENT BY   1
- NOCACHE
- NOCYCLE;
- CREATE SEQUENCE role_seq
- START WITH     10
- INCREMENT BY   1
- NOCACHE
- NOCYCLE;
- CREATE SEQUENCE backpack_seq
- START WITH     10
- INCREMENT BY   1
- NOCACHE
- NOCYCLE;
- CREATE SEQUENCE items_seq
- START WITH     10
- INCREMENT BY   1
- NOCACHE
- NOCYCLE;
-  CREATE SEQUENCE transaction_seq
- START WITH     10
- INCREMENT BY   1
- NOCACHE
- NOCYCLE;
+    START WITH     10
+    INCREMENT BY   1
+    NOCACHE
+    NOCYCLE;
+CREATE SEQUENCE human_seq
+    START WITH     10
+    INCREMENT BY   1
+    NOCACHE
+    NOCYCLE;
+CREATE SEQUENCE role_seq
+    START WITH     10
+    INCREMENT BY   1
+    NOCACHE
+    NOCYCLE;
+CREATE SEQUENCE backpack_seq
+    START WITH     10
+    INCREMENT BY   1
+    NOCACHE
+    NOCYCLE;
+CREATE SEQUENCE items_seq
+    START WITH     10
+    INCREMENT BY   1
+    NOCACHE
+    NOCYCLE;
+CREATE SEQUENCE transaction_seq
+    START WITH     10
+    INCREMENT BY   1
+    NOCACHE
+    NOCYCLE;
  
-
 commit;
- 
-select * from items;
