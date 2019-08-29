@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Transaction {
+public class PurchaseTransaction {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="transaction")
@@ -27,12 +27,12 @@ public class Transaction {
 	private Item itemID;
 	private int amount;
 
-	public Transaction() {
+	public PurchaseTransaction() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Transaction(int transactionID, Human ownerID, Item itemID, int amount) {
+	public PurchaseTransaction(int transactionID, Human ownerID, Item itemID, int amount) {
 		super();
 		this.transactionID = transactionID;
 		this.ownerID = ownerID;
@@ -97,7 +97,7 @@ public class Transaction {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Transaction other = (Transaction) obj;
+		PurchaseTransaction other = (PurchaseTransaction) obj;
 		if (amount != other.amount)
 			return false;
 		if (itemID == null) {
