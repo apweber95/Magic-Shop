@@ -1,9 +1,29 @@
 package com.revature.beans;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Transaction {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="transaction")
+	@SequenceGenerator(name="transaction", sequenceName="transaction_seq", allocationSize=1)
 
 	private int transactionID;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ownerID")
 	private Human ownerID;
+	@OneToOne
 	private Item itemID;
 	private int amount;
 
