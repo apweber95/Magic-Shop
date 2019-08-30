@@ -25,7 +25,7 @@
 		<mapping class="com.revature.beans.Role"/>
 		<mapping class="com.revature.beans.Item"/>
 		<mapping class="com.revature.beans.BackpackItem"/>
-		<mapping class="com.revature.beans.Cart"/>
+		<mapping class="com.revature.beans.CartItem"/>
 		<mapping class="com.revature.beans.PurchaseTransaction"/>
 	</session-factory>
 </hibernate-configuration>
