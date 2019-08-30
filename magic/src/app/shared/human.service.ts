@@ -9,7 +9,7 @@ import { Human } from './human'
 })
 export class HumanService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  url = 'http://localhost:8080/MagicShop/humans/';
+  url = 'http://localhost:8080/MagicShop/';
 
   constructor(private http: HttpClient) { }
 
