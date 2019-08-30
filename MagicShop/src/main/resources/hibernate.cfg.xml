@@ -24,6 +24,7 @@
 		<!-- Annotation -->
 
 		<mapping class="com.revature.beans.Human"/>
+
 		<mapping class="com.revature.beans.Role"/>
 
 		<mapping class="com.revature.beans.Human"/>
