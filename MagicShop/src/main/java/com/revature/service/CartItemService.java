@@ -6,10 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.revature.beans.CartItem;
 import com.revature.beans.Human;
+import com.revature.data.BackpackItemDAO;
 import com.revature.data.CartItemDAO;
+import com.revature.data.CartItemHibernate;
 
-public interface CartItemService {
+public class CartItemService {
+	@Autowired
+	private static CartItemDAO cid = new CartItemHibernate();
 	
-	public Set<CartItem> getCart(Human human);
+	public Set<CartItem> getCart(Human human) {
+		// TODO Auto-generated method stub
+		return cid.getCart(human);
+	}
 
 }
