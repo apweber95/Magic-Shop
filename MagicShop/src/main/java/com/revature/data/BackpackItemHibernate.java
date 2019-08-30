@@ -49,7 +49,7 @@ public class BackpackItemHibernate implements BackpackItemDAO {
 	@Override
 	public BackpackItem getBackpackItemByID(int id) {
 		Session s = hu.getSession();
-		BackpackItem bp = s.get(BackpackItem.class, id);
+		BackpackItem bp = (BackpackItem) s.get(BackpackItem.class, id);
 		s.close();
 		return bp;
 	}
@@ -78,7 +78,6 @@ public class BackpackItemHibernate implements BackpackItemDAO {
 	public BackpackItem updateBackpackItem(BackpackItem b) {
 		Session s = hu.getSession();
 		Transaction t = null;
-		BackpackItem bp = new BackpackItem();
 		try {
 			t = s.beginTransaction();
 			s.update(b);
@@ -93,7 +92,7 @@ public class BackpackItemHibernate implements BackpackItemDAO {
 		finally {
 			s.close();
 		}
-		return bp;
+		return b;
 	}
 
 }
