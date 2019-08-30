@@ -22,15 +22,13 @@
 		<!-- Tell Hibernate that we are mapping classes -->
 		
 		<!-- Annotation -->
-<<<<<<< HEAD
-		<!-- <mapping class="com.revature.beans.Human"/> -->
-		<!-- <mapping class="com.revature.beans.Role"/> -->
-=======
+
+		<mapping class="com.revature.beans.Role"/>
+
 		<mapping class="com.revature.beans.Human"/>
->>>>>>> 9c1566f43d9543cb7a8b3af43d50861b3bcc9721
 		<mapping class="com.revature.beans.Item"/>
-		<!-- <mapping class="com.revature.beans.BackpackItem"/> -->
-		<!-- <mapping class="com.revature.beans.CartItem"/> -->
-		<!-- <mapping class="com.revature.beans.PurchaseTransaction"/> -->
+		<mapping class="com.revature.beans.BackpackItem"/>
+		<mapping class="com.revature.beans.CartItem"/>
+		<mapping class="com.revature.beans.PurchaseTransaction"/>
 	</session-factory>
 </hibernate-configuration>
