@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Item;
-import com.revature.service.ItemService;
+import com.revature.data.ItemDAO;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping(value="shop")
+@RequestMapping(value="/shop")
 public class ItemController {
 	@Autowired
-	private ItemService is;
+	private ItemDAO id;
 	
 	@GetMapping
 	public ResponseEntity<Set<Item>> getItems() {
-		return ResponseEntity.ok(is.returnAllItems());
+		return ResponseEntity.ok(id.getAllItems());
 	}
 }
