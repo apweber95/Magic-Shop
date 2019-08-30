@@ -1,13 +1,12 @@
 package com.revature.service;
 
-import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import com.revature.beans.BackpackItem;
+import com.revature.data.BackpackItemDAO;
 
-public interface BackpackItemService {
-	public BackpackItem addBackpackItem(BackpackItem b);
-	public BackpackItem getBackpackItemByID(int id);
-	public Set<BackpackItem> getBackpackItemsByOwnerID(int id);
-	public void updateBackpackItem(BackpackItem b);
-
+public class BackpackItemService {
+	@Autowired
+	private BackpackItemDAO bd;
+	
+	
 }
