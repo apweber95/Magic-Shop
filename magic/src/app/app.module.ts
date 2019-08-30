@@ -4,6 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ItemComponent } from './storefront/item/item.component';
+import { LoginComponent } from './core/login/login.component';
+import { NavBarComponent } from './core/nav-bar/nav-bar.component';
+import { HttpClientModule } from '@angular/common/http';
 import { ItemComponent } from './items/item/item.component';
 import { ItemService } from './items/shared/item.service';
 import { UrlService } from './shared/url.service';
@@ -13,6 +17,8 @@ import { ItemShelfComponent } from './items/item-shelf/item-shelf.component';
   declarations: [
     AppComponent,
     ItemComponent,
+    LoginComponent,
+    NavBarComponent
     ItemShelfComponent
   ],
   imports: [

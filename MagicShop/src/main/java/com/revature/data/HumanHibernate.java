@@ -26,9 +26,9 @@ public class HumanHibernate implements HumanDAO{
 	private HibernateUtil hu;
 	
 	@Override
-	public Human getHumanByID(Human h) {
+	public Human getHumanByID(int id) {
 		Session s = hu.getSession();
-		Human ret = s.get(Human.class, h.getUserID());
+		Human ret = s.get(Human.class, id);
 		s.close();
 		return ret;
 	}
@@ -65,12 +65,12 @@ public class HumanHibernate implements HumanDAO{
 	}
 
 	@Override
-	public void updateHuman(Human h) {
+	public Human updateHuman(Human h) {
 		Session s = hu.getSession();
 		Transaction t = null;
 		try{
 			t = s.beginTransaction();
-			s.update(h.getUserID());
+			s.update(h);
 			t.commit();
 		} catch(Exception e) {
 			if(t != null)
@@ -79,6 +79,7 @@ public class HumanHibernate implements HumanDAO{
 		} finally {
 			s.close();
 		}
+		return h;
 		
 	}
 

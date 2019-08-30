@@ -7,6 +7,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 		
+<<<<<<< HEAD
 	<!-- enable annotations -->
 	<context:component-scan base-package="com.revature"></context:component-scan>
 	
@@ -15,4 +16,13 @@
 	
 	<!-- set up a static resources folder -->
 	<mvc:resources location="/static" mapping="/**"></mvc:resources>
+=======
+	<context:component-scan base-package="com.cheese"></context:component-scan>
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- set up a static resources folder -->
+	<!-- <mvc:resources location="/static" mapping="/**"></mvc:resources> -->
+
+>>>>>>> 9c1566f43d9543cb7a8b3af43d50861b3bcc9721
 </beans>
