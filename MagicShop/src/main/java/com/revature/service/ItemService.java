@@ -16,4 +16,8 @@ public class ItemService {
 	public Set<Item> returnAllItems() {
 		return id.getAllItems();
 	}
+	
+	public Item getItem(int itemID) {
+		return id.getItemById(itemID);
+	}
 }
