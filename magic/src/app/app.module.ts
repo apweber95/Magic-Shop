@@ -10,6 +10,7 @@ import { ItemService } from './items/shared/item.service';
 import { UrlService } from './shared/url.service';
 import { ItemShelfComponent } from './items/item-shelf/item-shelf.component';
 import { ItemComponent } from './items/item/item.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ItemComponent } from './items/item/item.component';
     ItemComponent,
     LoginComponent,
     NavBarComponent,
-    ItemShelfComponent
+    ItemShelfComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

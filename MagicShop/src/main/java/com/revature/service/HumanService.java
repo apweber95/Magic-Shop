@@ -21,13 +21,18 @@ public class HumanService {
 	}
 	
 	public int createHuman(Human h) {
-		return hd.createHuman(h);
+		if (hd.getHumanByLogin(h.getUsername(), h.getPassword()) == null) {
+			//this username/password combo is available
+			return hd.createHuman(h);
+		} else {
+			//this username/password combo is already taken
+			return 0;
+		}
+		
 	}
 	
 	public Human updateHuman(Human h) {
 		return hd.updateHuman(h);
 	}
-	
-	
-	
+		
 }
