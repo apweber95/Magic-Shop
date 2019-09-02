@@ -36,7 +36,7 @@ public class HumanHibernate implements HumanDAO{
 	@Override
 	public Human getHumanByLogin(String username, String password) {
 		Session s = hu.getSession();
-		String query = "from User u where u.username=:username and u.password=:password";
+		String query = "from Human h where h.username=:username and h.password=:password";
 		Query<Human> q = s.createQuery(query, Human.class);
 		q.setParameter("username", username);
 		q.setParameter("password", password);

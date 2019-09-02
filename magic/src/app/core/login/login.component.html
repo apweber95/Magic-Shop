@@ -1,13 +1,19 @@
-<ng-container *ngIf="!loggedUser; else display">
+<ng-container *ngIf="loggedHuman == null">
+    invalid username or password!
+</ng-container>
+
+<ng-container >
+
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         Username:
         <input type="text" [(ngModel)]="username">
-      </li>
-      <li class="nav-item">
+      </li> 
+      <li class="nav-item" >
         Password:
-        <input type="password" [(ngModel)]="password" (keydown.enter)="login()">
+        <input type="password" [(ngModel)]="password">
       </li>
+      
       <li class="nav-item">
         <button class="btn btn-primary" (click)="login()">Login</button>
       </li>

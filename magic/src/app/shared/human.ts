@@ -1,9 +1,9 @@
 export class Human {
     id: number;
-    username: String;
-    password: String;
-    first: String;
-    last: String;
+    username: string;
+    password: string;
+    first: string;
+    last: string;
     roleID: number;
     gold: number;
     perception: number;

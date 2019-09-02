@@ -13,7 +13,9 @@ public class HumanService {
 	private HumanDAO hd;
 	
 	public Human login(String username, String password) {
-		return hd.getHumanByLogin(username, password);
+		Human h = new Human();
+		h = hd.getHumanByLogin(username, password);
+		return h;
 	}
 	
 	public Human getByID(int id) {
