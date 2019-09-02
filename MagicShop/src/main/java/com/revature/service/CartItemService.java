@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.revature.beans.CartItem;
 import com.revature.beans.Human;
-import com.revature.data.BackpackItemDAO;
 import com.revature.data.CartItemDAO;
 import com.revature.data.CartItemHibernate;
 
