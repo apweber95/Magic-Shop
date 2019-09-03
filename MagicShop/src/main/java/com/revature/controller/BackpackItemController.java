@@ -20,7 +20,7 @@ public class BackpackItemController {
 	@Autowired
 	private BackpackItemDAO bd;
 	
-	@GetMapping
+	@GetMapping(value="{id}")
 	public ResponseEntity<Set<BackpackItem>> getBackpackItems(@PathVariable Integer id){
 		return ResponseEntity.ok(bd.getBackpackItemsByOwnerID(id));
 	}

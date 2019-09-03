@@ -21,6 +21,7 @@ export class BackpackComponent implements OnInit {
     if(id){
       this.backpackService.getBackpackItemsByOwnerID(id).subscribe( resp => {
         this.backpackItems = resp;
+        console.log(this.backpackItems);
       });
     }
   }
