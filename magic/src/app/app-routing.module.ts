@@ -16,7 +16,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'backpack',
+    path: 'backpack/:id',
     component: BackpackComponent
   }
 ];
