@@ -1,4 +1,24 @@
-<p>backpack works!</p>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+
 <div class="container">
-    <ul> <li *ngFor="let bp of backpackItems">{{'test'}}</li></ul>
+    <table>
+        <tr>
+            <th>Backpack Item ID</th>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Rarity</th>
+            <th>Stock</th>
+        </tr>
+        <tr *ngFor="let bp of backpackItems">
+            <td> {{ bp.backpackID }} </td>
+            <td> {{ bp.itemID.name }} </td>
+            <td> {{ bp.itemID.description }} </td>
+            <td> {{ bp.itemID.rarity }} </td>
+            <td> {{ bp.stock }} </td>
+        </tr>
+    </table>
 </div>

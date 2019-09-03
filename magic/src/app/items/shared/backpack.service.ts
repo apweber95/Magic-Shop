@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UrlService } from 'src/app/shared/url.service';
 import { Observable } from 'rxjs';
 import { BackpackItem } from './backpack';
 import { map } from 'rxjs/operators';
@@ -9,15 +8,14 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class BackpackService {
-  private appUrl = this.urlService.getUrl() + 'backpack';
+  private appUrl = 'http://localhost:8080/MagicShop';
 
   constructor(
-    private http: HttpClient,
-    private urlService: UrlService
+    private http: HttpClient
   ) { }
 
   getBackpackItemsByOwnerID(id: number): Observable<BackpackItem[]> {
-    const url: string = this.appUrl + '/' + id;
+    const url: string = this.appUrl + '/backpack/' + id;
     return this.http.get(url, {withCredentials: true}).pipe(
       map(resp => resp as BackpackItem[])
     );
