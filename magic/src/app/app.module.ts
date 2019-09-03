@@ -9,6 +9,7 @@ import { LoginComponent } from './core/login/login.component';
 import { NavBarComponent } from './core/nav-bar/nav-bar.component';
 import { ItemService } from './items/shared/item.service';
 import { UrlService } from './shared/url.service';
+import { RegisterService } from './services/register.service';
 import { ItemShelfComponent } from './items/item-shelf/item-shelf.component';
 import { ItemComponent } from './items/item/item.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -32,7 +33,8 @@ import { BackpackComponent } from './items/backpack/backpack.component';
   ],
   providers: [
     ItemService,
-    UrlService
+    UrlService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })
