@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from './core/login/login.component'
 import {BackpackComponent} from './items/backpack/backpack.component';
+import {CartComponent} from './items/cart/cart.component';
 
 
 
@@ -18,7 +19,13 @@ const routes: Routes = [
   {
     path: 'backpack/:id',
     component: BackpackComponent
+  },
+  
+  {
+    path: 'cart/:id',
+    component: CartComponent
   }
+  
 ];
 
 @NgModule({
