@@ -1,11 +1,12 @@
-<div class="center">
-    <table>
+<div class="center container">
+    <table class="table table-hover">
         <tr>
             <th>Backpack Item ID</th>
             <th>Item Name</th>
             <th>Description</th>
             <th>Rarity</th>
             <th>Stock</th>
+            <th>Sell Price</th>
         </tr>
         <tr *ngFor="let bp of backpackItems">
             <td> {{ bp.backpackID }} </td>
@@ -13,6 +14,8 @@
             <td> {{ bp.itemID.description }} </td>
             <td> {{ bp.itemID.rarity }} </td>
             <td> {{ bp.stock }} </td>
+            <td> {{bp.itemID.shelfPrice}} </td>
+            <td><button class="btn btn-primary" (click)="sellItem(bp.backpackID)">Sell Item</button><td>
         </tr>
     </table>
 </div>
