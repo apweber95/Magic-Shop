@@ -2,13 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from './core/login/login.component'
 import {BackpackComponent} from './items/backpack/backpack.component';
-<<<<<<< HEAD
 import {CartComponent} from './items/cart/cart.component';
-
-
-=======
 import {ItemShelfComponent } from './items/item-shelf/item-shelf.component';
->>>>>>> 875e29cef519336f383b3ecfdc7fa22bd9c8d6b8
 
 const routes: Routes = [
   // {
