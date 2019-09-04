@@ -20,4 +20,7 @@ export class ItemShelfComponent implements OnInit {
     });
   }
 
+  addToCart(){
+    console.log("addToCart works");
+  }
 }
