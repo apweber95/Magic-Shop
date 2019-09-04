@@ -7,11 +7,11 @@ import {CartComponent} from './items/cart/cart.component';
 import {ItemShelfComponent } from './items/item-shelf/item-shelf.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: '/home',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
   {
     path: 'login',
     component: LoginComponent
@@ -21,7 +21,7 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-  path: 'home',
+    path: 'home',
     component: ItemShelfComponent
   },
   {

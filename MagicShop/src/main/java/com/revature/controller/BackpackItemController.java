@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +25,10 @@ public class BackpackItemController {
 	@GetMapping(value="{id}")
 	public ResponseEntity<Set<BackpackItem>> getBackpackItems(@PathVariable Integer id){
 		return ResponseEntity.ok(bd.getBackpackItemsByOwnerID(id));
+	}
+	
+	@PutMapping(value="{id}")
+	public ResponseEntity<BackpackItem> updateBackpackItem(@RequestBody BackpackItem b) {
+		return ResponseEntity.ok(bd.updateBackpackItem(b));
 	}
 }
