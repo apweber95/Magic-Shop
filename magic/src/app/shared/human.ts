@@ -1,5 +1,5 @@
 export class Human {
-    id: number;
+    userID: number;
     username: string;
     password: string;
     first: string;

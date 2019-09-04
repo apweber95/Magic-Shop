@@ -18,6 +18,7 @@ public class HumanService {
 	public Human login(String username, String password) {
 		Human h = new Human();
 		h = hd.getHumanByLogin(username, password);
+		System.out.println(h.toString());
 		return h;
 	}
 	
