@@ -15,7 +15,7 @@ public class Human {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "human")
 	@SequenceGenerator(name = "human", sequenceName = "human_seq", allocationSize = 1)
-	private String userID;
+	private int userID;
 	private String username;
 	private String password;
 	@Column(name = "Firstname")
@@ -32,7 +32,7 @@ public class Human {
 		super();
 	}
 
-	public Human(String userID, String username, String password, String first, String last, int roleID, int gold,
+	public Human(int userID, String username, String password, String first, String last, int roleID, int gold,
 			int perception, int stealth, int luck) {
 		super();
 		this.userID = userID;
@@ -47,11 +47,11 @@ public class Human {
 		this.luck = luck;
 	}
 
-	public String getUserID() {
+	public int getUserID() {
 		return userID;
 	}
 
-	public void setUserID(String userID) {
+	public void setUserID(int userID) {
 		this.userID = userID;
 	}
 
@@ -146,7 +146,7 @@ public class Human {
 		result = prime * result + perception;
 		result = prime * result + roleID;
 		result = prime * result + stealth;
-		result = prime * result + ((userID == null) ? 0 : userID.hashCode());
+		result = prime * result + userID;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -185,10 +185,7 @@ public class Human {
 			return false;
 		if (stealth != other.stealth)
 			return false;
-		if (userID == null) {
-			if (other.userID != null)
-				return false;
-		} else if (!userID.equals(other.userID))
+		if (userID != other.userID)
 			return false;
 		if (username == null) {
 			if (other.username != null)
@@ -197,5 +194,7 @@ public class Human {
 			return false;
 		return true;
 	}
+
+	
 
 }
