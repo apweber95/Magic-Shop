@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
           console.log("recieved user:" + this.loggedHuman.userID);
           this.router.navigate(['']);
         }
-        
       
       }
     );
