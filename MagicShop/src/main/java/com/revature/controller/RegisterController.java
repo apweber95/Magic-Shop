@@ -14,7 +14,7 @@ import com.revature.service.HumanService;
 
 
 @RestController
-@CrossOrigin(origins="http://localhost:4401")
+@CrossOrigin(origins="http://localhost:4200")
 @RequestMapping(value="/register")
 
 public class RegisterController {
@@ -35,7 +35,7 @@ public class RegisterController {
 		if (id == 0) {
 			return ResponseEntity.ok(null);
 		}
-		human.setUserID(""+id);
+		human.setUserID(id);
 		return ResponseEntity.ok(human);
 	}
 
