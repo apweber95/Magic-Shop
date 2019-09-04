@@ -17,8 +17,6 @@ public class CartItemService {
 		return cid.addCartItem(cartItem);
 	}
 	
-	public Set<CartItem> getCart(Human human) {
-		return cid.getCart(human);
 	public Set<CartItem> getCartByUserID(int id) {
 		// TODO Auto-generated method stub
 		return cid.getCartByUserID(id);
