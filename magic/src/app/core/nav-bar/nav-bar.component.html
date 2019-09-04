@@ -1,14 +1,16 @@
 <ul id="horizontal">
         <li class="horizontal-li"><a href="#test">Welcome to the Magic Shop!</a></li>
         <li *ngIf="loggedHuman" class="horizontal-li"><a href="#test">Welcome {{loggedHuman.first}}!</a></li>
-        <li class="horizontal-li" style="float:right"><a (click)="redirectLogin()">Login</a></li>
-        <li class="horizontal-li" style="float:right"><a (click)="redirectSignup()">Sign Up</a></li>
+        <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectLogin()">Login</a></li>
+        <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectSignup()">Sign Up</a></li>
+        <li *ngIf="loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectLogout()">Logout</a></li>
+        <li *ngIf="loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectCart()">Cart</a></li>
       </ul>
 
 <nav>
     <ul id="verticle">
         <li class="verticle-li"><a (click)="redirectHome()">Home</a></li>
-        <li class="verticle-li"><a href="#news">News</a></li>
+        <li class="verticle-li"><a (click)="redirectBackpack()">View your items</a></li>
         <li class="verticle-li"><a href="#contact">Contact</a></li> 
         <li class="verticle-li"><a href="#about">About</a></li>
     </ul>
