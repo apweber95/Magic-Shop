@@ -3,7 +3,6 @@ package com.revature.data;
 import java.util.Set;
 
 import com.revature.beans.CartItem;
-import com.revature.beans.Human;
 
 public interface CartItemDAO {
 	

@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.revature.beans.CartItem;
-import com.revature.beans.Human;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
 

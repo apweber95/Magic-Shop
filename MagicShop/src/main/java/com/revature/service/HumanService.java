@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.beans.Human;
-import com.revature.beans.Item;
 import com.revature.data.HumanDAO;
 
 @Service
