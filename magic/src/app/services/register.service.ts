@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Human } from '../beans/human';
 import { map } from 'rxjs/operators';
+import { UrlService } from '../shared/url.service'
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class RegisterService {
 
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private urlService: UrlService) { }
 
   public register(newUser: Human) {
 
@@ -25,7 +26,7 @@ export class RegisterService {
     console.log(newUser);
 
     const body = JSON.stringify(newUser);
-    return this.http.post('http://localhost:8080/MagicShop/register/',
+    return this.http.post(this.urlService.getUrl() + 'register/',
     body, {headers: this.headers, withCredentials: true} ).pipe (
       map( resp => resp as Human)
     );
