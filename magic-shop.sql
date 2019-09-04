@@ -127,6 +127,8 @@ INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (
 INSERT INTO Backpack(BackpackID, OwnerID, ItemID, Stock) VALUES (1, 1, 1, 1);
 INSERT INTO Backpack(BackpackID, OwnerID, ItemID, Stock) VALUES (2, 2, 2, 2);
 INSERT INTO Backpack(BackpackID, OwnerID, ItemID, Stock) VALUES (3, 3, 3, 3);
+INSERT INTO Backpack(BackpackID, OwnerID, ItemID, Stock) VALUES (4, 1, 2, 2);
+INSERT INTO Backpack(BackpackID, OwnerID, ItemID, Stock) VALUES (5, 1, 3, 3);
 
 INSERT INTO Cart(CartID, UserID, ItemID, Amount) VALUES (1, 1, 1, 1);
 INSERT INTO Cart(CartID, UserID, ItemID, Amount) VALUES (2, 2, 2, 2);

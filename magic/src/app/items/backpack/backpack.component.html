@@ -1,0 +1,18 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>Backpack Item ID</th>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Rarity</th>
+            <th>Stock</th>
+        </tr>
+        <tr *ngFor="let bp of backpackItems">
+            <td> {{ bp.backpackID }} </td>
+            <td> {{ bp.itemID.name }} </td>
+            <td> {{ bp.itemID.description }} </td>
+            <td> {{ bp.itemID.rarity }} </td>
+            <td> {{ bp.stock }} </td>
+        </tr>
+    </table>
+</div>
