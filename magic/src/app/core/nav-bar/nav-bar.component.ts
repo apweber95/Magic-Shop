@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router"
+import { LoginService } from 'src/app/shared/login.service';
+import { Human } from 'src/app/shared/human';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
-
+  loggedHuman: Human;
+  
+  constructor(private router: Router, private loginService: LoginService) { }
+  
   ngOnInit() {
   }
 
+  redirectLogin(){
+    this.loggedHuman = this.loginService.getHuman();
+    if(this.loggedHuman){
+      this.redirectHome();
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
+  }
+
+  redirectHome(){
+    
+    this.router.navigate(['']);
+  }
+
+  redirectSignup(){
+    this.loggedHuman = this.loginService.getHuman();
+    if(this.loggedHuman){
+      this.redirectHome();
+    }
+    else{
+      this.router.navigate(['/register']);
+    }
+    
+  }
 }
