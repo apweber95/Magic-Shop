@@ -28,7 +28,7 @@ public class BackpackItemController {
 	}
 	
 	@PutMapping(value="{id}")
-	public ResponseEntity<BackpackItem> updateBackpackItem(@PathVariable Integer id, @RequestBody BackpackItem b) {
+	public ResponseEntity<BackpackItem> updateBackpackItem(@RequestBody BackpackItem b) {
 		return ResponseEntity.ok(bd.updateBackpackItem(b));
 	}
 }
