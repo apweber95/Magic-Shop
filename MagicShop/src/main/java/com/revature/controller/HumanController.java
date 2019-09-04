@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Human;
-import com.revature.beans.Item;
 import com.revature.service.HumanService;
 
 @RestController

@@ -17,6 +17,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { BackpackComponent } from './items/backpack/backpack.component';
 import { CartComponent } from './items/cart/cart.component';
 import { CartService } from './items/shared/cart.service';
+import { BackpackService } from './items/shared/backpack.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CartService } from './items/shared/cart.service';
     ItemService,
     UrlService,
     CartService,
-    RegisterService
+    RegisterService,
+    BackpackService
   ],
   bootstrap: [AppComponent]
 })
