@@ -7,6 +7,7 @@
             <th>Rarity</th>
             <th>Price</th>
             <th>Stock</th>
+            <th *ngIf="isWorker">Add Stock</th>
         </tr>
         <tr *ngFor="let bp of bItems">
             <td> {{ bp.backpackID }} </td>
@@ -15,6 +16,7 @@
             <td> {{ bp.itemID.rarity }} </td>
             <td> {{ bp.itemID.shelfPrice }}</td>
             <td> {{ bp.stock }} </td>
+            <td *ngIf="isWorker"><button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" (click)="restock(bp.backpackID)">+1</button></td>
         </tr>
     </table>
 </div>
