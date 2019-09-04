@@ -15,7 +15,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'shop',
+    path: 'backpack',
     component: ItemShelfComponent
   },
   {
