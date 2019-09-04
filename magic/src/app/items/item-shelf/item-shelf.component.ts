@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../shared/item';
-import { ItemService } from '../shared/item.service';
+import { BackpackItem } from '../shared/backpack';
+import { BackpackService } from '../shared/backpack.service';
 
 @Component({
   selector: 'app-item-shelf',
@@ -8,13 +8,14 @@ import { ItemService } from '../shared/item.service';
   styleUrls: ['./item-shelf.component.css']
 })
 export class ItemShelfComponent implements OnInit {
-  items: Item[];
+  displayColumns: string[] = ['name', 'description', 'rarity', 'shelfPrice', 'stock']
+  bItems: BackpackItem[];
   searchText: string;
-  constructor(private itemService: ItemService) { }
+  constructor(private backpackService: BackpackService) { }
 
   ngOnInit() {
-    this.itemService.getItems().subscribe( (items) => {
-      this.items = items;
+    this.backpackService.getBackpackItemsByOwnerID(1).subscribe( (bItems) => {
+      this.bItems = bItems;
     });
   }
 
