@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../../services/register.service'
 import { Human } from '../../beans/human'
 import { NgModel } from '@angular/forms';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,9 @@ export class RegisterComponent implements OnInit {
   firstName: string = "";
   lastName: string = "";
 
-  constructor(private registerService: RegisterService) { }
+  failed: boolean = false;
+
+  constructor(private registerService: RegisterService, private router: Router) { }
 
   ngOnInit() {
     let signUpButton = document.getElementById("register_submit");
@@ -32,15 +35,23 @@ export class RegisterComponent implements OnInit {
       resp => {
         this.newUser = resp;
         if(this.newUser == null){
-          this.newUser = new Human();
+          this.failedSignUp();
+        } else {
+          this.failed = false;
+          console.log("recieved new user:" + this.newUser.first);
+          this.router.navigate(['login']);
         }
-        console.log("recieved new user:" + this.newUser.first);
       }
     );
     this.newUser.username = "";
     this.newUser.password = "";
     this.newUser.first = "";
     this.newUser.last = "";
+  }
+
+  failedSignUp(){
+    this.failed = true;
+    this.newUser = new Human();
   }
 
 }
