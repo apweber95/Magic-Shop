@@ -5,8 +5,10 @@
             <th>Item Name</th>
             <th>Description</th>
             <th>Rarity</th>
-            <th>Stock</th>
             <th>Price</th>
+            <th>Stock</th>
+            <th *ngIf="isWorker">Add Stock</th>
+            
         </tr>
         <tr *ngFor="let bp of bItems">
             <td> {{ bp.backpackID }} </td>
@@ -16,6 +18,7 @@
             <td> {{ bp.stock }} </td>
             <td> {{ bp.itemID.shelfPrice }}</td>
             <td><button class="btn btn-primary" (click)="addToCart()">Add to cart</button><td>
+            <td *ngIf="isWorker"><button class="btn btn-primary" type="submit" (click)="restock(bp.backpackID)">+1</button></td>
         </tr>
     </table>
 </div>
