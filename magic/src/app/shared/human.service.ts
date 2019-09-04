@@ -33,7 +33,7 @@ export class HumanService {
 
   public updateHuman(human: Human){
     const body = JSON.stringify(human);
-    return this.http.put(this.url+"/humans/"+ human.id, body, {headers: this.headers, withCredentials: true}).pipe(
+    return this.http.put(this.url+"/humans/"+ human.userID, body, {headers: this.headers, withCredentials: true}).pipe(
       map(resp => {
         const user: Human = resp as Human;
         if (user) {
