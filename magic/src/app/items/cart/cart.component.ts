@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
     if(id){
-      this.cartService.getCartByUserID(id).subscribe( resp => {
+      this.cartService.returnCartByUserID(id).subscribe( resp => {
         this.cartItems = resp;
       });
     }

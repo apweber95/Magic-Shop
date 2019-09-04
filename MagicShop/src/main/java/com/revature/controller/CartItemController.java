@@ -22,7 +22,7 @@ public class CartItemController {
 	private CartItemDAO cid;
 
 	@GetMapping(value="{id}")
-	public ResponseEntity<Set<CartItem>> getCartByUserID(@PathVariable Integer id){
+	public ResponseEntity<Set<CartItem>> returnCartByUserID(@PathVariable Integer id){
 		return ResponseEntity.ok(cid.getCartByUserID(id));
 	}
 	
