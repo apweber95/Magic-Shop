@@ -11,7 +11,7 @@ public interface CartItemDAO {
 	
 	public CartItem getCartItem(Integer cartItemId);
 	
-	public Set<CartItem> getCart(Human human);
+	public Set<CartItem> getCartByUserID(int id);
 	
 	public void updateCartItem(CartItem cartItem);
 	

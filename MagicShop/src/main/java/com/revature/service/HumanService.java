@@ -1,9 +1,12 @@
 package com.revature.service;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.beans.Human;
+import com.revature.beans.Item;
 import com.revature.data.HumanDAO;
 
 @Service
@@ -20,6 +23,10 @@ public class HumanService {
 	
 	public Human getByID(int id) {
 		return hd.getHumanByID(id);
+	}
+	
+	public Set<Human> returnAllAccounts() {
+		return hd.getAllAccounts();
 	}
 	
 	public int createHuman(Human h) {

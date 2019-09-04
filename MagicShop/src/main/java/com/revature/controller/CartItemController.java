@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.CartItem;
-import com.revature.beans.Human;
 import com.revature.data.CartItemDAO;
 
 
@@ -29,9 +29,9 @@ public class CartItemController {
 		return ResponseEntity.ok(cartItem);
 	}
 
-	@GetMapping
-	public ResponseEntity<Set<CartItem>> getCart(Human human){
-		return ResponseEntity.ok(cid.getCart(human));
+	@GetMapping(value="{id}")
+	public ResponseEntity<Set<CartItem>> returnCartByUserID(@PathVariable Integer id){
+		return ResponseEntity.ok(cid.getCartByUserID(id));
 	}
 	
 

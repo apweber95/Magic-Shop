@@ -1,0 +1,19 @@
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Cart Item ID</th>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Rarity</th>
+            <th>Amount</th>
+        </tr>
+        <tr *ngFor="let c of cartItems">
+            <td> {{ c.cartItemID }} </td>
+            <td> {{ c.itemID.name }} </td>
+            <td> {{ c.itemID.description }} </td>
+            <td> {{ c.itemID.rarity }} </td>
+            <td> {{ c.amount }} </td>
+        </tr>
+    </table>
+</div>

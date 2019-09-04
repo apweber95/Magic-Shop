@@ -1,5 +1,7 @@
 package com.revature.data;
 
+import java.util.Set;
+
 import com.revature.beans.Human;
 
 public interface HumanDAO {
@@ -11,6 +13,8 @@ public interface HumanDAO {
 	public int createHuman(Human h);
 	
 	public Human updateHuman(Human h);
+	
+	public Set<Human> getAllAccounts();
 
 	
 }

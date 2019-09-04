@@ -15,6 +15,8 @@ import { ItemShelfComponent } from './items/item-shelf/item-shelf.component';
 import { ItemComponent } from './items/item/item.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BackpackComponent } from './items/backpack/backpack.component';
+import { CartComponent } from './items/cart/cart.component';
+import { CartService } from './items/shared/cart.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { BackpackComponent } from './items/backpack/backpack.component';
     NavBarComponent,
     ItemShelfComponent,
     RegisterComponent,
-    BackpackComponent
+    BackpackComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { BackpackComponent } from './items/backpack/backpack.component';
   providers: [
     ItemService,
     UrlService,
+    CartService,
     RegisterService
   ],
   bootstrap: [AppComponent]

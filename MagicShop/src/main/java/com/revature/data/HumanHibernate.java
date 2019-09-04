@@ -1,5 +1,9 @@
 package com.revature.data;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -8,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.revature.beans.Human;
+import com.revature.beans.Item;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
 
@@ -23,6 +28,18 @@ public class HumanHibernate implements HumanDAO{
 		Human ret = s.get(Human.class, id);
 		s.close();
 		return ret;
+	}
+	
+	@Override
+	public Set<Human> getAllAccounts() {
+		Session s = hu.getSession();
+		String query = "FROM Humans";
+		Query<Human> q = s.createQuery(query, Human.class);
+		List<Human> itemList = q.getResultList();
+		Set<Human> itemSet = new HashSet<Human>();
+		itemSet.addAll(itemList);
+		s.close();
+		return itemSet;
 	}
 
 	@Override

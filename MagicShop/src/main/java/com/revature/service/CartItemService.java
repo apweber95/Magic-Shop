@@ -11,7 +11,7 @@ import com.revature.data.CartItemHibernate;
 
 public class CartItemService {
 	@Autowired
-	private static CartItemDAO cid = new CartItemHibernate();
+	private static CartItemDAO cid;
 	
 	public CartItem addCartItem(CartItem cartItem) {
 		return cid.addCartItem(cartItem);
@@ -19,6 +19,9 @@ public class CartItemService {
 	
 	public Set<CartItem> getCart(Human human) {
 		return cid.getCart(human);
+	public Set<CartItem> getCartByUserID(int id) {
+		// TODO Auto-generated method stub
+		return cid.getCartByUserID(id);
 	}
 
 }

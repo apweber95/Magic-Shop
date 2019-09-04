@@ -54,14 +54,14 @@ public class CartItemHibernate implements CartItemDAO {
 	}
 	
 	@Override
-	public Set<CartItem> getCart(Human human) {
+	public Set<CartItem> getCartByUserID(int id) {
 		Session session = hibernateUtil.getSession();
 		
 		//Creating search criteria
 		CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
 		CriteriaQuery<CartItem> query = criteriaBuilder.createQuery(CartItem.class);
 		Root<CartItem> root = query.from(CartItem.class);
-		query.select(root).where(criteriaBuilder.equal(root.get("ownerId"), human));
+		query.select(root).where(criteriaBuilder.equal(root.get("ownerID"), id));
 		
 		//Execute query and return item set
 		Query<CartItem> q = session.createQuery(query);
