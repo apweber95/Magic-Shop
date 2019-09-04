@@ -1,11 +1,33 @@
 <div>
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Description</th>
-            <th>Cost</th>
-        </tr>
-        <app-item *ngFor="let i of items" [item]="i"></app-item>
+    <table mat-table [dataSource]="bItems">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let i">{{i.itemID.name}}</td>
+        </ng-container>
+
+	<ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let i"> {{i.itemID.description}} </td>
+        </ng-container>
+
+	<ng-container matColumnDef="rarity">
+            <th mat-header-cell *matHeaderCellDef>Rarity</th>
+            <td mat-cell *matCellDef="let i"> {{i.itemID.rarity}} </td>
+        </ng-container>
+
+	<ng-container matColumnDef="shelfPrice">
+            <th mat-header-cell *matHeaderCellDef>Price</th>
+            <td mat-cell *matCellDef="let i"> {{i.itemID.shelfPrice}} </td>
+        </ng-container>
+
+	<ng-container matColumnDef="stock">
+            <th mat-header-cell *matHeaderCellDef>Quantitiy</th>
+            <td mat-cell *matCellDef="let i"> {{i.stock}} </td>
+        </ng-container>
+
+	<tr mat-header-row *matHeaderRowDef="displayColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+
     </table>
 </div>
 
