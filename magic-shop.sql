@@ -118,11 +118,12 @@ INSERT INTO Humans(UserID, Username, Password, FirstName, Lastname, RoleID, Gold
 INSERT INTO Humans(UserID, Username, Password, FirstName, Lastname, RoleID, Gold, Perception, Stealth, Luck) VALUES(2, 'employee', 'employee', 'work', 'er', '2', 1000, 12, 4, 17);
 INSERT INTO Humans(UserID, Username, Password, FirstName, Lastname, RoleID, Gold, Perception, Stealth, Luck) VALUES(3, 'customer', 'customer', 'advent', 'ure', '3', 1000, 6, 4, 14);
 
-INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (1, 'Rusty Dagger', 1, 'Foes will wish they got that tetanus shot.', 'common', null);
-INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (2, 'Rusty Armor', 1, 'You will wish you got that tetanus shot.', 'common', null);
-INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (3, 'Battered Shield', 1, 'Better than nothing...probably.', 'common', null);
-INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (4, 'Creaky Bow', 1, 'Ends battles with a snap.', 'common', null);
-INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (5, 'Magic for Dummies', 1, 'Apparently just a book about making lively looking manequins.', 'common', null);
+INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (1, 'Rusty Dagger', 2, 'Foes will wish they got that tetanus shot.', 'common', null);
+INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (2, 'Rusty Armor', 4, 'You will wish you got that tetanus shot.', 'common', null);
+INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (3, 'Battered Shield', 3, 'Better than nothing...probably.', 'common', null);
+INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (4, 'Creaky Bow', 5, 'Ends battles with a snap.', 'common', null);
+INSERT INTO Items(ItemID, Name, ShelfPrice, Description, Rarity, Image) VALUES (5, 'Magic for Dummies', 2, 'Apparently just a book about making lively looking manequins.', 'common', null);
+
 
 INSERT INTO Backpack(BackpackID, OwnerID, ItemID, Stock) VALUES (1, 1, 1, 1);
 INSERT INTO Backpack(BackpackID, OwnerID, ItemID, Stock) VALUES (2, 2, 2, 2);
