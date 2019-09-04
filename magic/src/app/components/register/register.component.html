@@ -1,3 +1,28 @@
-<div>
-    <p>register works!</p>
-</div>
+
+<ng-container >
+        <ul  class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <header>Register A New Account</header>
+            </li>
+            <li class="nav-item">
+                <label for="retister_username">Username</label>
+                <input type="text"  [(ngModel)]="username">
+            </li>
+            <li class="nav-item">
+                <label for="register_password">Password</label>
+                <input type="password" [(ngModel)]="password">
+            </li>
+            <li class="nav-item">
+                <label for="retister_username">First Name</label>
+                <input type="text" [(ngModel)]="firstName">
+            </li>
+            <li class="nav-item">
+                <label for="register_password">Last Name</label>
+                <input type="text" [(ngModel)]="firstName">
+            </li>
+            <li class="nav-item">
+                <button id="register_submit">Sign Up!</button>
+            </li>
+        </ul>
+</ng-container >
+
