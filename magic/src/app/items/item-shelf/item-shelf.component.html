@@ -1,4 +1,25 @@
 <div class="center">
+    <table>
+        <tr>
+            <th>Backpack Item ID</th>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Rarity</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+        <tr *ngFor="let bp of bItems">
+            <td> {{ bp.backpackID }} </td>
+            <td> {{ bp.itemID.name }} </td>
+            <td> {{ bp.itemID.description }} </td>
+            <td> {{ bp.itemID.rarity }} </td>
+            <td> {{ bp.itemID.shelfPrice }}</td>
+            <td> {{ bp.stock }} </td>
+        </tr>
+    </table>
+</div>
+
+<!-- <div class="center">
     <table mat-table [dataSource]="bItems">
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -29,5 +50,5 @@
         <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
 
     </table>
-</div>
+</div> -->
 
