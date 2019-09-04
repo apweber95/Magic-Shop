@@ -29,7 +29,7 @@ export class ItemShelfComponent implements OnInit {
     }
     this.backpackService.getBackpackItemsByOwnerID(1).subscribe( (bItems) => {
       this.bItems = bItems;
-      this.bItems.sort((a, b) => (a.itemID.name > b.itemID.name) ? 1 : -1);
+      this.bItems.sort((a, b) => (a.backpackID > b.backpackID) ? 1 : -1);
     });
   }
 

@@ -3,8 +3,10 @@ import { LoginService } from 'src/app/shared/login.service';
 import { Human } from 'src/app/shared/human';
 import { NgModel } from '@angular/forms';
 import {Router} from "@angular/router"
+import {NavBarComponent} from 'src/app/core/nav-bar/nav-bar.component'
 
 @Component({
+  providers:[NavBarComponent],
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
@@ -18,7 +20,7 @@ export class LoginComponent implements OnInit {
   password: string = "";
   failed: boolean = false;
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router, private nav: NavBarComponent) { }
 
   ngOnInit() {
 
@@ -37,7 +39,8 @@ export class LoginComponent implements OnInit {
         else{
           this.failed = false;
           console.log("recieved user:" + this.loggedHuman.userID);
-          this.router.navigate(['']);
+          this.nav.redirectHome();
+         
         }
       
       }

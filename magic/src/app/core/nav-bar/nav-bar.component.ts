@@ -28,8 +28,8 @@ export class NavBarComponent implements OnInit {
   }
 
   redirectHome(){
-    
-    this.router.navigate(['']);
+    this.loggedHuman = this.loginService.getHuman();
+    this.router.navigate(['/home']);
   }
 
   redirectSignup(){
@@ -42,4 +42,23 @@ export class NavBarComponent implements OnInit {
     }
     
   }
+
+  redirectBackpack(){
+    this.loggedHuman = this.loginService.getHuman();
+    if(this.loggedHuman){
+      this.router.navigate(['/backpack/' + this.loggedHuman.userID]);
+    }
+    else{
+      this.router.navigate(['/home']);
+    }
+  }
+
+  redirectCart(){
+    this.loggedHuman = this.loginService.getHuman();
+    if(this.loggedHuman){
+      this.router.navigate(['/cart/' + this.loggedHuman.userID]);
+    }
+  }
+
+
 }
