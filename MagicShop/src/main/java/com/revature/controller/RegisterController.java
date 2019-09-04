@@ -26,14 +26,19 @@ public class RegisterController {
 	
 	@GetMapping
 	public ResponseEntity<Human> register() {
-		System.out.println("Here it is");
+		//System.out.println("Here it is");
 		return ResponseEntity.ok(hs.getByID(1));
 	}
 	
 	@PostMapping
-	public ResponseEntity<Integer> register(@RequestBody Human human, HttpServletResponse resp){
-		System.out.println("Registering new Account: " + human);
-		return ResponseEntity.ok(hs.createHuman(human));
+	public ResponseEntity<Human> register(@RequestBody Human human) { //, HttpServletResponse resp){
+		//System.out.println("Registering new Account: " + human);
+		int id = hs.createHuman(human);
+		if (id == 0) {
+			return ResponseEntity.ok(null);
+		}
+		human.setUserID(""+id);
+		return ResponseEntity.ok(human);
 	}
 
 }
