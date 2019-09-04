@@ -21,7 +21,7 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'backpack',
+  path: 'home',
     component: ItemShelfComponent
   },
   {

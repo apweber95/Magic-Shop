@@ -18,6 +18,9 @@ import { BackpackComponent } from './items/backpack/backpack.component';
 import { CartComponent } from './items/cart/cart.component';
 import { CartService } from './items/shared/cart.service';
 import { BackpackService } from './items/shared/backpack.service';
+import { StealthComponent } from './stats/stealth/stealth.component';
+import { PerceptionComponent } from './stats/perception/perception.component';
+import { StealthService } from './stats/shared/stealth.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { BackpackService } from './items/shared/backpack.service';
     ItemShelfComponent,
     RegisterComponent,
     BackpackComponent,
-    CartComponent
+    CartComponent,
+    StealthComponent,
+    PerceptionComponent,
+    StealthComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,8 @@ import { BackpackService } from './items/shared/backpack.service';
     UrlService,
     CartService,
     RegisterService,
-    BackpackService
+    BackpackService,
+    StealthService
   ],
   bootstrap: [AppComponent]
 })
