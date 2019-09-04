@@ -7,13 +7,13 @@ import com.revature.beans.Human;
 
 public interface CartItemDAO {
 	
-	public Integer addCartItem(CartItem cartItem);
+	public CartItem addCartItem(CartItem cartItem);
 	
 	public CartItem getCartItem(Integer cartItemId);
 	
 	public Set<CartItem> getCart(Human human);
 	
-	public void udateCartItem(CartItem cartItem);
+	public void updateCartItem(CartItem cartItem);
 	
 	public void deleteCartItem(CartItem cartItem);
 

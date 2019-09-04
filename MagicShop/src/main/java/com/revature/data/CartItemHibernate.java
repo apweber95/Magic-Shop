@@ -27,13 +27,13 @@ public class CartItemHibernate implements CartItemDAO {
 	private HibernateUtil hibernateUtil;
 
 	@Override
-	public Integer addCartItem(CartItem cartItem) {
+	public CartItem addCartItem(CartItem cartItem) {
 		Session session = hibernateUtil.getSession();
 		Transaction transaction = null;
-		Integer cartItemId = 0;
+		CartItem ci = new CartItem();
 		try {
 			transaction = session.beginTransaction();
-			cartItemId = (Integer) session.save(cartItem);
+			ci = (CartItem) session.save(cartItem);
 			transaction.commit();
 		} catch(HibernateException e) {
 			if(transaction != null)
@@ -42,7 +42,7 @@ public class CartItemHibernate implements CartItemDAO {
 		} finally {
 			session.close();
 		}
-		return cartItemId;
+		return ci;
 	}
 	
 	@Override
@@ -73,7 +73,7 @@ public class CartItemHibernate implements CartItemDAO {
 	}
 
 	@Override
-	public void udateCartItem(CartItem cartItem) {
+	public void updateCartItem(CartItem cartItem) {
 		Session session = hibernateUtil.getSession();
 		Transaction transaction = null;
 		try{

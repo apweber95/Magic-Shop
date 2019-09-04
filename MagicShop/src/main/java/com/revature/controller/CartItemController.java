@@ -21,6 +21,11 @@ import com.revature.data.CartItemDAO;
 public class CartItemController {
 	@Autowired
 	private CartItemDAO cid;
+	
+	@GetMapping
+	public ResponseEntity<CartItem> addCartItem(CartItem cartItem){
+		return ResponseEntity.ok(cid.addCartItem(cartItem));
+	}
 
 	@GetMapping
 	public ResponseEntity<Set<CartItem>> getCart(Human human){

@@ -13,8 +13,11 @@ public class CartItemService {
 	@Autowired
 	private static CartItemDAO cid = new CartItemHibernate();
 	
+	public CartItem addCartItem(CartItem cartItem) {
+		return cid.addCartItem(cartItem);
+	}
+	
 	public Set<CartItem> getCart(Human human) {
-		// TODO Auto-generated method stub
 		return cid.getCart(human);
 	}
 
