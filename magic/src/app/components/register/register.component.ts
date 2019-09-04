@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../../services/register.service'
 import { Human } from '../../beans/human'
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +28,19 @@ export class RegisterComponent implements OnInit {
     this.newUser.password = this.password;
     this.newUser.first = this.firstName;
     this.newUser.last = this.lastName;
-    this.registerService.register(this.newUser).subscribe();
+    this.registerService.register(this.newUser).subscribe(
+      resp => {
+        this.newUser = resp;
+        if(this.newUser == null){
+          this.newUser = new Human();
+        }
+        console.log("recieved new user:" + this.newUser.first);
+      }
+    );
+    this.newUser.username = "";
+    this.newUser.password = "";
+    this.newUser.first = "";
+    this.newUser.last = "";
   }
 
 }
