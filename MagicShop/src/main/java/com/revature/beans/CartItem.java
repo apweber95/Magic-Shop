@@ -19,7 +19,7 @@ public class CartItem {
 	@Column(name="CartID")
 	private int cartItemID;
 	@ManyToOne
-	@JoinColumn(name="OwnerID")
+	@JoinColumn(name="UserID")
 	private Human ownerID;
 	@ManyToOne
 	@JoinColumn(name="ItemID")
