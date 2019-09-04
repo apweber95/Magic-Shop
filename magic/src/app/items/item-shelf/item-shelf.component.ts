@@ -14,7 +14,7 @@ export class ItemShelfComponent implements OnInit {
   bItems: BackpackItem[];
   searchText: string;
 
-  isWorker: boolean = true;
+  isWorker: boolean = false;
 
   constructor(
     private backpackService: BackpackService, 
