@@ -22,4 +22,8 @@ public class BackpackItemService {
 		backpackItem.setStock(backpackItem.getStock() + 1);
 		return bd.updateBackpackItem(backpackItem);
 	}
+	
+	public BackpackItem updateBackpackItem(BackpackItem b) {
+		return bd.updateBackpackItem(b);
+	}
 }

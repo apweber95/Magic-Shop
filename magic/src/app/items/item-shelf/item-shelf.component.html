@@ -1,5 +1,5 @@
-<div class="center">
-    <table>
+<div class="center container">
+    <table class="table table-hover">
         <tr>
             <th>Backpack Item ID</th>
             <th>Item Name</th>
@@ -8,15 +8,17 @@
             <th>Price</th>
             <th>Stock</th>
             <th *ngIf="isWorker">Add Stock</th>
+            
         </tr>
         <tr *ngFor="let bp of bItems">
             <td> {{ bp.backpackID }} </td>
             <td> {{ bp.itemID.name }} </td>
             <td> {{ bp.itemID.description }} </td>
             <td> {{ bp.itemID.rarity }} </td>
-            <td> {{ bp.itemID.shelfPrice }}</td>
             <td> {{ bp.stock }} </td>
-            <td *ngIf="isWorker"><button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" (click)="restock(bp.backpackID)">+1</button></td>
+            <td> {{ bp.itemID.shelfPrice }}</td>
+            <td><button class="btn btn-primary" (click)="addToCart()">Add to cart</button><td>
+            <td *ngIf="isWorker"><button class="btn btn-primary" type="submit" (click)="restock(bp.backpackID)">+1</button></td>
         </tr>
     </table>
 </div>
