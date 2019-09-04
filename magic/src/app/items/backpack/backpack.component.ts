@@ -21,8 +21,7 @@ export class BackpackComponent implements OnInit {
     if(id){
       this.backpackService.getBackpackItemsByOwnerID(id).subscribe( resp => {
         this.backpackItems = resp;
-        this.backpackItems.sort((a, b) => (a.backpackID > b.backpackID) ? 1 : -1)
-        console.log(this.backpackItems);
+        this.backpackItems.sort((a, b) => (a.backpackID > b.backpackID) ? 1 : -1);
       });
     }
   }
