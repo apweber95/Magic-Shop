@@ -11,11 +11,11 @@ import com.revature.data.CartItemHibernate;
 
 public class CartItemService {
 	@Autowired
-	private static CartItemDAO cid = new CartItemHibernate();
+	private static CartItemDAO cid;
 	
-	public Set<CartItem> getCart(Human human) {
+	public Set<CartItem> getCartByUserID(int id) {
 		// TODO Auto-generated method stub
-		return cid.getCart(human);
+		return cid.getCartByUserID(id);
 	}
 
 }
