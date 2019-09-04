@@ -14,4 +14,8 @@ public class BackpackItemService {
 	public Set<BackpackItem> returnBackpackItemsByOwnerID(int id){
 		return bd.getBackpackItemsByOwnerID(id);
 	}
+	
+	public BackpackItem updateBackpackItem(BackpackItem b) {
+		return bd.updateBackpackItem(b);
+	}
 }

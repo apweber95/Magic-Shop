@@ -23,19 +23,12 @@ public class BackpackItemController {
 	private BackpackItemDAO bd;
 	
 	@GetMapping(value="{id}")
-	public ResponseEntity<BackpackItem> getBackpackItemByID(@PathVariable Integer id) {
-		return ResponseEntity.ok(bd.getBackpackItemByID(id));
-	}
-	
-	@GetMapping(value="{id}")
 	public ResponseEntity<Set<BackpackItem>> getBackpackItems(@PathVariable Integer id){
 		return ResponseEntity.ok(bd.getBackpackItemsByOwnerID(id));
 	}
 	
 	@PutMapping(value="{id}")
 	public ResponseEntity<BackpackItem> updateBackpackItem(@PathVariable Integer id, @RequestBody BackpackItem b) {
-		if(bd.getBackpackItemByID(id) == null)
-			return ResponseEntity.status(405).body(null);
 		return ResponseEntity.ok(bd.updateBackpackItem(b));
 	}
 }
