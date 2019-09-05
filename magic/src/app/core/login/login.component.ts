@@ -20,7 +20,10 @@ export class LoginComponent implements OnInit {
   password: string = "";
   failed: boolean = false;
 
-  constructor(private loginService: LoginService, private router: Router, private nav: NavBarComponent) { }
+  constructor(
+    private loginService: LoginService, 
+    private router: Router, 
+    private nav: NavBarComponent) { }
 
   ngOnInit() {
 
@@ -40,7 +43,6 @@ export class LoginComponent implements OnInit {
           this.failed = false;
           console.log("recieved user:" + this.loggedHuman.userID);
           this.nav.redirectHome();
-         
         }
       
       }

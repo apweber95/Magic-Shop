@@ -1,6 +1,7 @@
 
-<div class="center">
-    <table>
+<div class="main container">
+    <h1>My Cart</h1>
+    <table class="table">
         <tr>
             <th>Cart Item ID</th>
             <th>Item Name</th>
@@ -16,5 +17,5 @@
             <td> {{ c.amount }} </td>
         </tr>
     </table>
+    <button (click)="openDialog()">Steal</button>
 </div>
-<button (click)="openDialog()">Steal</button>
