@@ -11,7 +11,7 @@ import com.revature.data.CartItemDAO;
 @Service
 public class CartItemService {
 	@Autowired
-	private static CartItemDAO cid;
+	private CartItemDAO cid;
 	
 	public CartItem addCartItem(CartItem cartItem) {
 		return cid.addCartItem(cartItem);
