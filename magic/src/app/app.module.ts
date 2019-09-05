@@ -18,6 +18,8 @@ import { BackpackComponent } from './items/backpack/backpack.component';
 import { CartComponent } from './items/cart/cart.component';
 import { CartService } from './items/shared/cart.service';
 import { BackpackService } from './items/shared/backpack.service';
+import { AccountsComponent } from './core/accounts/accounts.component';
+import { AccountsService } from './shared/accounts.service';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.component';
 
@@ -31,6 +33,7 @@ import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.
     RegisterComponent,
     BackpackComponent,
     CartComponent,
+    AccountsComponent,
     SnackbarComponent,
     ItemsCatalogComponent
   ],
@@ -46,7 +49,8 @@ import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.
     UrlService,
     CartService,
     RegisterService,
-    BackpackService
+    BackpackService,
+    AccountsService
   ],
   bootstrap: [AppComponent]
 })

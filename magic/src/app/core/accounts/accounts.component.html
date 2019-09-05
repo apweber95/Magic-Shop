@@ -1,0 +1,28 @@
+<div class="center container">
+    <table class="table table-hover">
+        <tr>
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>RoleID</th>
+            <th>Gold</th>
+            <th>Perception</th>
+            <th>Stealth</th>
+            <th>Luck</th>
+        </tr>
+        <tr *ngFor="let a of accounts">
+            <td> {{ a.userID }} </td>
+            <td> {{ a.username }} </td>
+            <td> {{ a.password }} </td>
+            <td> {{ a.first }} </td>
+            <td> {{ a.last }} </td>
+            <td> {{ a.roleID }} </td>
+            <td> {{ a.gold }} </td>
+            <td> {{ a.perception }} </td>
+            <td> {{ a.stealth }} </td>
+            <td> {{ a.luck }} </td>
+        </tr>
+    </table>
+</div>

@@ -65,6 +65,13 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  redirectAccounts(){
+    this.loggedHuman = this.loginService.getHuman();
+    if(this.loggedHuman){
+      this.router.navigate(['/accounts']);
+    }
+  }
+
   redirectItemsCatalog() {
     this.getInfo();
     if (this.loggedHuman && this.loggedHuman.userID == 1) {
