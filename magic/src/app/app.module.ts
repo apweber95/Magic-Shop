@@ -18,6 +18,7 @@ import { BackpackComponent } from './items/backpack/backpack.component';
 import { CartComponent } from './items/cart/cart.component';
 import { CartService } from './items/shared/cart.service';
 import { BackpackService } from './items/shared/backpack.service';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BackpackService } from './items/shared/backpack.service';
     ItemShelfComponent,
     RegisterComponent,
     BackpackComponent,
-    CartComponent
+    CartComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
