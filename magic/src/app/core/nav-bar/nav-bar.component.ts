@@ -79,6 +79,11 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  redirectAdventure() {
+    this.getInfo();
+    this.router.navigate(['/adventureBoard']);
+  }
+
   getInfo() {
     this.loggedHuman = this.loginService.getHuman();
     if (this.loggedHuman && this.loggedHuman.userID == 1) {

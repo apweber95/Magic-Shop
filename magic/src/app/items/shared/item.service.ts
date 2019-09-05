@@ -9,7 +9,7 @@ import { UrlService } from 'src/app/shared/url.service';
   providedIn: 'root'
 })
 export class ItemService {
-  private appUrl = this.url.getUrl() + '/shop';
+  private appUrl = this.url.getUrl() + 'shop';
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
   constructor(private url: UrlService, private http: HttpClient) { }
 

@@ -1,19 +1,18 @@
 <ul id="horizontal">
-        <li class="horizontal-li"><a href="#test">Welcome to the Magic Shop!</a></li>
-        <li *ngIf="loggedHuman" class="horizontal-li"><a href="#test">Welcome {{loggedHuman.first}}!</a></li>
-        <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectLogin()">Login</a></li>
-        <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectSignup()">Sign Up</a></li>
-        <li *ngIf="loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectLogout()">Logout</a></li>
-        <li *ngIf="loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectCart()">Cart</a></li>
-      </ul>
+    <li class="horizontal-li"><a (click)="redirectHome()">Welcome to the Magic Shop!</a></li>
+    <li *ngIf="loggedHuman" class="horizontal-li"><a (click)="redirectHome()">Welcome {{loggedHuman.first}}!</a></li>
+    <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectLogin()">Login</a></li>
+    <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectSignup()">Sign Up</a></li>
+    <li *ngIf="loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectLogout()">Logout</a></li>
+    <li *ngIf="loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectCart()">Cart</a></li>
+</ul>
 
 <nav>
     <ul id="verticle">
         <li class="verticle-li"><a (click)="redirectHome()">Home</a></li>
         <li class="verticle-li"><a (click)="redirectBackpack()">My Backpack</a></li>
-        <li class="verticle-li"><a href="#contact">Contact</a></li> 
-        <li class="verticle-li"><a href="#about">About</a></li>
-        <li *ngIf="isAdmin" class="verticle-li" style="float:right"><a (click)="redirectAccounts()">View All Accounts</a></li>
+        <li *ngIf="loggedHuman" class="verticle-li"><a (click)="redirectAdventure()">Quest!</a></li>
+        <li *ngIf="isAdmin" class="verticle-li"><a (click)="redirectAccounts()">View All Accounts</a></li>
         <li *ngIf="isAdmin" class="verticle-li"><a (click)="redirectItemsCatalog()">Items Catalog</a></li>
     </ul>
 </nav>
