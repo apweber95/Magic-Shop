@@ -25,14 +25,15 @@ public class HumanController {
 	@Autowired
 	private HumanService hs;
 	
+
+	@GetMapping(value="{id}")
+	public ResponseEntity<Human> getHuman(@PathVariable Integer id){
+		return ResponseEntity.ok(hs.getByID(id));
+	}
+
 	@GetMapping
 	public ResponseEntity<Set<Human>> getAccounts() {
 		return ResponseEntity.ok(hs.returnAllAccounts());
-	}
-	
-	@GetMapping(value="{id}")
-	public ResponseEntity<Human> getHuman(@PathVariable int id){
-		return ResponseEntity.ok(hs.getByID(id));
 	}
 
 	@PostMapping
@@ -42,7 +43,8 @@ public class HumanController {
 	}
 	
 	@PutMapping(value="{id}")
-	public ResponseEntity<Human> updateHuman(@PathVariable int id, @RequestBody Human h){
+	public ResponseEntity<Human> updateHuman(@PathVariable Integer id, @RequestBody Human h){
+		
 		if(hs.getByID(id) == null) {
 			return ResponseEntity.status(405).body(null);
 		}

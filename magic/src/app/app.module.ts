@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -28,6 +29,7 @@ import { AccountsService } from './shared/accounts.service';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.component';
 import { PerceptionService } from './stats/shared/perception.service';
+import { AdventureBoardComponent } from './components/adventure-board/adventure-board.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { PerceptionService } from './stats/shared/perception.service';
     PerceptionComponent,
     AccountsComponent,
     SnackbarComponent,
-    ItemsCatalogComponent
+    ItemsCatalogComponent,
+    AdventureBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { PerceptionService } from './stats/shared/perception.service';
     AppRoutingModule,
     HttpClientModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   entryComponents: [
     StealthComponent,

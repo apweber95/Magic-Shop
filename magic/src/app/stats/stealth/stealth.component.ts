@@ -26,9 +26,10 @@ export class StealthComponent {
   openDialog(): void {
     this.human = this.loginService.getHuman();
     this.stealth = this.stealthService.getStealth(this.human.stealth);
+    let stealthP = Math.round(this.stealth/40*100)
     let dialogRef = this.dialog.open(StealthDialogComponent, {
       width: '500px',
-      data: {stealth: this.stealth}
+      data: {stealth: stealthP}
     });
     
     dialogRef.afterClosed().subscribe(result => {
