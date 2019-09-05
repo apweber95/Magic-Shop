@@ -52,15 +52,22 @@ export class ItemShelfComponent implements OnInit {
     this.cartItem.ownerID = this.loggedHuman;
     this.cartItem.itemID = bp.itemID;
     
-    this.cartService.addCartItem(this.cartItem).subscribe( cItem => {
-      this.cItem = cItem;
-      console.log(this.cItem);
+    this.cartService.addCartItem(this.cartItem).subscribe( resp => {
+      console.log("Added to cart: ", resp);
+      this.snackbar.show("Added to Cart");
     });
-    
-    this.snackbar.show("Added to Cart");
+
+    bp.stock = bp.stock - 1;
+
+    this.backpackService.updateBackPack(bp).subscribe( resp => {
+      console.log("Reduced item stock by one: ", resp);
+    });
   }
 
-  enableButton(){
+  enableButton(stock: number){
+    if(stock <= 0){
+      return false;
+    }
     if(this.loginService.getHuman()){
       return true;
     }
