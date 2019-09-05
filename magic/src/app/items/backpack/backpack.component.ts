@@ -3,6 +3,7 @@ import { BackpackService } from '../shared/backpack.service';
 import { BackpackItem } from '../shared/backpack';
 import { ActivatedRoute } from '@angular/router';
 import { Item } from '../shared/item';
+import { LoginService } from '../../shared/login.service';
 
 
 @Component({
@@ -12,13 +13,16 @@ import { Item } from '../shared/item';
 })
 export class BackpackComponent implements OnInit {
   backpackItems: BackpackItem[];
+  gold: number;
 
   constructor(
     private backpackService: BackpackService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loginService: LoginService
   ) { }
 
   ngOnInit() {
+    this.gold = this.loginService.getHuman().gold;
     const id = +this.route.snapshot.paramMap.get('id');
     if(id){
       this.backpackService.getBackpackItemsByOwnerID(id).subscribe( resp => {
@@ -27,6 +31,7 @@ export class BackpackComponent implements OnInit {
         this.sellPrice();
       });
     }
+
     
   }
 
