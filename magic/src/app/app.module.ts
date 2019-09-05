@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -28,6 +27,7 @@ import { AccountsComponent } from './core/accounts/accounts.component';
 import { AccountsService } from './shared/accounts.service';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.component';
+import { PerceptionService } from './stats/shared/perception.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,6 @@ import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
     MatTableModule,
     MatDialogModule
   ],
@@ -67,6 +66,7 @@ import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.
     BackpackService,
     StealthService,
     StealthComponent,
+    PerceptionService,
     StealthDialogComponent,
     AccountsService
   ],
