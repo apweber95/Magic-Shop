@@ -20,9 +20,12 @@ import { BackpackComponent } from './items/backpack/backpack.component';
 import { CartComponent } from './items/cart/cart.component';
 import { CartService } from './items/shared/cart.service';
 import { BackpackService } from './items/shared/backpack.service';
-import { StealthComponent, StealthDialog } from './stats/stealth/stealth.component';
+import { StealthComponent } from './stats/stealth/stealth.component';
+import { StealthDialogComponent } from './stats/stealth-dialog/stealth-dialog.component';
 import { PerceptionComponent } from './stats/perception/perception.component';
 import { StealthService } from './stats/shared/stealth.service';
+import { AccountsComponent } from './core/accounts/accounts.component';
+import { AccountsService } from './shared/accounts.service';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.component';
 
@@ -37,8 +40,9 @@ import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.
     BackpackComponent,
     CartComponent,
     StealthComponent,
-    StealthDialog,
+    StealthDialogComponent,
     PerceptionComponent,
+    AccountsComponent,
     SnackbarComponent,
     ItemsCatalogComponent
   ],
@@ -53,7 +57,7 @@ import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.
   ],
   entryComponents: [
     StealthComponent,
-    StealthDialog
+    StealthDialogComponent
   ],
   providers: [
     ItemService,
@@ -62,7 +66,9 @@ import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.
     RegisterService,
     BackpackService,
     StealthService,
-    StealthComponent
+    StealthComponent,
+    StealthDialogComponent,
+    AccountsService
   ],
   bootstrap: [AppComponent]
 })

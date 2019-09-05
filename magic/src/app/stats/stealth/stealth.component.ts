@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { StealthService } from '../shared/stealth.service';
-import { HumanService } from '../../shared/human.service';
+import { StealthDialogComponent } from '../stealth-dialog/stealth-dialog.component';
+import { LoginService } from '../../shared/login.service';
 import { Human } from '../../shared/human';
 
 @Component({
@@ -14,45 +15,23 @@ export class StealthComponent implements OnInit {
   human: Human;
   constructor(
     private stealthService: StealthService,
-    private humanService: HumanService,
+    private loginService: LoginService,
     public dialog: MatDialog,
   ) { }
 
-  ngOnInit() { }
-
-  getHum(): void {
-    this.human = this.humanService.getHuman();
-  }
-
-  rollStats() {
-    if(this.human != null) {
-      this.stealth = this.stealthService.getStealth(this.human.stealth);
-    } else {
-      console.log("nothing");
-    }
+  ngOnInit() {
+    this.human = this.loginService.getHuman();
+    this.stealth = this.stealthService.getStealth(this.human.stealth);
+    console.log(this.stealth);
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(StealthDialog, {
-      width: '250px',
+    this.human = this.loginService.getHuman();
+    this.stealth = this.stealthService.getStealth(this.human.stealth);
+    const dialogRef = this.dialog.open(StealthDialogComponent, {
+      width: '500px',
       data: {stealth: this.stealth}
     });
-  }
-
-}
-
-@Component({
-  selector: 'stealth-dialog',
-  templateUrl: './stealth.component.html'
-})
-export class StealthDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<StealthDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
-
-  onNeinClick(): void {
-    this.dialogRef.close();
   }
 
 }

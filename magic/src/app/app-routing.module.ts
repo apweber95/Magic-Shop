@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import {BackpackComponent} from './items/backpack/backpack.component';
 import {CartComponent} from './items/cart/cart.component';
 import {ItemShelfComponent } from './items/item-shelf/item-shelf.component';
+import { AccountsComponent } from './core/accounts/accounts.component';
 import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.component';
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: ItemShelfComponent
+  },
+  {
+    path: 'accounts',
+    component: AccountsComponent
   },
   {
     path: 'backpack/:id',
