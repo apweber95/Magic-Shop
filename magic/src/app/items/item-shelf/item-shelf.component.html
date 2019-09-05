@@ -1,54 +1,23 @@
-<div class="center">
-    <table>
+<div class="main container">
+    <h1> Have a look at my wares</h1>
+    <table class="table table-hover">
         <tr>
-            <th>Backpack Item ID</th>
             <th>Item Name</th>
             <th>Description</th>
             <th>Rarity</th>
-            <th>Price</th>
             <th>Stock</th>
+            <th>Price</th>
+            
         </tr>
         <tr *ngFor="let bp of bItems">
-            <td> {{ bp.backpackID }} </td>
+            <!-- <td> {{ bp.backpackID }} </td> -->
             <td> {{ bp.itemID.name }} </td>
             <td> {{ bp.itemID.description }} </td>
             <td> {{ bp.itemID.rarity }} </td>
-            <td> {{ bp.itemID.shelfPrice }}</td>
             <td> {{ bp.stock }} </td>
+            <td> {{ bp.itemID.shelfPrice }}</td>
+            <td *ngIf="enableButton() && !isAdmin"><button class="btn btn-primary" (click)="addToCart(bp)">Add to cart</button><td>
+            <td *ngIf="isWorker"><button class="btn btn-primary" (click)="restock(bp.backpackID)">+1</button></td>
         </tr>
     </table>
 </div>
-
-<!-- <div class="center">
-    <table mat-table [dataSource]="bItems">
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>Name</th>
-            <td mat-cell *matCellDef="let i">{{i.itemID.name}}</td>
-        </ng-container>
-
-	<ng-container matColumnDef="description">
-            <th mat-header-cell *matHeaderCellDef>Description</th>
-            <td mat-cell *matCellDef="let i"> {{i.itemID.description}} </td>
-        </ng-container>
-
-	<ng-container matColumnDef="rarity">
-            <th mat-header-cell *matHeaderCellDef>Rarity</th>
-            <td mat-cell *matCellDef="let i"> {{i.itemID.rarity}} </td>
-        </ng-container>
-
-	<ng-container matColumnDef="shelfPrice">
-            <th mat-header-cell *matHeaderCellDef>Price</th>
-            <td mat-cell *matCellDef="let i"> {{i.itemID.shelfPrice}} </td>
-        </ng-container>
-
-	<ng-container matColumnDef="stock">
-            <th mat-header-cell *matHeaderCellDef>Quantity</th>
-            <td mat-cell *matCellDef="let i"> {{i.stock}} </td>
-        </ng-container>
-
-	<tr mat-header-row *matHeaderRowDef="displayColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
-
-    </table>
-</div> -->
-
