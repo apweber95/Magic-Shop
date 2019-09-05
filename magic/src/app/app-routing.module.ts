@@ -7,6 +7,7 @@ import {CartComponent} from './items/cart/cart.component';
 import {ItemShelfComponent } from './items/item-shelf/item-shelf.component';
 import { AccountsComponent } from './core/accounts/accounts.component';
 import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.component';
+import { AdventureBoardComponent } from './components/adventure-board/adventure-board.component';
 
 const routes: Routes = [
   {
@@ -41,8 +42,11 @@ const routes: Routes = [
   {
     path: 'cart/:id',
     component: CartComponent
+  },
+  {
+    path: 'adventureBoard',
+    component: AdventureBoardComponent
   }
-  
 ];
 
 @NgModule({
