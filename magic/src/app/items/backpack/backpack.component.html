@@ -2,6 +2,9 @@
     <h1 *ngIf="!backpackItems[0]">You don't have any items!</h1>
     <table *ngIf="backpackItems[0]" class="table table-hover">
         <tr>
+            <td>Gold Owned {{this.backpackItems[0].ownerID.gold}} </td>
+        </tr>
+        <tr>
             <th>Backpack Item ID</th>
             <th>Item Name</th>
             <th>Description</th>
