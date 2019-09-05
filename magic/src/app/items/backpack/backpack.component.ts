@@ -34,8 +34,6 @@ export class BackpackComponent implements OnInit {
         this.sellPrice();
       });
     }
-<<<<<<< HEAD
-=======
 
     this.loggedHuman = this.loginService.getHuman();
     this.humanService.getHumanByID(1).subscribe(
@@ -43,7 +41,6 @@ export class BackpackComponent implements OnInit {
         this.owner = resp;
       }
     );
->>>>>>> 53035c7468e024ab4cce09cdb15d6e962fb644ee
   }
 
   sellPrice(){
