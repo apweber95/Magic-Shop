@@ -26,7 +26,7 @@ public class HumanController {
 	private HumanService hs;
 	
 	@GetMapping(value="{id}")
-	public ResponseEntity<Human> getHuman(@PathVariable int id){
+	public ResponseEntity<Human> getHuman(@PathVariable Integer id){
 		return ResponseEntity.ok(hs.getByID(id));
 	}
 	
@@ -34,7 +34,6 @@ public class HumanController {
 	public ResponseEntity<Set<Human>> getAccounts() {
 		return ResponseEntity.ok(hs.returnAllAccounts());
 	}
-	
 
 	@PostMapping
 	public ResponseEntity<Human> createHuman(@RequestBody Human h){
@@ -43,7 +42,8 @@ public class HumanController {
 	}
 	
 	@PutMapping(value="{id}")
-	public ResponseEntity<Human> updateHuman(@PathVariable int id, @RequestBody Human h){
+	public ResponseEntity<Human> updateHuman(@PathVariable Integer id, @RequestBody Human h){
+		
 		if(hs.getByID(id) == null) {
 			return ResponseEntity.status(405).body(null);
 		}

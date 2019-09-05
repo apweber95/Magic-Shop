@@ -38,11 +38,8 @@ export class LoginComponent implements OnInit {
         }
         else{
           this.failed = false;
-          console.log("recieved user:" + this.loggedHuman.userID);
           this.nav.redirectHome();
-         
         }
-      
       }
     );
     this.username = "";

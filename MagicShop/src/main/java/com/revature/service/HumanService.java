@@ -17,12 +17,14 @@ public class HumanService {
 	public Human login(String username, String password) {
 		Human h = new Human();
 		h = hd.getHumanByLogin(username, password);
-		System.out.println(h.toString());
+		
 		return h;
 	}
 	
 	public Human getByID(int id) {
-		return hd.getHumanByID(id);
+		Human h = new Human();
+		h = hd.getHumanByID(id);
+		return h;
 	}
 	
 	public Set<Human> returnAllAccounts() {
