@@ -13,22 +13,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.BackpackItem;
-import com.revature.data.BackpackItemDAO;
+import com.revature.service.BackpackItemService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
 @RequestMapping(value="/backpack")
 public class BackpackItemController {
+	
 	@Autowired
-	private BackpackItemDAO bd;
+	private BackpackItemService bis;
 	
 	@GetMapping(value="{id}")
 	public ResponseEntity<Set<BackpackItem>> getBackpackItems(@PathVariable Integer id){
-		return ResponseEntity.ok(bd.getBackpackItemsByOwnerID(id));
+		return ResponseEntity.ok(bis.returnBackpackItemsByOwnerID(id));
 	}
 	
 	@PutMapping(value="{id}")
-	public ResponseEntity<BackpackItem> updateBackpackItem(@RequestBody BackpackItem b) {
-		return ResponseEntity.ok(bd.updateBackpackItem(b));
+	public ResponseEntity<BackpackItem> updateBackpackItem(@PathVariable Integer id, @RequestBody BackpackItem b) {
+		if(bis.returnBackpackItemsByOwnerID(id) == null) {
+			return ResponseEntity.status(405).body(null);
+		}
+		return ResponseEntity.ok(bis.updateBackpackItem(b));
 	}
 }
