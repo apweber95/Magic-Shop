@@ -29,9 +29,11 @@ public class BackpackItemHibernate implements BackpackItemDAO {
 		Session s = hu.getSession();
 		Transaction t = null;
 		BackpackItem bp = new BackpackItem();
+		int key;
 		try {
 			t = s.beginTransaction();
-			bp = (BackpackItem) s.save(b);
+			key = (int) s.save(b);
+			b.setBackpackID(key);
 			t.commit();
 		}
 		catch(HibernateException e) {
@@ -93,6 +95,25 @@ public class BackpackItemHibernate implements BackpackItemDAO {
 			s.close();
 		}
 		return b;
+	}
+
+	@Override
+	public void deleteBackpackItem(int backpackItemId) {
+		Session session = hu.getSession();
+		Transaction transaction = null;
+		BackpackItem backpackItem = new BackpackItem();
+		backpackItem = getBackpackItemByID(backpackItemId);
+		try{
+			transaction = session.beginTransaction();
+			session.delete(backpackItem);
+			transaction.commit();
+		} catch(Exception e) {
+			if(transaction != null)
+				transaction.rollback();
+			LogUtil.logException(e, BackpackItemHibernate.class);
+		} finally {
+			session.close();
+		}
 	}
 
 }

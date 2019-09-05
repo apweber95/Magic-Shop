@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../shared/cart.service';
 import { CartItem } from '../shared/cart';
 import { ActivatedRoute } from '@angular/router';
+import { StealthComponent } from '../../stats/stealth/stealth.component';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,8 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private stealthComponent: StealthComponent
   ) { }
 
   ngOnInit() {
@@ -23,6 +25,10 @@ export class CartComponent implements OnInit {
         this.cartItems = resp;
       });
     }
+  }
+
+  openDialog(): void {
+    this.stealthComponent.openDialog();
   }
 
 }

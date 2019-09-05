@@ -16,6 +16,12 @@ public class BackpackItemService {
 	public Set<BackpackItem> returnBackpackItemsByOwnerID(int id){
 		return bd.getBackpackItemsByOwnerID(id);
 	}
+
+	public BackpackItem increaseStockFor(Integer backpackItemId) {
+		BackpackItem backpackItem = bd.getBackpackItemByID(backpackItemId);
+		backpackItem.setStock(backpackItem.getStock() + 1);
+		return bd.updateBackpackItem(backpackItem);
+	}
 	
 	public BackpackItem updateBackpackItem(BackpackItem b) {
 		return bd.updateBackpackItem(b);

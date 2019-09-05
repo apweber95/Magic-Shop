@@ -25,11 +25,12 @@ public class HumanController {
 	@Autowired
 	private HumanService hs;
 	
+
 	@GetMapping(value="{id}")
 	public ResponseEntity<Human> getHuman(@PathVariable Integer id){
 		return ResponseEntity.ok(hs.getByID(id));
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<Set<Human>> getAccounts() {
 		return ResponseEntity.ok(hs.returnAllAccounts());

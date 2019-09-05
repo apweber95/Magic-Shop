@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,14 @@ import { BackpackComponent } from './items/backpack/backpack.component';
 import { CartComponent } from './items/cart/cart.component';
 import { CartService } from './items/shared/cart.service';
 import { BackpackService } from './items/shared/backpack.service';
+import { StealthComponent } from './stats/stealth/stealth.component';
+import { StealthDialogComponent } from './stats/stealth-dialog/stealth-dialog.component';
+import { PerceptionComponent } from './stats/perception/perception.component';
+import { StealthService } from './stats/shared/stealth.service';
+import { AccountsComponent } from './core/accounts/accounts.component';
+import { AccountsService } from './shared/accounts.service';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.component';
 
 @NgModule({
   declarations: [
@@ -28,21 +38,37 @@ import { BackpackService } from './items/shared/backpack.service';
     ItemShelfComponent,
     RegisterComponent,
     BackpackComponent,
-    CartComponent
+    CartComponent,
+    StealthComponent,
+    StealthDialogComponent,
+    PerceptionComponent,
+    AccountsComponent,
+    SnackbarComponent,
+    ItemsCatalogComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    StealthComponent,
+    StealthDialogComponent
   ],
   providers: [
     ItemService,
     UrlService,
     CartService,
     RegisterService,
-    BackpackService
+    BackpackService,
+    StealthService,
+    StealthComponent,
+    StealthDialogComponent,
+    AccountsService
   ],
   bootstrap: [AppComponent]
 })

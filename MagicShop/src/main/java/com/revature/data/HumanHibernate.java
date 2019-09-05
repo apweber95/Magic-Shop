@@ -4,6 +4,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -11,6 +15,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.revature.beans.CartItem;
 import com.revature.beans.Human;
 import com.revature.utils.HibernateUtil;
 import com.revature.utils.LogUtil;
@@ -32,13 +37,15 @@ public class HumanHibernate implements HumanDAO{
 	@Override
 	public Set<Human> getAllAccounts() {
 		Session s = hu.getSession();
-		String query = "FROM Humans";
+		String query = "FROM Human";
 		Query<Human> q = s.createQuery(query, Human.class);
 		List<Human> itemList = q.getResultList();
 		Set<Human> itemSet = new HashSet<Human>();
 		itemSet.addAll(itemList);
 		s.close();
 		return itemSet;
+		
+
 	}
 
 	@Override
