@@ -9,4 +9,5 @@ public interface BackpackItemDAO {
 	BackpackItem getBackpackItemByID(int id);
 	Set<BackpackItem> getBackpackItemsByOwnerID(int id);
 	BackpackItem updateBackpackItem(BackpackItem b);
+	void deleteBackpackItem(int backpackItemId);
 }
