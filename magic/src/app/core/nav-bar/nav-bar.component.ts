@@ -12,7 +12,10 @@ export class NavBarComponent implements OnInit {
 
   loggedHuman: Human;
   
-  constructor(private router: Router, private loginService: LoginService) { }
+  constructor(
+    private router: Router, 
+    private loginService: LoginService
+  ) { }
   
   ngOnInit() {
   }
