@@ -12,7 +12,7 @@
         <li class="verticle-li"><a (click)="redirectHome()">Home</a></li>
         <li class="verticle-li"><a (click)="redirectBackpack()">My Backpack</a></li>
         <li class="verticle-li"><a href="#contact">Contact</a></li> 
-        <li class="verticle-li"><a href="#about">About</a></li>
+        <li *ngIf="isAdmin" class="verticle-li"><a (click)="redirectItemsCatalog()">Items Catalog</a></li>
     </ul>
 </nav>
 

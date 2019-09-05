@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
           this.failed = false;
           console.log("recieved user:" + this.loggedHuman.userID);
           this.nav.redirectHome();
-         
         }
       
       }

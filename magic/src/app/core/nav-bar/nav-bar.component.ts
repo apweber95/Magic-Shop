@@ -11,6 +11,7 @@ import { Human } from 'src/app/shared/human';
 export class NavBarComponent implements OnInit {
 
   loggedHuman: Human;
+  isAdmin: boolean = false;
   
   constructor(
     private router: Router, 
@@ -18,10 +19,11 @@ export class NavBarComponent implements OnInit {
   ) { }
   
   ngOnInit() {
+    
   }
 
   redirectLogin(){
-    this.loggedHuman = this.loginService.getHuman();
+    this.getInfo();
     if(this.loggedHuman){
       this.redirectHome();
     }
@@ -31,12 +33,12 @@ export class NavBarComponent implements OnInit {
   }
 
   redirectHome(){
-    this.loggedHuman = this.loginService.getHuman();
+    this.getInfo();
     this.router.navigate(['/home']);
   }
 
   redirectSignup(){
-    this.loggedHuman = this.loginService.getHuman();
+    this.getInfo();
     if(this.loggedHuman){
       this.redirectHome();
     }
@@ -47,7 +49,7 @@ export class NavBarComponent implements OnInit {
   }
 
   redirectBackpack(){
-    this.loggedHuman = this.loginService.getHuman();
+    this.getInfo();
     if(this.loggedHuman){
       this.router.navigate(['/backpack/' + this.loggedHuman.userID]);
     }
@@ -57,11 +59,23 @@ export class NavBarComponent implements OnInit {
   }
 
   redirectCart(){
-    this.loggedHuman = this.loginService.getHuman();
+    this.getInfo();
     if(this.loggedHuman){
       this.router.navigate(['/cart/' + this.loggedHuman.userID]);
     }
   }
 
+  redirectItemsCatalog() {
+    this.getInfo();
+    if (this.loggedHuman && this.loggedHuman.userID == 1) {
+      this.router.navigate(['/itemsCatalog']);
+    }
+  }
 
+  getInfo() {
+    this.loggedHuman = this.loginService.getHuman();
+    if (this.loggedHuman && this.loggedHuman.userID == 1) {
+      this.isAdmin = true;
+    }
+  }
 }
