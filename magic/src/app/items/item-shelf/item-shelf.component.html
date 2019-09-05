@@ -15,7 +15,7 @@
             <td> {{ bp.itemID.rarity }} </td>
             <td> {{ bp.stock }} </td>
             <td> {{ bp.itemID.shelfPrice }}</td>
-            <td><button class="btn btn-primary" (click)="addToCart()">Add to cart</button><td>
+            <td *ngIf="enableButton()"><button class="btn btn-primary" (click)="addToCart(bp)">Add to cart</button><td>
         </tr>
     </table>
 </div>
