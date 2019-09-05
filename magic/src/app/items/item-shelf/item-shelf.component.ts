@@ -49,16 +49,14 @@ export class ItemShelfComponent implements OnInit {
 
   addToCart(bp: BackpackItem){
     this.loggedHuman = this.loginService.getHuman();
-    //TODO: does auto increment work?
-    this.cartItem.cartItemID = 1;
     this.cartItem.ownerID = this.loggedHuman;
     this.cartItem.itemID = bp.itemID;
     //TODO: increase number by 1 instead
     this.cartItem.amount = 1;
     
-    this.cartService.addCartItem(this.cartItem, this.loggedHuman.userID).subscribe( cItem => {
+    this.cartService.addCartItem(this.cartItem).subscribe( cItem => {
       this.cItem = cItem;
-      console.log(cItem);
+      console.log(this.cItem);
     });
     
     this.snackbar.show("Added to Cart");
