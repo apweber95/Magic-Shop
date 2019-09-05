@@ -14,9 +14,13 @@ export class CartService {
     private http: HttpClient
   ) { }
 
-  // addCartItem(cartItem: CartItem): Observable<CartItem> {
-    //TODO
-  // }
+  addCartItem(cartItem: CartItem, id: number): Observable<CartItem> {
+    const body = JSON.stringify(cartItem);
+    const url: string = this.appUrl + '/cart/' + id;
+    return this.http.post(url, body, {withCredentials: true}).pipe(
+      map(resp => resp as CartItem)
+    );
+  }
 
   returnCartByUserID(id: number): Observable<CartItem[]> {
     const url: string = this.appUrl + '/cart/' + id;

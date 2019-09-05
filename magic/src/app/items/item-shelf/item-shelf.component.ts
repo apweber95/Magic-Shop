@@ -19,6 +19,7 @@ export class ItemShelfComponent implements OnInit {
   searchText: string;
   public cartItem: CartItem = new CartItem();
   loggedHuman: Human;
+  cItem: CartItem;
 
   isWorker: boolean = false;
   isAdmin: boolean = false;
@@ -32,7 +33,6 @@ export class ItemShelfComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log(this.loginService.getHuman());
     let loggedUser: Human = this.loginService.getHuman();
     if (loggedUser && loggedUser.roleID <= 2) {
       this.isWorker = true;
@@ -40,6 +40,7 @@ export class ItemShelfComponent implements OnInit {
         this.isAdmin = true;
       }
     }
+
     this.backpackService.getBackpackItemsByOwnerID(1).subscribe( (bItems) => {
       this.bItems = bItems;
       this.bItems.sort((a, b) => (a.itemID.name > b.itemID.name) ? 1 : -1);
@@ -47,16 +48,20 @@ export class ItemShelfComponent implements OnInit {
   }
 
   addToCart(bp: BackpackItem){
-    console.log("addToCart works");
-    this.snackbar.show("Added to Cart");
-
     this.loggedHuman = this.loginService.getHuman();
-    //TODO
-    // this.cartItem.cartItemID = 
+    //TODO: does auto increment work?
+    this.cartItem.cartItemID = 1;
     this.cartItem.ownerID = this.loggedHuman;
     this.cartItem.itemID = bp.itemID;
+    //TODO: increase number by 1 instead
     this.cartItem.amount = 1;
-    console.log(this.cartItem);
+    
+    this.cartService.addCartItem(this.cartItem, this.loggedHuman.userID).subscribe( cItem => {
+      this.cItem = cItem;
+      console.log(cItem);
+    });
+    
+    this.snackbar.show("Added to Cart");
   }
 
   enableButton(){
