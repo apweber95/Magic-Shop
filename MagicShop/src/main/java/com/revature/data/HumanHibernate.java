@@ -76,6 +76,7 @@ public class HumanHibernate implements HumanDAO{
 
 	@Override
 	public Human updateHuman(Human h) {
+		System.out.println("updating " + h.toString());
 		Session s = hu.getSession();
 		Transaction t = null;
 		try{
