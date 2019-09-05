@@ -11,7 +11,7 @@ import { UrlService } from './url.service';
 export class LoginService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
   url = this.urlService.getUrl();
-  private human: Human;
+  human: Human;
 
   constructor(private http: HttpClient, private urlService: UrlService) { }
 
