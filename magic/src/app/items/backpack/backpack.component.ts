@@ -31,8 +31,6 @@ export class BackpackComponent implements OnInit {
         this.sellPrice();
       });
     }
-
-    
   }
 
   sellPrice(){

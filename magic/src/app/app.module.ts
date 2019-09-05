@@ -28,6 +28,7 @@ import { AccountsComponent } from './core/accounts/accounts.component';
 import { AccountsService } from './shared/accounts.service';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.component';
+import { AdventureBoardComponent } from './components/adventure-board/adventure-board.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.
     PerceptionComponent,
     AccountsComponent,
     SnackbarComponent,
-    ItemsCatalogComponent
+    ItemsCatalogComponent,
+    AdventureBoardComponent
   ],
   imports: [
     BrowserModule,
