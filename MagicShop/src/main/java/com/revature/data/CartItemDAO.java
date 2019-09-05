@@ -12,7 +12,7 @@ public interface CartItemDAO {
 	
 	public Set<CartItem> getCartByUserID(int id);
 	
-	public void updateCartItem(CartItem cartItem);
+	public CartItem updateCartItem(CartItem cartItem);
 	
 	public void deleteCartItem(CartItem cartItem);
 

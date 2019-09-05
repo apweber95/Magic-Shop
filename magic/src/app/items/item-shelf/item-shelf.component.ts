@@ -51,8 +51,6 @@ export class ItemShelfComponent implements OnInit {
     this.loggedHuman = this.loginService.getHuman();
     this.cartItem.ownerID = this.loggedHuman;
     this.cartItem.itemID = bp.itemID;
-    //TODO: increase number by 1 instead
-    this.cartItem.amount = 1;
     
     this.cartService.addCartItem(this.cartItem).subscribe( cItem => {
       this.cItem = cItem;
