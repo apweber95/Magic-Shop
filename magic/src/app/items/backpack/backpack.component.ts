@@ -3,7 +3,9 @@ import { BackpackService } from '../shared/backpack.service';
 import { BackpackItem } from '../shared/backpack';
 import { ActivatedRoute } from '@angular/router';
 import { Item } from '../shared/item';
-import { LoginService } from '../../shared/login.service';
+import { HumanService } from 'src/app/shared/human.service';
+import { Human } from 'src/app/shared/human';
+import { LoginService } from 'src/app/shared/login.service';
 
 
 @Component({
@@ -13,16 +15,17 @@ import { LoginService } from '../../shared/login.service';
 })
 export class BackpackComponent implements OnInit {
   backpackItems: BackpackItem[];
-  gold: number;
-
+  loggedHuman: Human;
+  owner: Human;
+  
   constructor(
     private backpackService: BackpackService,
     private route: ActivatedRoute,
+    private humanService: HumanService,
     private loginService: LoginService
   ) { }
 
   ngOnInit() {
-    this.gold = this.loginService.getHuman().gold;
     const id = +this.route.snapshot.paramMap.get('id');
     if(id){
       this.backpackService.getBackpackItemsByOwnerID(id).subscribe( resp => {
@@ -31,19 +34,42 @@ export class BackpackComponent implements OnInit {
         this.sellPrice();
       });
     }
+<<<<<<< HEAD
+=======
+
+    this.loggedHuman = this.loginService.getHuman();
+    this.humanService.getHumanByID(1).subscribe(
+      resp => {
+        this.owner = resp;
+      }
+    );
+>>>>>>> 53035c7468e024ab4cce09cdb15d6e962fb644ee
   }
 
   sellPrice(){
-    
     for(let i =0; i <this.backpackItems.length; i++){
       this.backpackItems[i].itemID.shelfPrice = Math.floor(this.backpackItems[i].itemID.shelfPrice / (1.3));
     }
   } 
 
   sellItem(backID: number){
-
-    console.log(backID);
-    //give this item to the shop and delete
-
+    var amount = 0;
+    
+    
+    for(let i =0; i <this.backpackItems.length; i++){
+      if(this.backpackItems[i].backpackID === backID){
+        this.backpackItems[i].ownerID = this.owner;
+        amount = this.backpackItems[i].itemID.shelfPrice;
+       this.backpackService.updateBackPack(this.backpackItems[i]).subscribe();
+        break;
+      }
+    }
+    this.owner.gold += amount;
+    this.loggedHuman.gold -= amount;
+    this.humanService.updateHuman(this.owner).subscribe();
+    this.humanService.updateHuman(this.loggedHuman).subscribe();
+    this.ngOnInit();
   }
+
+
 }

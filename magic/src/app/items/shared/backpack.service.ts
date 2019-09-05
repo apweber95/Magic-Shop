@@ -1,24 +1,30 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BackpackItem } from './backpack';
 import { map } from 'rxjs/operators';
-import { UrlService } from '../../shared/url.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class BackpackService {
+  private appUrl = 'http://localhost:8080/MagicShop';
+  private headers = new HttpHeaders({'Content-Type': 'application/json'});
 
   constructor(
-    private http: HttpClient,
-    private urlService: UrlService
+    private http: HttpClient
   ) { }
 
   getBackpackItemsByOwnerID(id: number): Observable<BackpackItem[]> {
-    const url: string = this.urlService.getUrl() + 'backpack/' + id;
+    const url: string = this.appUrl + '/backpack/' + id;
     return this.http.get(url, {withCredentials: true}).pipe(
-      map(resp => resp as BackpackItem[])
-    );
+      map(resp => resp as BackpackItem[]));
   }
+
+  updateBackPack(backpack: BackpackItem): Observable<BackpackItem>{
+    const body = JSON.stringify(backpack);
+    return this.http.put(this.appUrl+"/backpack/"+ backpack.backpackID, body, {headers: this.headers, withCredentials: true}).pipe(
+      map(resp => resp as BackpackItem));  
+  }
+
 }
