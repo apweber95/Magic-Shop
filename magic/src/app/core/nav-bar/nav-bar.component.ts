@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router"
 import { LoginService } from 'src/app/shared/login.service';
 import { Human } from 'src/app/shared/human';
+import { SnackbarService} from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,7 +16,8 @@ export class NavBarComponent implements OnInit {
   
   constructor(
     private router: Router, 
-    private loginService: LoginService
+    private loginService: LoginService,
+    private snackbarService: SnackbarService
   ) { }
   
   ngOnInit() {

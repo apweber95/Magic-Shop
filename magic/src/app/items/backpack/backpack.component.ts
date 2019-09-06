@@ -6,6 +6,7 @@ import { Item } from '../shared/item';
 import { HumanService } from 'src/app/shared/human.service';
 import { Human } from 'src/app/shared/human';
 import { LoginService } from 'src/app/shared/login.service';
+import { SnackbarService} from '../../services/snackbar.service';
 
 
 @Component({
@@ -15,14 +16,16 @@ import { LoginService } from 'src/app/shared/login.service';
 })
 export class BackpackComponent implements OnInit {
   backpackItems: BackpackItem[];
-  loggedHuman: Human;
+  loggedHuman: Human = this.loginService.getHuman();
   owner: Human;
   
   constructor(
     private backpackService: BackpackService,
     private route: ActivatedRoute,
     private humanService: HumanService,
-    private loginService: LoginService
+    //we need login service becuase if we use the gold in the backpackItems and there are no backpack items, then we can't show them the gold that they have
+    private loginService: LoginService,
+    private snackbarService: SnackbarService
   ) { }
 
   ngOnInit() {
