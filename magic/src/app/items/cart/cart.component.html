@@ -11,9 +11,9 @@
     </thead>
     <tbody>
         <tr *ngFor="let c of cartItems">
-            <td> {{ c.itemID.name }} </td>
+            <td [ngClass]="{'artifact': bp.itemID.rarity=='artifact', 'legendary': bp.itemID.rarity=='legendary', 'very-rare': bp.itemID.rarity=='very rare', 'rare': bp.itemID.rarity=='rare', 'uncommon': bp.itemID.rarity=='uncommon'}"> {{ c.itemID.name }} </td>
             <td> {{ c.itemID.description }} </td>
-            <td> {{ c.itemID.rarity }} </td>
+            <td [ngClass]="{'artifact': bp.itemID.rarity=='artifact', 'legendary': bp.itemID.rarity=='legendary', 'very-rare': bp.itemID.rarity=='very rare', 'rare': bp.itemID.rarity=='rare', 'uncommon': bp.itemID.rarity=='uncommon'}"> {{ c.itemID.rarity }} </td>
             <td> {{ c.amount }} </td>
             <td><button class="btn action-btn" (click)="removeAllFromCart(c)">Remove all</button><td></td>
             <td><button class="btn action-btn" (click)="removeOneFromCart(c)">Remove one</button><td></td>
