@@ -14,6 +14,8 @@
             <td> {{ c.itemID.description }} </td>
             <td> {{ c.itemID.rarity }} </td>
             <td> {{ c.amount }} </td>
+            <td><button class="btn action-btn" (click)="removeAllFromCart(c)">Remove all</button><td></td>
+            <td><button class="btn action-btn" (click)="removeOneFromCart(c)">Remove one</button><td></td>
         </tr>
     </table>
     <button (click)="openDialog()">Steal</button>

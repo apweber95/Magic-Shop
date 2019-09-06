@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
     private cartService: CartService,
     private route: ActivatedRoute,
     private stealthComponent: StealthComponent,
-    private snackbarService: SnackbarService
+    private snackbar: SnackbarService
   ) { }
 
   ngOnInit() {
@@ -31,6 +31,18 @@ export class CartComponent implements OnInit {
 
   openDialog(): void {
     this.stealthComponent.openDialog();
+  }
+
+  removeAllFromCart(c: CartItem){
+    // this.cartService.addCartItem(this.cartItem).subscribe( resp => {
+    //   console.log("Added to cart: ", resp);
+    //   this.snackbar.show("Added to Cart");
+    // });
+    this.snackbar.show("Removed all " + c.itemID.name + " from your cart.");
+  }
+
+  removeOneFromCart(c: CartItem){
+    this.snackbar.show("Removed one " + c.itemID.name + " from your cart.");
   }
 
 }

@@ -28,5 +28,9 @@ public class CartItemService {
 	public Set<CartItem> getCartByUserID(int id) {
 		return cid.getCartByUserID(id);
 	}
+	
+	public void deleteCartItem(CartItem cartItem) {
+		cid.deleteCartItem(cartItem);
+	}
 
 }
