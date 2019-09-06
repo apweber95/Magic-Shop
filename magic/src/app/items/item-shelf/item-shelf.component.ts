@@ -4,7 +4,6 @@ import { BackpackService } from '../shared/backpack.service';
 import { CartService } from '../shared/cart.service';
 import { CartItem } from '../shared/cart';
 import { LoginService } from '../../shared/login.service';
-import { RestockService } from '../../services/restock.service';
 import { Human } from '../../beans/human';
 import { SnackbarService } from '../../services/snackbar.service';
 
@@ -26,8 +25,7 @@ export class ItemShelfComponent implements OnInit {
 
   constructor(
     private backpackService: BackpackService, 
-    private loginService: LoginService, 
-    private restockService: RestockService,
+    private loginService: LoginService,
     private snackbar: SnackbarService,
     private cartService: CartService,
     ) { }
@@ -72,14 +70,13 @@ export class ItemShelfComponent implements OnInit {
       return true;
     }
   }
-  
-  restock(backpackItemId: number) {
-    console.log("BackpackItemId: " + backpackItemId);
-    this.restockService.restock(backpackItemId).subscribe(
-      resp => {
-        console.log("Item restocked: " + resp);
-        this.snackbar.show("Order Placed");
-      }
-    );
+
+  restock(bp: BackpackItem){
+    bp.stock = bp.stock + 1;
+
+    this.backpackService.updateBackPack(bp).subscribe( resp => {
+      console.log("Increased item stock by one: ", resp);
+      this.snackbar.show("Item added");
+    })
   }
 }
