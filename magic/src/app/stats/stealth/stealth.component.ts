@@ -44,7 +44,9 @@ export class StealthComponent {
         } else {
 	  console.log("STOP THIEF");
 	  this.human.roleID = 4;
-	  this.humanService.updateHuman(this.human);
+
+	  this.humanService.updateHuman(this.human).subscribe( resp => {
+	    this.human = resp });
 	}
       } else {
 	dialogRef = null;

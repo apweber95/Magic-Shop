@@ -40,7 +40,7 @@ public class BackpackItemService {
 		}
 		BackpackItem backpackItem = new BackpackItem();
 		backpackItem.setItemID(item);
-		backpackItem.setOwnerID(hd.getHumanByID(1));
+		backpackItem.setOwnerID(hd.getHumanByID(humanId));
 		backpackItem.setStock(quantity);
 		bd.addBackpackItem(backpackItem);
 		return backpackItem;
@@ -54,6 +54,14 @@ public class BackpackItemService {
 				return backpackItem;
 			}
 		}
-		return new BackpackItem();
+		return null;
+	}
+	
+	public void transferAll(int id) {
+		Set<BackpackItem> bi = bd.getBackpackItemsByOwnerID(id);
+		for(BackpackItem b: bi) {
+			BackpackItem temp = addItemToBackpack(b.getItemID().getItemID(), 1, b.getStock());
+			temp = removeItemFromBackpack(b.getItemID().getItemID(), id);
+		}
 	}
 }
