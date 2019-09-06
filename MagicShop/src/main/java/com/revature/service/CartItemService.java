@@ -28,5 +28,9 @@ public class CartItemService {
 	public Set<CartItem> getCartByUserID(int id) {
 		return cid.getCartByUserID(id);
 	}
+	
+	public CartItem updateCart(CartItem cartItem) {
+		return cid.updateCartItem(cartItem);
+	}
 
 }

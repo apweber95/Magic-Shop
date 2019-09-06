@@ -61,8 +61,8 @@ export class BackpackComponent implements OnInit {
         break;
       }
     }
-    this.owner.gold += amount;
-    this.loggedHuman.gold -= amount;
+    this.owner.gold -= amount;
+    this.loggedHuman.gold += amount;
     this.humanService.updateHuman(this.owner).subscribe();
     this.humanService.updateHuman(this.loggedHuman).subscribe();
     this.ngOnInit();

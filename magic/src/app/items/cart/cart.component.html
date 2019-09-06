@@ -14,7 +14,9 @@
             <td> {{ c.itemID.description }} </td>
             <td> {{ c.itemID.rarity }} </td>
             <td> {{ c.amount }} </td>
+            
         </tr>
     </table>
-    <button (click)="openDialog()">Steal</button>
+    <button class="btn btn-primary" (click)="buyItems()">Buy Items </button>
+    <button class="btn btn-danger" (click)="openDialog()">Steal</button>
 </div>

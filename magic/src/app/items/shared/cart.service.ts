@@ -31,4 +31,10 @@ export class CartService {
       map(resp => resp as CartItem[])
     );
   }
+
+  updateCartItem(cartItem: CartItem): Observable<CartItem>{
+    const url: string = this.appUrl + '/cart/' + cartItem.cartItemID;
+    const body = JSON.stringify(cartItem);
+    return this.http.put(url, body, {withCredentials: true}).pipe(map(resp=> resp as CartItem));
+  }
 }
