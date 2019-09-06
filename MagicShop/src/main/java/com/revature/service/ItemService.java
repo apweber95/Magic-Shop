@@ -28,9 +28,9 @@ public class ItemService {
 		return id.getItemById(itemID);
 	}
 
-	public Item addItemToStore(int itemId) {
+	public Item addItemToStore(int itemId, int humanId) {
 		Item item = id.getItemById(itemId);
-		Set<BackpackItem> storeItems = backpackItemDAO.getBackpackItemsByOwnerID(1);
+		Set<BackpackItem> storeItems = backpackItemDAO.getBackpackItemsByOwnerID(humanId);
 		for (BackpackItem backpackItem : storeItems) {
 			if (backpackItem.getItemID().getItemID() == itemId) {
 				return item;
@@ -44,9 +44,9 @@ public class ItemService {
 		return item;
 	}
 
-	public Item removeItemFromStore(int itemId) {
+	public Item removeItemFromStore(int itemId, int humanId) {
 		Item item = id.getItemById(itemId);
-		Set<BackpackItem> storeItems = backpackItemDAO.getBackpackItemsByOwnerID(1);
+		Set<BackpackItem> storeItems = backpackItemDAO.getBackpackItemsByOwnerID(humanId);
 		for (BackpackItem backpackItem : storeItems) {
 			if (backpackItem.getItemID().getItemID() == itemId) {
 				backpackItemDAO.deleteBackpackItem(backpackItem.getBackpackID());
