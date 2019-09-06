@@ -1,5 +1,5 @@
 <div class="center container">
-    <table class="table table-hover">
+    <table id = "accounts" class="table table-hover">
         <tr>
             <th>User ID</th>
             <th>Username</th>
@@ -12,7 +12,7 @@
             <th>Stealth</th>
             <th>Luck</th>
         </tr>
-        <tr *ngFor="let a of accounts">
+        <tr *ngFor="let a of accounts;" (click)="setClickedRow(a)" [class.active]="a == selectedRow">
             <td> {{ a.userID }} </td>
             <td> {{ a.username }} </td>
             <td> {{ a.password }} </td>
@@ -25,4 +25,7 @@
             <td> {{ a.luck }} </td>
         </tr>
     </table>
+
+    <button type="fire" class="btn btn-danger" style="float: right;" id="fire" (click)="toFired(h)">Fire to Customer</button>
+    <button type="promote" class="btn btn-danger" style="float: right;" id="promote" (click)="toPromoted(h)">Promote to Employee</button>
 </div>
