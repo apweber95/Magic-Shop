@@ -15,13 +15,13 @@
         </thead>
         <tbody>
         <tr *ngFor="let bp of bItems">
-            <td> {{ bp.itemID.name }} </td>
-            <td> {{ bp.itemID.description }} </td>
-            <td> {{ bp.itemID.rarity }} </td>
-            <td> {{ bp.stock }} </td>
-            <td> {{ bp.itemID.shelfPrice }}</td>
-            <td *ngIf="enableButton(bp.stock) && !isAdmin"><button class="btn action-btn" (click)="addToCart(bp)">Add to cart</button><td>
-            <td *ngIf="isWorker"><button class="btn primary-btn" (click)="restock(bp.backpackID)">+1</button></td>
+                <td [ngClass]="{'artifact': bp.itemID.rarity=='artifact', 'legendary': bp.itemID.rarity=='legendary', 'very-rare': bp.itemID.rarity=='very rare', 'rare': bp.itemID.rarity=='rare', 'uncommon': bp.itemID.rarity=='uncommon'}"> {{ bp.itemID.name }} </td>
+                <td> {{ bp.itemID.description }} </td>
+                <td [ngClass]="{'artifact': bp.itemID.rarity=='artifact', 'legendary': bp.itemID.rarity=='legendary', 'very-rare': bp.itemID.rarity=='very rare', 'rare': bp.itemID.rarity=='rare', 'uncommon': bp.itemID.rarity=='uncommon'}"> {{ bp.itemID.rarity | titlecase}} </td>
+                <td> {{ bp.stock }} </td>
+                <td> {{ bp.itemID.shelfPrice }}</td>
+                <td *ngIf="enableButton(bp.stock) && !isAdmin"><button class="btn action-btn" (click)="addToCart(bp)">Add to cart</button><td>
+                <td *ngIf="isWorker"><button class="btn primary-btn" (click)="restock(bp.backpackID)">+1</button></td>
         </tr>
         </tbody>
         <tfoot>

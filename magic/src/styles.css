@@ -30,6 +30,10 @@ th, td {
     background-color: #555555;
 }
 
+thead {
+    position: relative;
+}
+
 th {
     opacity: 1;
     position: sticky;
@@ -37,6 +41,7 @@ th {
 
 td {
     opacity: .75;
+    text-shadow: 1px 1px 1px #000000;
 }
 
 .main {
@@ -57,3 +62,31 @@ td {
     opacity: 1;
 }
 
+.artifact {
+    color: rgb(132, 65, 179);
+    text-shadow: 2px 2px 2px rgb(54, 1, 93);
+}
+
+.legendary {
+    color: #ffdf77;
+    text-shadow: 2px 2px 2px #6e5a1a;
+}
+
+.very-rare {
+    color: #7baeff;
+    text-shadow: 2px 2px 2px #0d2347;
+}
+
+.rare {
+    color: #86ffe5;
+    text-shadow: 2px 2px 2px #0a3d32;
+}
+
+.uncommon {
+    color: #99ff80;
+    text-shadow: 2px 2px 2px #19450d;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #a1b1c6;
+}
