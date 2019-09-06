@@ -7,6 +7,7 @@ import { LoginService } from 'src/app/shared/login.service';
 import { Human } from 'src/app/shared/human';
 import { HumanService } from 'src/app/shared/human.service';
 import { BackpackService } from '../shared/backpack.service';
+import { SnackbarService} from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-cart',
@@ -25,7 +26,8 @@ export class CartComponent implements OnInit {
     private stealthComponent: StealthComponent,
     private loginService: LoginService,
     private humanService: HumanService,
-    private backpackService: BackpackService
+    private backpackService: BackpackService,
+    private snackbarService: SnackbarService
   ) { }
 
   ngOnInit() {
