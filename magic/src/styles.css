@@ -1,9 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url("https://static.zerochan.net/Tent.%28Pabell%29.full.863925.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif; 
+    font-style: normal; 
+    font-variant: normal; font-weight: 700; 
+    line-height: 26.4px; 
+    z-index: 1;
+}
+
 h1 {
+    color: #ffffff;
+    background-color: #333333;
+    margin-top: 15px;
     padding: 15px;
+    position: fixed;
+    z-index: 9998;
+    width: 100%;
+}
+
+table {
+    margin-top: 6em;
+}
+
+th, td {
+    color: #ffffff;
+    background-color: #555555;
+}
+
+th {
+    opacity: 1;
+    position: sticky;
+}
+
+td {
+    opacity: .75;
 }
 
 .main {
+    padding-top: 3em;
     margin-left: 10em;
+}
+
+.primary-btn {
+    color: #ffffff;
+    background-color: #4B0082;
+    border: 1px solid #d4af37;
+    opacity: .9;
+}
+
+.action-btn {
+    background-color: #d4af37;
+    border: 1px solid #4B0082;
+    opacity: 1;
 }
 

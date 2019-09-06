@@ -1,9 +1,39 @@
-<div class="main">
-    <h1>Adventurers Wanted!</h1>
+<div class="main container">
+    <h1>Questing Board</h1>
     <table class="table">
         <tr>
-            <td>Redboard Tavern looking for Rat Exterminators</td>
-            <td><button>Accept</button> </td>
+            <th>
+                <h4>Adventurers Wanted!</h4>
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Rat nest beneath Redboard Tavern</td>
+            <td><button class="btn action-btn" (click)="commonQuest()">Begin Quest!</button> </td>
+        </tr>
+        <tr>
+            <td>Local Goblin nest causing issues</td>
+            <td><button class="btn action-btn" (click)="uncommonQuest()">Begin Quest!</button> </td>
+        </tr>
+        <tr>
+            <td>Troll demanding toll at Tadpole Creek</td>
+            <td><button class="btn action-btn" (click)="rareQuest()">Begin Quest!</button> </td>
+        </tr>
+        <tr>
+            <td>King's Successor Kidnapped!</td>
+            <td><button class="btn action-btn" (click)="veryRareQuest()">Begin Quest!</button> </td>
+        </tr>
+        <tr>
+            <td>Ancient Wyrm has taken over the capitol</td>
+            <td><button class="btn action-btn" (click)="legendaryQuest()">Begin Quest!</button> </td>
+        </tr>
+        <tr>
+            <td>The Old Ones have awoken. Put them back to rest.</td>
+            <td><button class="btn action-btn" (click)="artifactQuest()">Begin Quest!</button> </td>
+        </tr>
+        <tr>
+            <th>Caution: More dificult Quests give more loot, but are harder to survive!</th>
+            <th></th>
         </tr>
     </table>
 </div>

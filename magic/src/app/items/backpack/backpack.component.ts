@@ -15,13 +15,14 @@ import { LoginService } from 'src/app/shared/login.service';
 })
 export class BackpackComponent implements OnInit {
   backpackItems: BackpackItem[];
-  loggedHuman: Human;
+  loggedHuman: Human = this.loginService.getHuman();
   owner: Human;
   
   constructor(
     private backpackService: BackpackService,
     private route: ActivatedRoute,
     private humanService: HumanService,
+    //we need login service becuase if we use the gold in the backpackItems and there are no backpack items, then we can't show them the gold that they have
     private loginService: LoginService
   ) { }
 
