@@ -16,9 +16,10 @@ export class AccountsComponent implements OnInit {
   private human: Human;
   public changingHuman: Human;
   loggedHuman: Human;
-  constructor(private accountsService: AccountsService, private loginService: LoginService) { }
+
   constructor(
     private accountsService: AccountsService,
+    private loginService: LoginService,
     private snackbarService: SnackbarService
   ) { }
 
@@ -26,31 +27,32 @@ export class AccountsComponent implements OnInit {
     this.accountsService.getAccounts().subscribe( accounts => this.accounts = accounts);
     this.setClickedRow = function(index){
       this.selectedRow = index;
-      console.log(this.loggedHuman.roleID);
+      //console.log(this.loggedHuman.roleID);
     console.log(this.selectedRow);
-    console.log(this.loggedHuman.roleID);
+    //console.log(this.loggedHuman.roleID);
     }
 
   }
 
-toFired(h: Human){
+toFired(){
   this.loggedHuman = this.loginService.getHuman();
 
-  if(this.setClickedRow && this.loggedHuman.roleID == 2){
-  this.changingHuman = this.selectedRow;
-  this.accountsService.updateHuman(this.changingHuman).subscribe( human => this.human = human);
+  if(this.setClickedRow && this.selectedRow.roleID == 2){
+  this.selectedRow.roleID = this.selectedRow.roleID + 1;
+  this.accountsService.updateHuman(this.selectedRow).subscribe( human => this.human = human);
 
-  h.roleID = h.roleID + 1;
+  
   }
 }
-toPromoted(h: Human){
-  this.loggedHuman = this.loginService.getHuman();
-  if(this.setClickedRow && this.loggedHuman.roleID == 3){
-  console.log(this.loggedHuman);
-  this.changingHuman = this.selectedRow;
-  this.accountsService.updateHuman(this.changingHuman).subscribe( human => this.human = human);
 
-  h.roleID = h.roleID - 1;
+toPromoted(){
+  this.loggedHuman = this.loginService.getHuman();
+  if(this.setClickedRow && this.selectedRow.roleID == 3){
+  console.log(this.loggedHuman);
+  this.selectedRow.roleID = this.selectedRow.roleID - 1;
+  this.accountsService.updateHuman(this.selectedRow).subscribe( human => this.human = human);
+
+  
   }
  
 
