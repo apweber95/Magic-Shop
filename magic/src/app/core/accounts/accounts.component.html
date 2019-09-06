@@ -1,6 +1,7 @@
 <div class="main container">
     <h1>Shop Patrons</h1>
     <table class="table table-hover">
+        <thead>
         <tr>
             <th>User ID</th>
             <th>Username</th>
@@ -13,6 +14,8 @@
             <th>Stealth</th>
             <th>Luck</th>
         </tr>
+    </thead>
+    <tbody>
         <tr *ngFor="let a of accounts">
             <td> {{ a.userID }} </td>
             <td> {{ a.username }} </td>
@@ -25,5 +28,6 @@
             <td> {{ a.stealth }} </td>
             <td> {{ a.luck }} </td>
         </tr>
+    </tbody>
     </table>
 </div>
