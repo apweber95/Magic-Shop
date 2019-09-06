@@ -30,13 +30,8 @@ th, td {
     background-color: #555555;
 }
 
-thead {
-    position: relative;
-}
-
 th {
     opacity: 1;
-    position: sticky;
 }
 
 td {
@@ -47,13 +42,14 @@ td {
 .main {
     padding-top: 3em;
     margin-left: 10em;
+    width: 80%;
 }
 
 .primary-btn {
     color: #ffffff;
     background-color: #4B0082;
     border: 1px solid #d4af37;
-    opacity: .9;
+    opacity: 1;
 }
 
 .action-btn {
@@ -90,3 +86,23 @@ td {
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #a1b1c6;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
