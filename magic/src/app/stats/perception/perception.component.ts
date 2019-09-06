@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PerceptionService } from '../shared/perception.service';
 
 @Component({
   selector: 'app-perception',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perception.component.css']
 })
 export class PerceptionComponent implements OnInit {
-
-  constructor() { }
+  perception: number;
+  constructor(private perceptionService: PerceptionService) { }
 
   ngOnInit() {
+    
+  }
+
+  rollPerception(): void {
+    this.perception = this.perceptionService.getPerception(10);
   }
 
 }

@@ -9,12 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class StealthDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<StealthDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
-
-  onNeinClick(): void {
-    this.dialogRef.close();
-  }
-
-
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) { }
 
 }

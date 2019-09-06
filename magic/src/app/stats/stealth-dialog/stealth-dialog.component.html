@@ -4,8 +4,8 @@
     <p>Steal?</p>
 </div>
 <div mat-dialog-actions>
-    <button mat-button>Steal!</button>
-    <button mat-button (click)="onNeinClick()">On second thought...</button>
+    <button mat-button (click)="dialogRef.close(true)">Steal!</button>
+    <button mat-button (click)="dialogRef.close(false)">On second thought...</button>
 </div>
 </div>
 
