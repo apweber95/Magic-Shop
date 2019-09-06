@@ -15,9 +15,9 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of items">
-            <td> {{ item.name }} </td>
+            <td [ngClass]="{'artifact': item.rarity=='artifact', 'legendary': item.rarity=='legendary', 'very-rare': item.rarity=='very rare', 'rare': item.rarity=='rare', 'uncommon': item.rarity=='uncommon'}"> {{ item.name }} </td>
             <td> {{ item.description }} </td>
-            <td> {{ item.rarity }} </td>
+            <td [ngClass]="{'artifact': item.rarity=='artifact', 'legendary': item.rarity=='legendary', 'very-rare': item.rarity=='very rare', 'rare': item.rarity=='rare', 'uncommon': item.rarity=='uncommon'}"> {{ item.rarity }} </td>
             <td> {{ item.shelfPrice }} </td>
             <td><button class="btn primary-btn" (click)="addItem(item.itemID)">Add</button><td>
             <td><button class="btn action-btn" (click)="removeItem(item.itemID)">Remove</button><td>

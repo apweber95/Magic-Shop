@@ -3,7 +3,6 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>Cart Item ID</th>
             <th>Item Name</th>
             <th>Description</th>
             <th>Rarity</th>
@@ -12,10 +11,9 @@
     </thead>
     <tbody>
         <tr *ngFor="let c of cartItems">
-            <td> {{ c.cartItemID }} </td>
-            <td> {{ c.itemID.name }} </td>
+            <td [ngClass]="{'artifact': bp.itemID.rarity=='artifact', 'legendary': bp.itemID.rarity=='legendary', 'very-rare': bp.itemID.rarity=='very rare', 'rare': bp.itemID.rarity=='rare', 'uncommon': bp.itemID.rarity=='uncommon'}"> {{ c.itemID.name }} </td>
             <td> {{ c.itemID.description }} </td>
-            <td> {{ c.itemID.rarity }} </td>
+            <td [ngClass]="{'artifact': bp.itemID.rarity=='artifact', 'legendary': bp.itemID.rarity=='legendary', 'very-rare': bp.itemID.rarity=='very rare', 'rare': bp.itemID.rarity=='rare', 'uncommon': bp.itemID.rarity=='uncommon'}"> {{ c.itemID.rarity }} </td>
             <td> {{ c.amount }} </td>
         </tr>
     </tbody>
