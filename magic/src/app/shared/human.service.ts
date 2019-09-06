@@ -10,7 +10,7 @@ import { UrlService } from './url.service';
 })
 export class HumanService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  url = this.urlService.getUrl();
+  private url = this.urlService.getUrl();
 
   constructor(
     private http: HttpClient,

@@ -14,7 +14,7 @@ export class AdventureBoardComponent implements OnInit {
   constructor(
     private snackbarService: SnackbarService,
     private questService: QuestService,
-    private loginService: LoginService
+    private loginService: LoginService,
   ) { }
 
   ngOnInit() {
@@ -22,6 +22,17 @@ export class AdventureBoardComponent implements OnInit {
 
   quest(difficulty: number) {
     let human: Human = this.loginService.getHuman();
+    this.questService.quest(human, difficulty).subscribe(
+      resp => {
+        human = resp;
+        if (human.roleID == 5) {
+          this.snackbarService.show("You have perished.");
+        } else {
+          this.snackbarService.show("You return victorious!");
+        }
+      }
+    );
   }
+
 
 }
