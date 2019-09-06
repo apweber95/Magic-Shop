@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SnackbarService} from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-adventure-board',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdventureBoardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private snackbarService: SnackbarService
+  ) { }
 
   ngOnInit() {
   }

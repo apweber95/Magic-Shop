@@ -4,6 +4,7 @@ import { Human } from 'src/app/shared/human';
 import { NgModel } from '@angular/forms';
 import {Router} from "@angular/router"
 import {NavBarComponent} from 'src/app/core/nav-bar/nav-bar.component'
+import { SnackbarService} from '../../services/snackbar.service';
 
 @Component({
   providers:[NavBarComponent],
@@ -23,7 +24,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService, 
     private router: Router, 
-    private nav: NavBarComponent) { }
+    private nav: NavBarComponent,
+    private snackbarService: SnackbarService
+  ) { }
 
   ngOnInit() {
 

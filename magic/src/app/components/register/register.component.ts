@@ -3,6 +3,7 @@ import { RegisterService } from '../../services/register.service'
 import { Human } from '../../beans/human'
 import { NgModel } from '@angular/forms';
 import {Router} from "@angular/router"
+import { SnackbarService} from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,11 @@ export class RegisterComponent implements OnInit {
 
   failed: boolean = false;
 
-  constructor(private registerService: RegisterService, private router: Router) { }
+  constructor(
+    private registerService: RegisterService, 
+    private router: Router,
+    private snackbarService: SnackbarService
+  ) { }
 
   ngOnInit() {
     let signUpButton = document.getElementById("register_submit");

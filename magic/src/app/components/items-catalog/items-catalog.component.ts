@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Item } from '../../beans/item'
 import { ItemCatalogService } from '../../services/item-catalog.service';
+import { SnackbarService} from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-items-catalog',
@@ -13,7 +14,8 @@ export class ItemsCatalogComponent implements OnInit {
 
   constructor(
     private itemCatalogService: ItemCatalogService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private snackbarService: SnackbarService
   ) { }
 
   ngOnInit() {
