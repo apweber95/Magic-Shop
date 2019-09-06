@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let a of accounts">
+        <tr *ngFor="let a of accounts;" (click)="setClickedRow(a)" [class.active]="a == selectedRow">
             <td> {{ a.userID }} </td>
             <td> {{ a.username }} </td>
             <td> {{ a.password }} </td>
@@ -30,4 +30,7 @@
         </tr>
     </tbody>
     </table>
+
+    <button type="fire" class="btn btn-danger" style="float: right;" id="fire" (click)="toFired(h)">Fire to Customer</button>
+    <button type="promote" class="btn btn-danger" style="float: right;" id="promote" (click)="toPromoted(h)">Promote to Employee</button>
 </div>
