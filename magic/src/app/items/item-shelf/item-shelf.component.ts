@@ -19,6 +19,7 @@ export class ItemShelfComponent implements OnInit {
   searchText: string;
   public cartItem: CartItem = new CartItem();
   loggedHuman: Human;
+  cItem: CartItem;
 
   isWorker: boolean = false;
   isAdmin: boolean = false;
@@ -32,7 +33,6 @@ export class ItemShelfComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log(this.loginService.getHuman());
     let loggedUser: Human = this.loginService.getHuman();
     if (loggedUser && loggedUser.roleID <= 2) {
       this.isWorker = true;
@@ -40,6 +40,7 @@ export class ItemShelfComponent implements OnInit {
         this.isAdmin = true;
       }
     }
+
     this.backpackService.getBackpackItemsByOwnerID(1).subscribe( (bItems) => {
       this.bItems = bItems;
       this.bItems.sort((a, b) => (a.itemID.name > b.itemID.name) ? 1 : -1);
@@ -47,19 +48,26 @@ export class ItemShelfComponent implements OnInit {
   }
 
   addToCart(bp: BackpackItem){
-    console.log("addToCart works");
-    this.snackbar.show("Added to Cart");
-
     this.loggedHuman = this.loginService.getHuman();
-    //TODO
-    // this.cartItem.cartItemID = 
     this.cartItem.ownerID = this.loggedHuman;
     this.cartItem.itemID = bp.itemID;
-    this.cartItem.amount = 1;
-    console.log(this.cartItem);
+    
+    this.cartService.addCartItem(this.cartItem).subscribe( resp => {
+      console.log("Added to cart: ", resp);
+      this.snackbar.show("Added to Cart");
+    });
+
+    bp.stock = bp.stock - 1;
+
+    this.backpackService.updateBackPack(bp).subscribe( resp => {
+      console.log("Reduced item stock by one: ", resp);
+    });
   }
 
-  enableButton(){
+  enableButton(stock: number){
+    if(stock <= 0){
+      return false;
+    }
     if(this.loginService.getHuman()){
       return true;
     }
