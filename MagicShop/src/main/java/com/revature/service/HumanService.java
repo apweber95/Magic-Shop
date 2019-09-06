@@ -5,6 +5,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.beans.BackpackItem;
 import com.revature.beans.Human;
 import com.revature.data.HumanDAO;
 
@@ -40,6 +41,12 @@ public class HumanService {
 			return 0;
 		}
 		
+	}
+	
+	public Human increaseRole(Integer humanId) {
+		Human human = hd.getHumanByID(humanId);
+		human.setRoleID(human.getRoleID() + 1);
+		return hd.updateHuman(human);
 	}
 	
 	public Human updateHuman(Human h) {
