@@ -3,6 +3,7 @@ import { CartService } from '../shared/cart.service';
 import { CartItem } from '../shared/cart';
 import { ActivatedRoute } from '@angular/router';
 import { StealthComponent } from '../../stats/stealth/stealth.component';
+import { SnackbarService} from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,8 @@ export class CartComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private route: ActivatedRoute,
-    private stealthComponent: StealthComponent
+    private stealthComponent: StealthComponent,
+    private snackbarService: SnackbarService
   ) { }
 
   ngOnInit() {

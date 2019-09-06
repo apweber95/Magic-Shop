@@ -5,6 +5,7 @@ import { PerceptionService } from '../shared/perception.service';
 import { StealthDialogComponent } from '../stealth-dialog/stealth-dialog.component';
 import { LoginService } from '../../shared/login.service';
 import { Human } from '../../shared/human';
+import { HumanService } from '../../shared/human.service';
 
 @Component({
   selector: 'app-stealth',
@@ -17,6 +18,7 @@ export class StealthComponent {
   perception: number;
   human: Human;
   constructor(
+    private humanService: HumanService,
     private stealthService: StealthService,
     private loginService: LoginService,
     private perceptionService: PerceptionService,
@@ -26,6 +28,7 @@ export class StealthComponent {
   openDialog(): void {
     this.human = this.loginService.getHuman();
     this.stealth = this.stealthService.getStealth(this.human.stealth);
+
     let stealthP = Math.round(this.stealth/40*100)
     let dialogRef = this.dialog.open(StealthDialogComponent, {
       width: '500px',
@@ -37,10 +40,13 @@ export class StealthComponent {
         this.perception = this.perceptionService.getPerception(10);
         if(this.stealth > this.perception) {
           console.log("You have successfully stolen");
-          this.res = 1;
+          
         } else {
-          console.log("STOP THIEF");
-	  this.res = 0;
+	  console.log("STOP THIEF");
+	  this.human.roleID = 4;
+
+	  this.humanService.updateHuman(this.human).subscribe( resp => {
+	    this.human = resp });
 	}
       } else {
 	dialogRef = null;

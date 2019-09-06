@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Human } from 'src/app/shared/human';
 import { AccountsService } from 'src/app/shared/accounts.service';
 import { LoginService } from 'src/app/shared/login.service';
+import { SnackbarService} from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-accounts',
@@ -16,6 +17,10 @@ export class AccountsComponent implements OnInit {
   public changingHuman: Human;
   loggedHuman: Human;
   constructor(private accountsService: AccountsService, private loginService: LoginService) { }
+  constructor(
+    private accountsService: AccountsService,
+    private snackbarService: SnackbarService
+  ) { }
 
   ngOnInit() {
     this.accountsService.getAccounts().subscribe( accounts => this.accounts = accounts);

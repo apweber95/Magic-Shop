@@ -3,8 +3,13 @@ import { RegisterService } from '../../services/register.service'
 import { Human } from '../../beans/human'
 import { NgModel } from '@angular/forms';
 import {Router} from "@angular/router"
+import { SnackbarService} from '../../services/snackbar.service';
+import { LoginService } from '../../shared/login.service';
+import {NavBarComponent} from 'src/app/core/nav-bar/nav-bar.component'
+
 
 @Component({
+  providers:[NavBarComponent],
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
@@ -19,7 +24,13 @@ export class RegisterComponent implements OnInit {
 
   failed: boolean = false;
 
-  constructor(private registerService: RegisterService, private router: Router) { }
+  constructor(
+    private registerService: RegisterService, 
+    private router: Router,
+    private snackbarService: SnackbarService,
+    private loginService: LoginService,
+    private nav: NavBarComponent
+  ) { }
 
   ngOnInit() {
     let signUpButton = document.getElementById("register_submit");
@@ -37,9 +48,7 @@ export class RegisterComponent implements OnInit {
         if(this.newUser == null){
           this.failedSignUp();
         } else {
-          this.failed = false;
-          console.log("recieved new user:" + this.newUser.first);
-          this.router.navigate(['login']);
+          this.successfulSignUp();
         }
       }
     );
@@ -49,9 +58,26 @@ export class RegisterComponent implements OnInit {
     this.newUser.last = "";
   }
 
+  successfulSignUp() {
+    this.loginService.login(this.newUser).subscribe(
+      resp => {
+        this.newUser = resp;
+        if(this.newUser == null){
+          this.failedSignUp();
+        }
+        else{
+          this.failed = false;
+          this.nav.redirectHome();
+          this.snackbarService.show("New Account Created!");
+        }
+      }
+    );
+  }
+
   failedSignUp(){
     this.failed = true;
     this.newUser = new Human();
+    this.snackbarService.show("Username Unavailable");
   }
 
 }
