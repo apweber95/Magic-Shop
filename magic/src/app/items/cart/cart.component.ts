@@ -25,6 +25,7 @@ export class CartComponent implements OnInit {
     if(id){
       this.cartService.returnCartByUserID(id).subscribe( resp => {
         this.cartItems = resp;
+        this.cartItems.sort((a, b) => (a.itemID.name > b.itemID.name) ? 1 : -1);
       });
     }
   }
@@ -33,16 +34,14 @@ export class CartComponent implements OnInit {
     this.stealthComponent.openDialog();
   }
 
-  removeAllFromCart(c: CartItem){
-    // this.cartService.addCartItem(this.cartItem).subscribe( resp => {
-    //   console.log("Added to cart: ", resp);
-    //   this.snackbar.show("Added to Cart");
-    // });
-    this.snackbar.show("Removed all " + c.itemID.name + " from your cart.");
+  removeAllFromCart(cartItem: CartItem){
+    this.cartService.deleteCartItem(cartItem).subscribe( () => {
+      this.snackbar.show("Removed all " + cartItem.itemID.name + " from your cart.");
+    });
   }
 
-  removeOneFromCart(c: CartItem){
-    this.snackbar.show("Removed one " + c.itemID.name + " from your cart.");
+  removeOneFromCart(cartItem: CartItem){
+    this.snackbar.show("Removed one " + cartItem.itemID.name + " from your cart.");
   }
 
 }

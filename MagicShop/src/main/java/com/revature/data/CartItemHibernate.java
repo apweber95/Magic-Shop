@@ -96,7 +96,7 @@ public class CartItemHibernate implements CartItemDAO {
 		Transaction transaction = null;
 		try{
 			transaction = session.beginTransaction();
-			session.delete(cartItem.getCartItemID());
+			session.delete(cartItem);
 			transaction.commit();
 		} catch(Exception e) {
 			if(transaction != null)

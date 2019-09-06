@@ -31,4 +31,11 @@ export class CartService {
       map(resp => resp as CartItem[])
     );
   }
+
+  deleteCartItem(cartItem: CartItem): Observable<void>{
+    const url: string = this.appUrl + '/cart/' + cartItem.cartItemID;
+    return this.http.delete(url, {withCredentials: true}).pipe(
+      map(resp => null)
+    );
+  }
 }
