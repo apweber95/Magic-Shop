@@ -9,6 +9,7 @@ import { UrlService } from 'src/app/shared/url.service';
   providedIn: 'root'
 })
 export class AccountsService {
+  private human: Human;
 
   private appUrl = this.url.getUrl() + 'humans';
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
@@ -19,4 +20,18 @@ export class AccountsService {
       map( resp => resp as Human[])
     );
   }
+
+  public updateHuman(human: Human){
+    const body = JSON.stringify(human);
+    return this.http.put(this.url+"/humans/"+ human.userID, body, {headers: this.headers, withCredentials: true}).pipe(
+      map(resp => {
+        const user: Human = resp as Human;
+        if (user) {
+          this.human = user;
+        }
+        return user;
+      })
+    );
+  }
+  
 }
