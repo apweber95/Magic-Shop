@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Human;
+import com.revature.service.BackpackItemService;
 import com.revature.service.HumanService;
 
 @RestController
@@ -24,7 +25,8 @@ public class HumanController {
 
 	@Autowired
 	private HumanService hs;
-	
+	@Autowired
+	private BackpackItemService bps;
 
 	@GetMapping(value="{id}")
 	public ResponseEntity<Human> getHuman(@PathVariable Integer id){
@@ -48,7 +50,18 @@ public class HumanController {
 		if(hs.getByID(id) == null) {
 			return ResponseEntity.status(405).body(null);
 		}
-		return ResponseEntity.ok(hs.updateHuman(h));
+		
+		Human hum = hs.updateHuman(h);
+		Human admin = hs.getByID(1);
+		
+		if(hum.getRoleID() == 4) {
+			int gold = hum.getGold();
+			bps.transferAll(hum.getUserID());
+			admin.setGold(admin.getGold()+gold);
+			hum.setGold(0);
+			hum = hs.updateHuman(hum);
+		}
+		return ResponseEntity.ok(hum);
 	}
 	
 	
