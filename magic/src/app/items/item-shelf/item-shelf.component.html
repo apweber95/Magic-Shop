@@ -16,7 +16,7 @@
             <td> {{ bp.stock }} </td>
             <td> {{ bp.itemID.shelfPrice }}</td>
             <td *ngIf="enableButton(bp.stock) && !isAdmin"><button class="btn btn-primary" (click)="addToCart(bp)">Add to cart</button><td>
-            <td *ngIf="isWorker"><button class="btn btn-primary" (click)="restock(bp.backpackID)">+1</button></td>
+            <td *ngIf="isWorker"><button class="btn btn-primary" (click)="restock(bp)">+1</button></td>
         </tr>
     </table>
 </div>
