@@ -28,10 +28,12 @@ export class ItemsCatalogComponent implements OnInit {
 
   addItem(itemId: number) {
     this.itemCatalogService.addItemToCatalog(itemId).subscribe();
+    this.snackbarService.show("Item Added");
   }
 
   removeItem(itemId: number) {
     this.itemCatalogService.removeItemFromCatalog(itemId).subscribe();
+    this.snackbarService.show("Item Removed");
   }
 
 }
