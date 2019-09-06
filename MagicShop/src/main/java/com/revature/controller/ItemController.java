@@ -29,11 +29,11 @@ public class ItemController {
 	
 	@PostMapping(value="{itemId}")
 	public ResponseEntity<Item> addItemtoStore(@PathVariable int itemId) {
-		return ResponseEntity.ok(itemService.addItemToStore(itemId, 1));
+		return ResponseEntity.ok(itemService.addItemToStore(itemId));
 	}
 	
 	@DeleteMapping(value="{itemId}")
 	public ResponseEntity<Item> deleteItemFromStore(@PathVariable int itemId) {
-		return ResponseEntity.ok(itemService.removeItemFromStore(itemId, 1));
+		return ResponseEntity.ok(itemService.removeItemFromStore(itemId));
 	}
 }
