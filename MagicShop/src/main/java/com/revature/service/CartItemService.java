@@ -33,6 +33,10 @@ public class CartItemService {
 		return cid.getCartByUserID(id);
 	}
 	
+	public CartItem updateCartItem(CartItem cartItem) {
+		return cid.updateCartItem(cartItem);
+	}
+	
 	public void deleteCartItem(CartItem cartItem) {
 		cid.deleteCartItem(cartItem);
 	}

@@ -37,5 +37,12 @@ export class CartService {
     return this.http.delete(url, {withCredentials: true}).pipe(
       map(resp => null)
     );
+    //TODO: add the items back into store front
+  }
+
+  updateCartItem(cartItem: CartItem): Observable<CartItem>{
+    const body = JSON.stringify(cartItem);
+    return this.http.put(this.appUrl+"cart/"+ cartItem.cartItemID, body, {headers: this.headers, withCredentials: true}).pipe(
+      map(resp => resp as CartItem));
   }
 }

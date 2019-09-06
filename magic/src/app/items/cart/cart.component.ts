@@ -41,7 +41,15 @@ export class CartComponent implements OnInit {
   }
 
   removeOneFromCart(cartItem: CartItem){
-    this.snackbar.show("Removed one " + cartItem.itemID.name + " from your cart.");
+    if(cartItem.amount == 1){
+      this.snackbar.show("need to delete this item");
+    }
+    else{
+      cartItem.amount = cartItem.amount - 1;
+      this.cartService.updateCartItem(cartItem).subscribe( resp => {
+        this.snackbar.show("Removed one " + cartItem.itemID.name + " from your cart.");
+      });
+    }
   }
 
 }
