@@ -11,9 +11,9 @@
     </thead>
     <tbody>
         <tr *ngFor="let c of cartItems">
-            <td [ngClass]="{'artifact': bp.itemID.rarity=='artifact', 'legendary': bp.itemID.rarity=='legendary', 'very-rare': bp.itemID.rarity=='very rare', 'rare': bp.itemID.rarity=='rare', 'uncommon': bp.itemID.rarity=='uncommon'}"> {{ c.itemID.name }} </td>
+            <td [ngClass]="{'artifact': c.itemID.rarity=='artifact', 'legendary': c.itemID.rarity=='legendary', 'very-rare': c.itemID.rarity=='very rare', 'rare': c.itemID.rarity=='rare', 'uncommon': c.itemID.rarity=='uncommon'}"> {{ c.itemID.name }} </td>
             <td> {{ c.itemID.description }} </td>
-            <td [ngClass]="{'artifact': bp.itemID.rarity=='artifact', 'legendary': bp.itemID.rarity=='legendary', 'very-rare': bp.itemID.rarity=='very rare', 'rare': bp.itemID.rarity=='rare', 'uncommon': bp.itemID.rarity=='uncommon'}"> {{ c.itemID.rarity }} </td>
+            <td [ngClass]="{'artifact': c.itemID.rarity=='artifact', 'legendary': c.itemID.rarity=='legendary', 'very-rare': c.itemID.rarity=='very rare', 'rare': c.itemID.rarity=='rare', 'uncommon': c.itemID.rarity=='uncommon'}"> {{ c.itemID.rarity }} </td>
             <td> {{ c.amount }} </td>
         </tr>
     </tbody>

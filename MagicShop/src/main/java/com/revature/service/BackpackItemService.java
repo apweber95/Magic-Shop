@@ -54,6 +54,6 @@ public class BackpackItemService {
 				return backpackItem;
 			}
 		}
-		return new BackpackItem();
+		return null;
 	}
 }
