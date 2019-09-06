@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
     private cartService: CartService,
     private route: ActivatedRoute,
     private stealthComponent: StealthComponent,
-    private snackbarService: SnackbarService
+    private snackbar: SnackbarService
   ) { }
 
   ngOnInit() {
@@ -25,12 +25,31 @@ export class CartComponent implements OnInit {
     if(id){
       this.cartService.returnCartByUserID(id).subscribe( resp => {
         this.cartItems = resp;
+        this.cartItems.sort((a, b) => (a.itemID.name > b.itemID.name) ? 1 : -1);
       });
     }
   }
 
   openDialog(): void {
     this.stealthComponent.openDialog();
+  }
+
+  removeAllFromCart(cartItem: CartItem){
+    this.cartService.deleteCartItem(cartItem).subscribe( () => {
+      this.snackbar.show("Removed all " + cartItem.itemID.name + " from your cart.");
+    });
+  }
+
+  removeOneFromCart(cartItem: CartItem){
+    if(cartItem.amount == 1){
+      this.snackbar.show("need to delete this item");
+    }
+    else{
+      cartItem.amount = cartItem.amount - 1;
+      this.cartService.updateCartItem(cartItem).subscribe( resp => {
+        this.snackbar.show("Removed one " + cartItem.itemID.name + " from your cart.");
+      });
+    }
   }
 
 }

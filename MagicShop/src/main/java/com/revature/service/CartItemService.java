@@ -25,8 +25,20 @@ public class CartItemService {
 		return cid.addCartItem(cartItem);
 	}
 	
+	public CartItem getCartItem(Integer cartItemId) {
+		return cid.getCartItem(cartItemId);
+	}
+	
 	public Set<CartItem> getCartByUserID(int id) {
 		return cid.getCartByUserID(id);
+	}
+	
+	public CartItem updateCartItem(CartItem cartItem) {
+		return cid.updateCartItem(cartItem);
+	}
+	
+	public void deleteCartItem(CartItem cartItem) {
+		cid.deleteCartItem(cartItem);
 	}
 
 }
