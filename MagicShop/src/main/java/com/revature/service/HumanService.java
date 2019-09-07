@@ -5,7 +5,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.beans.BackpackItem;
 import com.revature.beans.Human;
 import com.revature.data.HumanDAO;
 

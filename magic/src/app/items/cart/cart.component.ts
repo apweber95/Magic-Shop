@@ -42,7 +42,7 @@ export class CartComponent implements OnInit {
 
   removeOneFromCart(cartItem: CartItem){
     if(cartItem.amount == 1){
-      this.snackbar.show("need to delete this item");
+      this.removeAllFromCart(cartItem);
     }
     else{
       cartItem.amount = cartItem.amount - 1;
