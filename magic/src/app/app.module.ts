@@ -30,6 +30,7 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.component';
 import { PerceptionService } from './stats/shared/perception.service';
 import { AdventureBoardComponent } from './components/adventure-board/adventure-board.component';
+import { BlankComponent } from './components/blank/blank.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AdventureBoardComponent } from './components/adventure-board/adventure-
     AccountsComponent,
     SnackbarComponent,
     ItemsCatalogComponent,
-    AdventureBoardComponent
+    AdventureBoardComponent,
+    BlankComponent
   ],
   imports: [
     BrowserModule,

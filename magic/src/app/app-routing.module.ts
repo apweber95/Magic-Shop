@@ -8,6 +8,7 @@ import {ItemShelfComponent } from './items/item-shelf/item-shelf.component';
 import { AccountsComponent } from './core/accounts/accounts.component';
 import { ItemsCatalogComponent } from './components/items-catalog/items-catalog.component';
 import { AdventureBoardComponent } from './components/adventure-board/adventure-board.component';
+import { BlankComponent } from './components/blank/blank.component';
 
 const routes: Routes = [
   {
@@ -17,11 +18,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: BlankComponent
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: BlankComponent
   },
   {
     path: 'home',
