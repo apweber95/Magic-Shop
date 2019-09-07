@@ -11,3 +11,28 @@
     background-color:#123456 !important;
     color: white;
   }
+
+  #fire{
+   position: fixed;
+   color: black;
+   background-color: burlywood;
+   
+}
+
+#promote{
+   position: fixed;
+   left: 350px;
+   color: black;
+   background-color: burlywood;
+   
+}
+
+#ban{
+   position: fixed;
+   left: 1172px;
+   color: black;
+   background-color: burlywood;
+   
+}
+
+
