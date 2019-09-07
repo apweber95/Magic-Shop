@@ -39,7 +39,7 @@ public class ItemService {
 		BackpackItem backpackItem = new BackpackItem();
 		backpackItem.setItemID(item);
 		backpackItem.setOwnerID(humanDAO.getHumanByID(1));
-		backpackItem.setStock(1);
+		backpackItem.setStock(0);
 		backpackItemDAO.addBackpackItem(backpackItem);
 		return item;
 	}
