@@ -25,77 +25,57 @@
 <!-- </div> -->
 
 <div *ngIf="showLogin">
-<div class="container center">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-            <h5 class="card-title text-center">Login</h5>
-            <h6 *ngIf="failed" > Inncorrect username or password! </h6>
-            <form class="form-signin">
-              <div class="form-label-group">
-                <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus [(ngModel)]="username" name="username"> 
-                <!-- <label for="inputEmail">Username</label> -->
-              </div>
-
-              <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="password" name="password">
-                <!-- <label for="inputPassword">Password</label> -->
-              </div>
-
-              <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember password</label>
-              </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" (click)="login()">Sign in</button>
-              <hr class="my-4">
-            </form>
-          </div>
-        </div>
+  <div class="center back">
+    <h5 class="title text-center">Login</h5>
+    <h6 *ngIf="failed" class="custFail"> Inncorrect username or password! </h6>
+    <form class="form-signin">
+      <div class="">
+        <input type="text" id="inputEmail" class="formSign" placeholder="Username" required autofocus [(ngModel)]="username" name="username"> 
       </div>
-    </div>
+
+      <div class="">
+        <input type="password" id="inputPassword" class="formSign" placeholder="Password" required [(ngModel)]="password" name="password">
+      </div>
+
+      <div class="custom-control mb-3">
+        <input type="checkbox" class="" id="customCheck1">
+        <label class=" custLabel" for="customCheck1">Remember password</label>
+      </div>
+      <button class="butn btn-block" type="submit" (click)="login()">Sign in</button>
+    </form>
   </div>
 </div>
 
 <div *ngIf="showRegister">
-    <div class="container center">
-        <div class="row">
-          <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div class="card card-signin my-5">
-              <div class="card-body">
-                <h5 class="card-title text-center">Sign Up!</h5>
-                <h6 *ngIf="failed" > Username Unavailable! </h6>
-                <form class="form-signin">
-                  <div class="form-label-group">
-                    <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus [(ngModel)]="username" name="username"> 
-                    <!-- <label for="inputEmail">Username</label> -->
-                  </div>
-    
-                  <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="password" name="password">
-                    <!-- <label for="inputPassword">Password</label> -->
-                  </div>
-    
-                  <div class="form-label-group">
-                    <input type="text" id="firstName" class="form-control" placeholder="First Name" required [(ngModel)]="firstName" name="firstName">
-                    <!-- <label for="inputPassword">Password</label> -->
-                  </div>
-    
-                  <div class="form-label-group">
-                    <input type="text" id="lastName" class="form-control" placeholder="Last Name" required [(ngModel)]="lastName" name="lastName">
-                    <!-- <label for="inputPassword">Password</label> -->
-                  </div>
-    
-                  <!-- <div class="custom-control custom-checkbox mb-3">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Remember password</label>
-                  </div> -->
-                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="register_submit" (click)="register()">Sign Up!</button>
-                  <hr class="my-4">
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="center back">
+    <h5 class="title text-center">Sign Up!</h5>
+    <h6 *ngIf="failed" class="custFail"> Username Unavailable! </h6>
+    <form class="form-signin">
+      <div>
+      <input type="text" id="inputEmail" class="formSign" placeholder="Username" required autofocus [(ngModel)]="username" name="username"> 
+                  <!-- <label for="inputEmail">Username</label> -->
       </div>
+  
+      <div>
+        <input type="password" id="inputPassword" class="formSign" placeholder="Password" required [(ngModel)]="password" name="password">
+                  <!-- <label for="inputPassword">Password</label> -->
+      </div>
+  
+      <div>
+        <input type="text" id="firstName" class="formSign" placeholder="First Name" required [(ngModel)]="firstName" name="firstName">
+                  <!-- <label for="inputPassword">Password</label> -->
+      </div>
+  
+      <div>
+        <input type="text" id="lastName" class="formSign" placeholder="Last Name" required [(ngModel)]="lastName" name="lastName">
+                  <!-- <label for="inputPassword">Password</label> -->
+      </div>
+  
+                <!-- <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Remember password</label>
+                </div> -->
+      <button class="butn btn-block" type="submit" id="register_submit">Sign Up!</button>
+      </form>
+    </div>
 </div>
