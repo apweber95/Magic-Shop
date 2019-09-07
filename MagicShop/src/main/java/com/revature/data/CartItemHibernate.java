@@ -106,5 +106,4 @@ public class CartItemHibernate implements CartItemDAO {
 			session.close();
 		}
 	}
-
 }
