@@ -43,8 +43,7 @@ export class LoginComponent implements OnInit {
           this.failedLogin();
         }
         else{
-          this.failed = false;
-          this.nav.redirectHome();
+          this.successfulLogin();
         }
       }
     );
@@ -57,8 +56,19 @@ export class LoginComponent implements OnInit {
     this.loggedHuman = new Human();
   }
 
-  logout(){
-
+  successfulLogin() {
+    this.failed = false;
+    if (this.nav.loggedHuman) {
+      console.log("Logged Human Detected: " + this.nav.loggedHuman);
+      this.nav.ngOnInit();
+      this.nav.redirectHome();
+    } else {
+      console.log("There was no logged: " + this.nav.loggedHuman);
+      this.nav.loggedHuman = this.loginService.getHuman();
+      console.log("after the call: " + this.nav.loggedHuman);
+      this.successfulLogin();
+    }
+    
   }
 
 }

@@ -33,6 +33,10 @@ export class LoginService {
     }
   }
 
+  logout() {
+    this.human = null;
+  }
+
   getHuman(): Human{
     return this.human;
   }
