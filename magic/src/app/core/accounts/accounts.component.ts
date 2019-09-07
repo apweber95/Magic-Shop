@@ -34,28 +34,35 @@ export class AccountsComponent implements OnInit {
 
   }
 
-toFired(){
+toCustomer(){
   this.loggedHuman = this.loginService.getHuman();
 
-  if(this.setClickedRow && this.selectedRow.roleID == 2){
-  this.selectedRow.roleID = this.selectedRow.roleID + 1;
+  if(this.setClickedRow && this.selectedRow.roleID != 5){
+  this.selectedRow.roleID = 3;
   this.accountsService.updateHuman(this.selectedRow).subscribe( human => this.human = human);
 
   
   }
 }
 
-toPromoted(){
+toEmployed(){
   this.loggedHuman = this.loginService.getHuman();
-  if(this.setClickedRow && this.selectedRow.roleID == 3){
+  if(this.setClickedRow && this.selectedRow.roleID != 5){
   console.log(this.loggedHuman);
-  this.selectedRow.roleID = this.selectedRow.roleID - 1;
+  this.selectedRow.roleID = 2;
   this.accountsService.updateHuman(this.selectedRow).subscribe( human => this.human = human);
-
-  
   }
  
+}
 
+toBanned(){
+  this.loggedHuman = this.loginService.getHuman();
+  if(this.setClickedRow && this.selectedRow.roleID != 5){
+  console.log(this.loggedHuman);
+  this.selectedRow.roleID = 4;
+  this.accountsService.updateHuman(this.selectedRow).subscribe( human => this.human = human);
+  }
+ 
 }
   
 
