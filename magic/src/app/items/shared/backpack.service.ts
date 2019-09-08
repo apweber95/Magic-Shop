@@ -67,5 +67,10 @@ export class BackpackService {
       }
     });
   }
+  
+  addItemToBackpack(backpack: BackpackItem): Observable<BackpackItem>{
+    const body = JSON.stringify(backpack);
+    return this.http.post(this.appUrl +'backpack', body, {headers: this.headers, withCredentials: true}).pipe(map(resp=> resp as BackpackItem));
+  }
 
 }
