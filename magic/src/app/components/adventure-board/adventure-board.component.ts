@@ -30,6 +30,8 @@ export class AdventureBoardComponent implements OnInit {
     let playerResults: number[] = new Array();
     let percentage: number = 0;
 
+    //this for loop calculates a percentage to show the user as an
+      // indicator to their likelyhood of surviving each quest
     for (let i=0; i< difficulties.length; i++) {
       for (let j=0; j<multipliers.length; j++) {
         dcResults.push(difficulties[i] * multipliers[j] * 2);
@@ -47,7 +49,6 @@ export class AdventureBoardComponent implements OnInit {
       dcResults = new Array();
       playerResults = new Array();
     }
-    console.log(this.percentages);
   }
 
   quest(difficulty: number) {
