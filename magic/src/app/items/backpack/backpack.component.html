@@ -1,6 +1,6 @@
 <div class="main container">
     <h1>Backpack</h1>
-    <h1 *ngIf="!backpackItems[0]">You don't have any items!</h1>
+    <!-- <h1 *ngIf="!backpackItems[0]">You don't have any items!</h1> -->
     <table class="table table-hover">
         <tr>
             <!--if they didn't own any items, they could't see how much gold they have-->
@@ -14,7 +14,7 @@
 
         </tr>
         <!-- moved this ngIf down to here because if it was up higher, gold wouldn't show up -->
-        <tr *ngIf="backpackItems[0]" >
+        <tr><!-- *ngIf="backpackItems[0]" >-->
             <th>Item Name</th>
             <th>Description</th>
             <th>Rarity</th>

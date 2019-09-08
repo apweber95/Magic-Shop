@@ -6,6 +6,7 @@ import { CartItem } from '../shared/cart';
 import { LoginService } from '../../shared/login.service';
 import { Human } from '../../beans/human';
 import { SnackbarService } from '../../services/snackbar.service';
+import { HumanService } from '../../shared/human.service';
 
 @Component({
   selector: 'app-item-shelf',
@@ -28,6 +29,7 @@ export class ItemShelfComponent implements OnInit {
     private loginService: LoginService,
     private snackbar: SnackbarService,
     private cartService: CartService,
+    private humanService: HumanService
     ) { }
 
   ngOnInit() {
@@ -77,6 +79,13 @@ export class ItemShelfComponent implements OnInit {
     this.backpackService.updateBackPack(bp).subscribe( resp => {
       console.log("Increased item stock by one: ", resp);
       this.snackbar.show("Item added");
+    })
+
+    let admin: Human = new Human();
+    this.humanService.getHumanByID(1).subscribe( resp => {
+      admin = resp;
+      admin.gold = admin.gold - Math.floor(bp.itemID.shelfPrice / (1.3));
+      this.humanService.updateHuman(admin).subscribe();
     })
   }
 }
