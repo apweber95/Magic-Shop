@@ -55,24 +55,31 @@ export class BackpackComponent implements OnInit {
     }
   } 
 
-  sellItem(backID: number){
-    var amount = 0;
-    
-    
-    for(let i =0; i <this.backpackItems.length; i++){
-      if(this.backpackItems[i].backpackID === backID){
-        this.backpackItems[i].ownerID = this.owner;
-        amount = this.backpackItems[i].itemID.shelfPrice;
-       this.backpackService.updateBackPack(this.backpackItems[i]).subscribe();
-        break;
-      }
-    }
-    this.owner.gold += amount;
-    this.loggedHuman.gold -= amount;
+  sellAllItem(bp: BackpackItem){
+    this.owner.gold -= bp.itemID.shelfPrice;
+    this.loggedHuman.gold += bp.itemID.shelfPrice;
     this.humanService.updateHuman(this.owner).subscribe();
     this.humanService.updateHuman(this.loggedHuman).subscribe();
-    this.ngOnInit();
+    this.backpackService.deleteBackpackItem(bp).subscribe( () => {
+      this.snackbarService.show("Sold all " + bp.itemID.name + " from your backpack.");
+      this.ngOnInit();
+    });
   }
 
+  sellOneItem(bp: BackpackItem){
+    if(bp.stock == 1){
+      this.sellAllItem(bp);
+    }
+    else{
+      bp.stock = bp.stock - 1;
+      this.owner.gold -= bp.itemID.shelfPrice;
+      this.loggedHuman.gold += bp.itemID.shelfPrice;
+      this.humanService.updateHuman(this.owner).subscribe();
+      this.humanService.updateHuman(this.loggedHuman).subscribe();
+      this.backpackService.updateBackPack(bp).subscribe( resp => {
+        this.snackbarService.show("Sold one " + bp.itemID.name + " from your backpack.");
+      });
+    }
+  }
 
 }

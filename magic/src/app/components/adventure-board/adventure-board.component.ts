@@ -13,6 +13,8 @@ import {NavBarComponent} from 'src/app/core/nav-bar/nav-bar.component'
 })
 export class AdventureBoardComponent implements OnInit {
 
+  percentages: number[] = new Array();
+
   constructor(
     private snackbarService: SnackbarService,
     private questService: QuestService,
@@ -21,6 +23,32 @@ export class AdventureBoardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let difficulties: number[] = [1, 2, 3, 5, 8, 13];
+    let luck: number = this.loginService.getHuman().luck;
+    let multipliers: number[] = [.05, .15, .25, .35, .45, .55, .65, .75, .85, .95];
+    let dcResults: number[] = new Array();
+    let playerResults: number[] = new Array();
+    let percentage: number = 0;
+
+    //this for loop calculates a percentage to show the user as an
+      // indicator to their likelyhood of surviving each quest
+    for (let i=0; i< difficulties.length; i++) {
+      for (let j=0; j<multipliers.length; j++) {
+        dcResults.push(difficulties[i] * multipliers[j] * 2);
+        playerResults.push(multipliers[j] * luck);
+      }
+      for (let k=0; k<dcResults.length; k++) {
+        for (let l=0; l<playerResults.length; l++) {
+          if (playerResults[l] >= dcResults[k]) {
+            percentage = percentage + .01
+          }
+        }
+      }
+      this.percentages.push(Math.round(percentage * 100) / 100);
+      percentage = 0;
+      dcResults = new Array();
+      playerResults = new Array();
+    }
   }
 
   quest(difficulty: number) {

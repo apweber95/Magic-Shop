@@ -57,7 +57,7 @@ export class CartService {
         if(backpackItem.itemID.name == cartItem.itemID.name){
           backpackItem.stock = backpackItem.stock + cartItem.amount;
           this.backpackService.updateBackPack(backpackItem).subscribe( resp => {
-            console.log("Increased item stock by one: ", resp);
+            console.log("Increased item stock by", cartItem.amount, ": ", resp);
           });
         }
       }
@@ -70,7 +70,7 @@ export class CartService {
         if(backpackItem.itemID.name == cartItem.itemID.name){
           backpackItem.stock = backpackItem.stock + 1;
           this.backpackService.updateBackPack(backpackItem).subscribe( resp => {
-            console.log("Increased item stock by one: ", resp);
+            console.log("Increased item stock by 1: ", resp);
           });
         }
       }

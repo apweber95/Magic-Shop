@@ -67,4 +67,8 @@ public class BackpackItemService {
 			temp = removeItemFromBackpack(b.getItemID().getItemID(), id);
 		}
 	}
+	
+	public void deleteBackpackItem(int backpackItemId) {
+		bd.deleteBackpackItem(backpackItemId);
+	}
 }
