@@ -1,21 +1,24 @@
 <div class="main container">
     <h1>My Cart</h1>
     <table class="table table-hover">
+        <thead>
         <tr>
-            <th>Cart Item ID</th>
             <th>Item Name</th>
             <th>Description</th>
             <th>Rarity</th>
             <th>Amount</th>
         </tr>
+    </thead>
+    <tbody>
         <tr *ngFor="let c of cartItems">
-            <td> {{ c.cartItemID }} </td>
-            <td> {{ c.itemID.name }} </td>
+            <td [ngClass]="{'artifact': c.itemID.rarity=='artifact', 'legendary': c.itemID.rarity=='legendary', 'very-rare': c.itemID.rarity=='very rare', 'rare': c.itemID.rarity=='rare', 'uncommon': c.itemID.rarity=='uncommon'}"> {{ c.itemID.name }} </td>
             <td> {{ c.itemID.description }} </td>
-            <td> {{ c.itemID.rarity }} </td>
+            <td [ngClass]="{'artifact': c.itemID.rarity=='artifact', 'legendary': c.itemID.rarity=='legendary', 'very-rare': c.itemID.rarity=='very rare', 'rare': c.itemID.rarity=='rare', 'uncommon': c.itemID.rarity=='uncommon'}"> {{ c.itemID.rarity }} </td>
             <td> {{ c.amount }} </td>
-            
+            <td><button class="btn action-btn" (click)="removeAllFromCart(c)">Remove all</button><td></td>
+            <td><button class="btn action-btn" (click)="removeOneFromCart(c)">Remove one</button><td></td>
         </tr>
+    </tbody>
     </table>
     <button class="btn btn-primary" (click)="buyItems()">Buy Items </button>
     <button class="btn btn-danger" (click)="openDialog()">Steal</button>

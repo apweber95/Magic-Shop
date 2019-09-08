@@ -38,16 +38,14 @@ public class CartItemController {
 	}
 	
 	@PutMapping(value="{id}")
-	public ResponseEntity<CartItem> updateCartItem(@PathVariable Integer id, @RequestBody CartItem c){
-		
-		return ResponseEntity.ok(cis.updateCart(c));
+	public ResponseEntity<CartItem> updateCartItem(@PathVariable Integer id, @RequestBody CartItem c) {
+		return ResponseEntity.ok(cis.updateCartItem(c));
 	}
 	
 	@DeleteMapping(value="{id}")
-	public ResponseEntity<Void> deleteCartItem(@PathVariable Integer id, CartItem c) {
-		cis.deleteCartItem(c);
+	public ResponseEntity<Void> deleteCartItem(@PathVariable Integer id){
+		cis.deleteCartItem(cis.getCartItem(id));
 		return ResponseEntity.noContent().build();
 	}
-	
 
 }

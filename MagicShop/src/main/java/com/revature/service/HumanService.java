@@ -42,6 +42,12 @@ public class HumanService {
 		
 	}
 	
+	public Human increaseRole(Integer humanId) {
+		Human human = hd.getHumanByID(humanId);
+		human.setRoleID(human.getRoleID() + 1);
+		return hd.updateHuman(human);
+	}
+	
 	public Human updateHuman(Human h) {
 		return hd.updateHuman(h);
 	}
