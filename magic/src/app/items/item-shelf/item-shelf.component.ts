@@ -42,7 +42,6 @@ export class ItemShelfComponent implements OnInit {
         this.storeGold = loggedUser.gold;
       }
     }
-
     this.backpackService.getBackpackItemsByOwnerID(1).subscribe( (bItems) => {
       this.bItems = bItems;
       this.bItems.sort((a, b) => (a.itemID.name > b.itemID.name) ? 1 : -1);
