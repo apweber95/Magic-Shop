@@ -61,7 +61,6 @@ import { BlankComponent } from './components/blank/blank.component';
     FormsModule
   ],
   entryComponents: [
-    StealthComponent,
     StealthDialogComponent
   ],
   providers: [
@@ -73,7 +72,6 @@ import { BlankComponent } from './components/blank/blank.component';
     StealthService,
     StealthComponent,
     PerceptionService,
-    StealthDialogComponent,
     AccountsService
   ],
   bootstrap: [AppComponent]

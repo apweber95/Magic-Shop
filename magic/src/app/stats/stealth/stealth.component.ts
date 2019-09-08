@@ -31,8 +31,8 @@ export class StealthComponent {
 
     let stealthP = Math.round(this.stealth/40*100)
     let dialogRef = this.dialog.open(StealthDialogComponent, {
-      width: '500px',
-      data: {stealth: stealthP}
+      data: {stealth: stealthP},
+      panelClass: 'cust-modal'
     });
     
     dialogRef.afterClosed().subscribe(result => {
