@@ -16,7 +16,7 @@
 <nav>
     <ul id="verticle">
         <li class="verticle-li"><a (click)="redirectHome()">Home</a></li>
-        <li class="verticle-li"><a (click)="redirectBackpack()">My Backpack</a></li>
+        <li *ngIf="loggedHuman" class="verticle-li"><a (click)="redirectBackpack()">My Backpack</a></li>
         <li *ngIf="loggedHuman" class="verticle-li"><a (click)="redirectAdventure()">Quest!</a></li>
         <li *ngIf="isAdmin" class="verticle-li"><a (click)="redirectAccounts()">View All Accounts</a></li>
         <li *ngIf="isAdmin" class="verticle-li"><a (click)="redirectItemsCatalog()">Items Catalog</a></li>
@@ -37,10 +37,10 @@
         <input type="password" id="inputPassword" class="formSign" placeholder="Password" required [(ngModel)]="password" name="password">
       </div>
 
-      <div class="custom-control mb-3">
+      <!-- <div class="custom-control mb-3">
         <input type="checkbox" class="" id="customCheck1">
         <label class=" custLabel" for="customCheck1">Remember password</label>
-      </div>
+      </div> -->
       <button class="butn btn-block" type="submit" (click)="login()">Sign in</button>
     </form>
   </div>
