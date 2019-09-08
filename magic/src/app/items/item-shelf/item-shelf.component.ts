@@ -19,6 +19,7 @@ export class ItemShelfComponent implements OnInit {
   searchText: string;
   public cartItem: CartItem = new CartItem();
   loggedHuman: Human;
+  storeGold: number = 0;
   cItem: CartItem;
 
   isWorker: boolean = false;
@@ -38,6 +39,7 @@ export class ItemShelfComponent implements OnInit {
       this.isWorker = true;
       if (loggedUser.roleID == 1) {
         this.isAdmin = true;
+        this.storeGold = loggedUser.gold;
       }
     }
 

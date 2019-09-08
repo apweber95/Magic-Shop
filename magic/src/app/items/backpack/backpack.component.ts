@@ -35,6 +35,9 @@ export class BackpackComponent implements OnInit {
         this.backpackItems = resp;
         this.backpackItems.sort((a, b) => (a.backpackID > b.backpackID) ? 1 : -1);
         this.sellPrice();
+        if (this.backpackItems.length <= 0) {
+          this.snackbarService.show("Your backpack is empty");
+        }
       });
     }
 
