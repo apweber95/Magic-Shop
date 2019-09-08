@@ -157,7 +157,15 @@ export class NavBarComponent implements OnInit {
           this.failedLogin();
         }
         else{
-          this.successfulLogin();
+          console.log(this.loggedHuman.roleID);
+          if(this.loggedHuman.roleID == 4 || this.loggedHuman.roleID == 5){
+            console.log("in if");
+            this.router.navigate(['/restricted']);
+          }
+          else{
+            this.successfulLogin();
+          }
+          
         }
       }
     );
@@ -172,6 +180,7 @@ export class NavBarComponent implements OnInit {
 
   successfulLogin() {
     this.failed = false;
+
     if (this.loggedHuman) {
       console.log("Logged Human Detected: " + this.loggedHuman);
       this.ngOnInit();
