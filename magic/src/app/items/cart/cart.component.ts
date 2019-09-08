@@ -9,6 +9,7 @@ import { HumanService } from 'src/app/shared/human.service';
 import { BackpackService } from '../shared/backpack.service';
 import { SnackbarService} from '../../services/snackbar.service';
 import { BackpackItem } from '../shared/backpack';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cart',
@@ -30,7 +31,8 @@ export class CartComponent implements OnInit {
     private humanService: HumanService,
     private backpackService: BackpackService,
     private snackbarService: SnackbarService,
-    private snackbar: SnackbarService
+    private snackbar: SnackbarService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -81,6 +83,7 @@ export class CartComponent implements OnInit {
       this.loggedHuman.roleID = 4;
       this.humanService.updateHuman(this.loggedHuman).subscribe();
       //redirect to banned page
+      this.router.navigate(['restricted']);
     }
     //update the gold amount
     this.humanService.updateHuman(this.loggedHuman).subscribe();
