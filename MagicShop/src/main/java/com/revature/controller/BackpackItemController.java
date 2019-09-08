@@ -38,17 +38,15 @@ public class BackpackItemController {
 		return ResponseEntity.ok(bis.updateBackpackItem(b));
 	}
 	
-<<<<<<< HEAD
 	@DeleteMapping(value="{id}")
 	public ResponseEntity<Void> deleteBackpackItem(@PathVariable Integer id){
 		bis.deleteBackpackItem(id);
 		return ResponseEntity.noContent().build();
 	}
-=======
+	
 	@PostMapping
 	public ResponseEntity<BackpackItem> addItemToBackpack(@RequestBody BackpackItem b){
 		return ResponseEntity.ok(bis.addItemToBackpack(b.getItemID().getItemID(), b.getOwnerID().getUserID(), b.getStock()));
 	}
 	
->>>>>>> cc6b10d54304b225a9d6f65a5be80e838176f16a
 }
