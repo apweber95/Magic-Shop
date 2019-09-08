@@ -39,6 +39,9 @@ export class CartComponent implements OnInit {
       this.cartService.returnCartByUserID(id).subscribe( resp => {
         this.cartItems = resp;
         this.cartItems.sort((a, b) => (a.itemID.name > b.itemID.name) ? 1 : -1);
+        if (this.cartItems.length <= 0) {
+          this.snackbar.show( "Your cart is empty");
+        }
       });
     }
     this.humanService.getHumanByID(1).subscribe(

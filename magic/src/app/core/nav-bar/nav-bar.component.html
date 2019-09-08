@@ -2,7 +2,7 @@
 <ul id="horizontal">
     <li class="horizontal-li" style="padding: 5px; padding-left: 20px; padding-right: 0px">
         <a (click)="redirectHome()" style="padding: 0px">
-            <img src="https://shopheroes.com/assets/images/icons/icon-shop01.png" height="50px" width="50px" style="padding: 0px">
+            <img src="../../../assets/MagicShopIcon.png" height="50px" width="50px" style="padding: 0px">
         </a>
     </li>
     <li class="horizontal-li"><a (click)="redirectHome()">The Magic Shop</a></li>
@@ -10,13 +10,13 @@
     <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectLogin()">Login</a></li>
     <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectSignup()">Sign Up</a></li>
     <li *ngIf="loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectLogout()">Logout</a></li>
-    <li *ngIf="loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectCart()">Cart</a></li>
+    <li *ngIf="loggedHuman && !isAdmin" class="horizontal-li" style="float:right"><a (click)="redirectCart()">Cart</a></li>
 </ul>
 
 <nav>
     <ul id="verticle">
         <li class="verticle-li"><a (click)="redirectHome()">Home</a></li>
-        <li class="verticle-li"><a (click)="redirectBackpack()">My Backpack</a></li>
+        <li *ngIf="loggedHuman && !isAdmin" class="verticle-li"><a (click)="redirectBackpack()">My Backpack</a></li>
         <li *ngIf="loggedHuman" class="verticle-li"><a (click)="redirectAdventure()">Quest!</a></li>
         <li *ngIf="isAdmin" class="verticle-li"><a (click)="redirectAccounts()">View All Accounts</a></li>
         <li *ngIf="isAdmin" class="verticle-li"><a (click)="redirectItemsCatalog()">Items Catalog</a></li>
@@ -37,10 +37,10 @@
         <input type="password" id="inputPassword" class="formSign" placeholder="Password" required [(ngModel)]="password" name="password">
       </div>
 
-      <div class="custom-control mb-3">
+      <!-- <div class="custom-control mb-3">
         <input type="checkbox" class="" id="customCheck1">
         <label class=" custLabel" for="customCheck1">Remember password</label>
-      </div>
+      </div> -->
       <button class="butn btn-block" type="submit" (click)="login()">Sign in</button>
     </form>
   </div>
@@ -75,7 +75,7 @@
                   <input type="checkbox" class="custom-control-input" id="customCheck1">
                   <label class="custom-control-label" for="customCheck1">Remember password</label>
                 </div> -->
-      <button class="butn btn-block" type="submit" id="register_submit">Sign Up!</button>
+      <button class="butn btn-block" type="submit" (click)="register()">Sign Up!</button>
       </form>
     </div>
 </div>
