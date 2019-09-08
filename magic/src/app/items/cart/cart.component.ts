@@ -8,6 +8,7 @@ import { Human } from 'src/app/shared/human';
 import { HumanService } from 'src/app/shared/human.service';
 import { BackpackService } from '../shared/backpack.service';
 import { SnackbarService} from '../../services/snackbar.service';
+import { BackpackItem } from '../shared/backpack';
 
 @Component({
   selector: 'app-cart',
@@ -19,6 +20,7 @@ export class CartComponent implements OnInit {
   loggedHuman: Human;
   emptyHuman: Human;
   owner: Human;
+  backpackItem: BackpackItem;
 
   constructor(
     private cartService: CartService,
@@ -37,6 +39,11 @@ export class CartComponent implements OnInit {
         this.cartItems = resp;
       });
     }
+    this.humanService.getHumanByID(1).subscribe(
+      resp => {
+        this.owner = resp;
+      }
+    );
   }
 
   openDialog(): void {
@@ -46,32 +53,33 @@ export class CartComponent implements OnInit {
   buyItems(){
     var amount = 0;
     this.loggedHuman = this.loginService.getHuman();
-    this.humanService.getHumanByID(1).subscribe(
-      resp => {
-        this.owner = resp;
+   
+    for(var i =0; i < this.cartItems.length; i ++){
+    
+      amount += this.cartItems[i].itemID.shelfPrice;
+      this.backpackItem = {
+        backpackID: 1,
+        itemID: this.cartItems[i].itemID,
+        ownerID: this.loggedHuman,
+        stock: this.cartItems[i].amount
       }
-    );
-    
-    
-    for(let c of this.cartItems){
-      amount += c.itemID.shelfPrice;
-      c.ownerID = this.emptyHuman;
-
-      this.backpackService.addItemBackpack(c.itemID.itemID, c.amount, this.loggedHuman.userID).subscribe();
-      this.backpackService.removeItemBackpack().subscribe(c.itemID.itemID, c.amount,this.owner.userID).subscribe();
-      this.cartService.updateCartItem(c).subscribe();
+      this.backpackService.addItemToBackpack(this.backpackItem).subscribe();
+      this.cartService.deleteCartItem(this.cartItems[i]).subscribe();
     }
 
    
     
     this.loggedHuman.gold -= amount;
+    this.owner.gold += amount;
     //user gets banned if they go to far in debt
     if(this.loggedHuman.gold < -100){
       this.loggedHuman.roleID = 4;
       this.humanService.updateHuman(this.loggedHuman).subscribe();
+      //redirect to banned page
     }
     //update the gold amount
     this.humanService.updateHuman(this.loggedHuman).subscribe();
+    this.humanService.updateHuman(this.owner).subscribe();
 
 
   }

@@ -40,7 +40,7 @@ public class BackpackItemService {
 		}
 		BackpackItem backpackItem = new BackpackItem();
 		backpackItem.setItemID(item);
-		backpackItem.setOwnerID(hd.getHumanByID(1));
+		backpackItem.setOwnerID(hd.getHumanByID(humanId));
 		backpackItem.setStock(quantity);
 		bd.addBackpackItem(backpackItem);
 		return backpackItem;

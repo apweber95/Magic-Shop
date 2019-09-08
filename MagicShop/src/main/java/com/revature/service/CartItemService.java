@@ -32,5 +32,8 @@ public class CartItemService {
 	public CartItem updateCart(CartItem cartItem) {
 		return cid.updateCartItem(cartItem);
 	}
-
+	
+	public void deleteCartItem(CartItem c) {
+		cid.deleteCartItem(c);
+	}
 }

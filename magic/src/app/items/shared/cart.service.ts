@@ -37,4 +37,10 @@ export class CartService {
     const body = JSON.stringify(cartItem);
     return this.http.put(url, body, {withCredentials: true}).pipe(map(resp=> resp as CartItem));
   }
+
+  public deleteCartItem(cartItem: CartItem): Observable<void> {
+    const url: string = this.appUrl +'/cart/'+ cartItem.cartItemID;
+    return this.http.delete(url, {headers: this.headers, withCredentials: true} ).pipe(
+      map(resp => null));
+  }
 }
