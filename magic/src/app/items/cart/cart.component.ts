@@ -66,7 +66,7 @@ export class CartComponent implements OnInit {
         stock: this.cartItems[i].amount
       }
       this.backpackService.addItemToBackpack(this.backpackItem).subscribe();
-      this.cartService.deleteCartItem(this.cartItems[i]).subscribe();
+      this.removeAllFromCart(this.cartItems[i]);
     }
 
    
