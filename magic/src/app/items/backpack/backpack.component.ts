@@ -52,24 +52,26 @@ export class BackpackComponent implements OnInit {
     }
   } 
 
-  sellItem(backID: number){
+  sellOneItem(backID: number){
     var amount = 0;
-    
     
     for(let i =0; i <this.backpackItems.length; i++){
       if(this.backpackItems[i].backpackID === backID){
         this.backpackItems[i].ownerID = this.owner;
         amount = this.backpackItems[i].itemID.shelfPrice;
-       this.backpackService.updateBackPack(this.backpackItems[i]).subscribe();
+        this.backpackService.updateBackPack(this.backpackItems[i]).subscribe();
         break;
       }
     }
-    this.owner.gold += amount;
-    this.loggedHuman.gold -= amount;
+    this.owner.gold -= amount;
+    this.loggedHuman.gold += amount;
     this.humanService.updateHuman(this.owner).subscribe();
     this.humanService.updateHuman(this.loggedHuman).subscribe();
     this.ngOnInit();
   }
 
+  sellAllItem(backID: number){
+    this.snackbarService.show("implement sell all")
+  }
 
 }
