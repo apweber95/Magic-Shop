@@ -1,16 +1,16 @@
 <div >
 <ul id="horizontal">
-    <li class="horizontal-li" style="padding: 5px; padding-left: 20px; padding-right: 0px">
-        <a (click)="redirectHome()" style="padding: 0px">
+    <li class="horizontal-li" style="padding: 5px; padding-left: 20px; padding-right: 0px" (click)="redirectHome()">
+        <a style="padding: 0px">
             <img src="../../../assets/MagicShopIcon.png" height="50px" width="50px" style="padding: 0px">
         </a>
     </li>
-    <li class="horizontal-li"><a (click)="redirectHome()">The Magic Shop</a></li>
-    <li *ngIf="loggedHuman" class="horizontal-li"><a (click)="redirectHome()">Welcome {{loggedHuman.first}}!</a></li>
-    <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectLogin()">Login</a></li>
-    <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectSignup()">Sign Up</a></li>
-    <li *ngIf="loggedHuman" class="horizontal-li" style="float:right"><a (click)="redirectLogout()">Logout</a></li>
-    <li *ngIf="loggedHuman && !isAdmin" class="horizontal-li" style="float:right"><a (click)="redirectCart()">Cart</a></li>
+    <li class="horizontal-li" (click)="redirectHome()"><a>The Magic Shop</a></li>
+    <li *ngIf="loggedHuman" class="horizontal-li" (click)="redirectHome()"><a>Welcome {{loggedHuman.first}}!</a></li>
+    <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right" (click)="redirectLogin()"><a>Login</a></li>
+    <li *ngIf="!loggedHuman" class="horizontal-li" style="float:right" (click)="redirectSignup()"><a>Sign Up</a></li>
+    <li *ngIf="loggedHuman" class="horizontal-li" style="float:right" (click)="redirectLogout()"><a>Logout</a></li>
+    <li *ngIf="loggedHuman && !isAdmin" class="horizontal-li" style="float:right" (click)="redirectCart()"><a>Cart</a></li>
 </ul>
 
 <nav>
