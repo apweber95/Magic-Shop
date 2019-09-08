@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
 
   successfulLogin() {
     this.failed = false;
+
     if (this.nav.loggedHuman) {
       console.log("Logged Human Detected: " + this.nav.loggedHuman);
       this.nav.ngOnInit();
