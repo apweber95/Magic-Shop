@@ -45,6 +45,9 @@ export class BackpackService {
             console.log("Increased item stock by", bp.stock, ": ", resp);
           });
         }
+        else{
+          console.log("need to add this item to the store");
+        }
       }
     });
   }
@@ -57,6 +60,9 @@ export class BackpackService {
           this.updateBackPack(backpackItem).subscribe( resp => {
             console.log("Increased item stock by 1: ", resp);
           });
+        }
+        else{
+          console.log("need to add this item to the store");
         }
       }
     });
