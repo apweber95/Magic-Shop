@@ -15,8 +15,8 @@
             <td> {{ c.itemID.description }} </td>
             <td [ngClass]="{'artifact': c.itemID.rarity=='artifact', 'legendary': c.itemID.rarity=='legendary', 'very-rare': c.itemID.rarity=='very rare', 'rare': c.itemID.rarity=='rare', 'uncommon': c.itemID.rarity=='uncommon'}"> {{ c.itemID.rarity }} </td>
             <td> {{ c.amount }} </td>
-            <td><button class="btn action-btn" (click)="removeAllFromCart(c)">Remove all</button><td></td>
-            <td><button class="btn action-btn" (click)="removeOneFromCart(c)">Remove one</button><td></td>
+            <td><button class="btn action-btn" (click)="removeAllFromCart(c)">Remove all</button></td>
+            <td><button class="btn action-btn" (click)="removeOneFromCart(c)">Remove one</button></td>
         </tr>
     </tbody>
     </table>

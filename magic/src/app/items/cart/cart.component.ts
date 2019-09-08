@@ -90,6 +90,7 @@ export class CartComponent implements OnInit {
   removeAllFromCart(cartItem: CartItem){
     this.cartService.deleteCartItem(cartItem).subscribe( () => {
       this.snackbar.show("Removed all " + cartItem.itemID.name + " from your cart.");
+      this.ngOnInit();
     });
   }
 
