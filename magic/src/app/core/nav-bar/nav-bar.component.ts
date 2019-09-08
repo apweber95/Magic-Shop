@@ -13,7 +13,7 @@ import { HostListener } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  loggedHuman: Human = new Human();
+  loggedHuman: Human;
   isAdmin: boolean = false;
 
   showNav: boolean = true;
