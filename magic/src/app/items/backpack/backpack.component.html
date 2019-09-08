@@ -30,8 +30,8 @@
             <td [ngClass]="{'artifact': bp.itemID.rarity=='artifact', 'legendary': bp.itemID.rarity=='legendary', 'very-rare': bp.itemID.rarity=='very rare', 'rare': bp.itemID.rarity=='rare', 'uncommon': bp.itemID.rarity=='uncommon'}"> {{ bp.itemID.rarity }} </td>
             <td> {{ bp.stock }} </td>
             <td> {{bp.itemID.shelfPrice}} </td>
-            <td><button class="btn action-btn" (click)="sellAllItem(bp.backpackID)">Sell all</button><td>
-            <td><button class="btn action-btn" (click)="sellOneItem(bp.backpackID)">Sell one</button><td>
+            <td><button class="btn action-btn" (click)="sellAllItem(bp)">Sell all</button><td>
+            <td><button class="btn action-btn" (click)="sellOneItem(bp)">Sell one</button><td>
         </tr>
         </tbody>
     </table>
