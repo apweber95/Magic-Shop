@@ -7,6 +7,7 @@ import com.revature.beans.BackpackItem;
 import com.revature.beans.Human;
 import com.revature.beans.Item;
 import com.revature.data.BackpackItemDAO;
+import com.revature.data.HumanDAO;
 import com.revature.data.ItemDAO;
 
 @Component
@@ -18,12 +19,16 @@ public class QuestService {
 	ItemDAO itemDAO;
 	@Autowired
 	BackpackItemService backpackItemService;
+	@Autowired
+	HumanDAO humanDAO;
 	
 	public Human quest(int difficulty, Human human) {
 		int dc = (int) Math.floor(Math.random() * difficulty * 2);
 		int roll = (int) Math.ceil(Math.random() * human.getLuck());
 		if (dc > roll) {
 			human.setRoleID(5);
+			humanDAO.updateHuman(human);
+			
 		} else {
 			int lootMod = 1 + (difficulty + human.getLuck()) / 5;
 			human.setGold(human.getGold() + (difficulty * human.getLuck()));
