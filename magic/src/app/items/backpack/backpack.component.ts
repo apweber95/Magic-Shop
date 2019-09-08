@@ -56,6 +56,10 @@ export class BackpackComponent implements OnInit {
   } 
 
   sellAllItem(bp: BackpackItem){
+    this.owner.gold -= bp.itemID.shelfPrice;
+    this.loggedHuman.gold += bp.itemID.shelfPrice;
+    this.humanService.updateHuman(this.owner).subscribe();
+    this.humanService.updateHuman(this.loggedHuman).subscribe();
     this.backpackService.deleteBackpackItem(bp).subscribe( () => {
       this.snackbarService.show("Sold all " + bp.itemID.name + " from your backpack.");
       this.ngOnInit();
@@ -84,6 +88,10 @@ export class BackpackComponent implements OnInit {
     }
     else{
       bp.stock = bp.stock - 1;
+      this.owner.gold -= bp.itemID.shelfPrice;
+      this.loggedHuman.gold += bp.itemID.shelfPrice;
+      this.humanService.updateHuman(this.owner).subscribe();
+      this.humanService.updateHuman(this.loggedHuman).subscribe();
       this.backpackService.updateBackPack(bp).subscribe( resp => {
         this.snackbarService.show("Sold one " + bp.itemID.name + " from your backpack.");
       });

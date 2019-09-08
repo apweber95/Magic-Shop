@@ -38,7 +38,7 @@ public class BackpackItemController {
 	}
 	
 	@DeleteMapping(value="{id}")
-	public ResponseEntity<Void> deleteCartItem(@PathVariable Integer id){
+	public ResponseEntity<Void> deleteBackpackItem(@PathVariable Integer id){
 		bis.deleteBackpackItem(id);
 		return ResponseEntity.noContent().build();
 	}

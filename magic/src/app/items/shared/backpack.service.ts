@@ -14,8 +14,7 @@ export class BackpackService {
 
   constructor(
     private http: HttpClient,
-    private urlService: UrlService,
-    private backpackService: BackpackService
+    private urlService: UrlService
   ) { }
 
   getBackpackItemsByOwnerID(id: number): Observable<BackpackItem[]> {
@@ -25,8 +24,6 @@ export class BackpackService {
   }
 
   deleteBackpackItem(bp: BackpackItem): Observable<void>{
-    this.sellItems(bp);
-
     const url: string = this.appUrl + '/backpack/' + bp.backpackID;
     return this.http.delete(url, {withCredentials: true}).pipe(
       map(resp => null)
@@ -34,19 +31,17 @@ export class BackpackService {
   }
 
   updateBackPack(backpack: BackpackItem): Observable<BackpackItem>{
-    this.sellItem(backpack);
-
     const body = JSON.stringify(backpack);
     return this.http.put(this.appUrl+"backpack/"+ backpack.backpackID, body, {headers: this.headers, withCredentials: true}).pipe(
       map(resp => resp as BackpackItem));  
   }
 
   sellItems(bp:BackpackItem){
-    this.backpackService.getBackpackItemsByOwnerID(1).subscribe( resp => {
+    this.getBackpackItemsByOwnerID(1).subscribe( resp => {
       for(let backpackItem of resp){
         if(backpackItem.itemID.name == bp.itemID.name){
           backpackItem.stock = backpackItem.stock + bp.stock;
-          this.backpackService.updateBackPack(backpackItem).subscribe( resp => {
+          this.updateBackPack(backpackItem).subscribe( resp => {
             console.log("Increased item stock by", bp.stock, ": ", resp);
           });
         }
@@ -55,11 +50,11 @@ export class BackpackService {
   }
 
   sellItem(bp: BackpackItem){
-    this.backpackService.getBackpackItemsByOwnerID(1).subscribe( resp => {
+    this.getBackpackItemsByOwnerID(1).subscribe( resp => {
       for(let backpackItem of resp){
         if(backpackItem.itemID.name == bp.itemID.name){
           backpackItem.stock = backpackItem.stock + 1;
-          this.backpackService.updateBackPack(backpackItem).subscribe( resp => {
+          this.updateBackPack(backpackItem).subscribe( resp => {
             console.log("Increased item stock by 1: ", resp);
           });
         }
