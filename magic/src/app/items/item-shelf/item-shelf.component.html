@@ -2,6 +2,17 @@
     <h1>Storefront</h1>
     <table class="table table-hover">
         <thead class="top-row">
+        <tr *ngIf="isAdmin">
+            <!--if they didn't own any items, they could't see how much gold they have-->
+            <td>Store Gold:</td>
+            <td>{{storeGold}} </td>
+            <td><!--empty for formatting purposes--></td>
+            <td><!--empty for formatting purposes--></td>
+            <td><!--empty for formatting purposes--></td>
+            <td><!--empty for formatting purposes--></td>
+            <td><!--empty for formatting purposes--></td>
+            
+        </tr>
         <tr>
             <th>Item Name</th>
             <th>Description</th>
