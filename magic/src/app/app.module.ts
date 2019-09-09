@@ -63,7 +63,6 @@ import { RestrictedComponent } from './core/restricted/restricted.component';
     FormsModule
   ],
   entryComponents: [
-    StealthComponent,
     StealthDialogComponent
   ],
   providers: [
@@ -75,7 +74,6 @@ import { RestrictedComponent } from './core/restricted/restricted.component';
     StealthService,
     StealthComponent,
     PerceptionService,
-    StealthDialogComponent,
     AccountsService
   ],
   bootstrap: [AppComponent]
