@@ -8,6 +8,7 @@ import { CartService } from '../../items/shared/cart.service';
 import { CartItem } from '../../items/shared/cart';
 import { Human } from '../../shared/human';
 import { HumanService } from '../../shared/human.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stealth',
@@ -26,7 +27,8 @@ export class StealthComponent {
     private loginService: LoginService,
     private perceptionService: PerceptionService,
     private cartService: CartService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public router: Router
   ) { }
 
   openDialog(): number {
@@ -49,7 +51,8 @@ export class StealthComponent {
 	  this.res = 1
         } else {
 	  console.log("STOP THIEF");
-	  this.human.roleID = 4;
+    this.human.roleID = 4;
+    this.router.navigate(['/restricted']);
 
 	  this.humanService.updateHuman(this.human).subscribe( resp => {
 	    this.human = resp });
