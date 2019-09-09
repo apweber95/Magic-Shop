@@ -54,7 +54,23 @@ export class CartComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.stealthComponent.openDialog();
+    let res = this.stealthComponent.openDialog();
+    var amount = 0;
+    this.loggedHuman = this.loginService.getHuman();
+    if (res == 1) {
+      for(var i =0; i < this.cartItems.length; i ++){
+
+        amount += this.cartItems[i].itemID.shelfPrice;
+        this.backpackItem = {
+          backpackID: 1,
+          itemID: this.cartItems[i].itemID,
+          ownerID: this.loggedHuman,
+          stock: this.cartItems[i].amount
+        }
+        this.backpackService.addItemToBackpack(this.backpackItem).subscribe();
+        this.removeAllFromCart(this.cartItems[i]);
+      }
+    }
   }
 
   buyItems(){

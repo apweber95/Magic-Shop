@@ -47,12 +47,12 @@ public class CartItemService {
 	}
 	
 	public void transferItems(int id) {
+		System.out.println(id);
 		Set<CartItem> cart = getCartByUserID(id);
 		for(CartItem c : cart) {
 			int itemId = c.getItemID().getItemID();
 			int itemStock = c.getAmount();
 			BackpackItem temp = bps.addItemToBackpack(itemId, id, itemStock);
-			temp = null;
 			cid.deleteCartItem(c);
 		}
 	}

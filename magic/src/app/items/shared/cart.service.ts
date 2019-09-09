@@ -43,6 +43,11 @@ export class CartService {
     );
   }
 
+  stealCartItem(cartItem: CartItem): Observable<CartItem>{
+    return this.http.put(this.appUrl+"cart/"+ 0, {headers: this.headers, withCredentials: true}).pipe(
+      map(resp => null));
+  }
+
   updateCartItem(cartItem: CartItem): Observable<CartItem>{
     this.returnItemToStore(cartItem);
 
