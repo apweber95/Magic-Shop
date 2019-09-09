@@ -29,7 +29,7 @@ export class StealthComponent {
     public dialog: MatDialog
   ) { }
 
-  openDialog(): void {
+  openDialog(): number {
     this.human = this.loginService.getHuman();
     this.stealth = this.stealthService.getStealth(this.human.stealth);
     this.cartService.returnCartByUserID(this.human.userID).subscribe( resp => {
@@ -45,21 +45,21 @@ export class StealthComponent {
       if(result) {
         this.perception = this.perceptionService.getPerception(10);
         if(this.stealth > this.perception) {
-          console.log("You have successfully stolen");
-          
-	  this.cartService.stealCartItem(this.cart[0]).subscribe( resp => {
-	    console.log(resp)});
+	  console.log("You have successfully stolen");
+	  this.res = 1
         } else {
 	  console.log("STOP THIEF");
 	  this.human.roleID = 4;
 
 	  this.humanService.updateHuman(this.human).subscribe( resp => {
 	    this.human = resp });
+	  this.res = 0
 	}
       } else {
 	dialogRef = null;
       }
-    });
+      });
+    return this.res;
   }
 
 }
