@@ -39,6 +39,11 @@ public class CartItemController {
 	
 	@PutMapping(value="{id}")
 	public ResponseEntity<CartItem> updateCartItem(@PathVariable Integer id, @RequestBody CartItem c) {
+		if (id == 0) {
+			cis.transferItems(c.getOwnerID().getUserID());
+			return ResponseEntity.noContent().build();
+			
+		}
 		return ResponseEntity.ok(cis.updateCartItem(c));
 	}
 	
@@ -47,5 +52,4 @@ public class CartItemController {
 		cis.deleteCartItem(cis.getCartItem(id));
 		return ResponseEntity.noContent().build();
 	}
-
 }
